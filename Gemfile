@@ -24,16 +24,17 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'faker'
 end
 
 group :development do
-  gem 'pry-rails'
-  gem 'pry-byebug'
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
+  gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'rubocop', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'rubocop', require: false
+  gem 'web-console', '>= 3.3.0'
 end
 
 group :test do
