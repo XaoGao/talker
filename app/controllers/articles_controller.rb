@@ -1,7 +1,12 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.all
+    @articles = Article.paginate(page: params[:page], per_page: 10).order(create_at: :desc)
     @article = Article.new
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
@@ -11,7 +16,8 @@ class ArticlesController < ApplicationController
         @picture = Picture.create(
           image: params[:article][:picture],
           title: params[:article][:picture].original_filename,
-          is_main: true)
+          is_main: true
+        )
         @article.pictures << @picture
       end
       flash[:notice] = 'Новость опубликована'
