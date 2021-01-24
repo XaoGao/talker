@@ -8,6 +8,9 @@ class User < ApplicationRecord
   has_many :pictures, as: :imageable
   has_many :articles, foreign_key: 'author_id'
 
+  has_many :friendships
+  has_many :subscribers, through: :friendships
+
   validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { maximum: 150 }
   validates :first_name, presence: true, length: { in: 2..50 }
   validates :last_name, presence: true, length: { in: 2..50 }
@@ -16,5 +19,9 @@ class User < ApplicationRecord
 
   def full_name
     "#{last_name} #{first_name}"
+  end
+
+  def alredy_subscription?(user)
+    Friendship.find_by(user: user, subscriber_id: id).present?
   end
 end
