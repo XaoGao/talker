@@ -16,12 +16,13 @@ class User < ApplicationRecord
   validates :last_name, presence: true, length: { in: 2..50 }
 
   scope :all_active, -> { where(lock: false) }
+  scope :all_except, ->(user) { where.not(id: user) }
 
   def full_name
     "#{last_name} #{first_name}"
   end
 
   def alredy_subscription?(user)
-    Friendship.find_by(user: user, subscriber_id: id).present?
+    Friendship.find_by(user: id, subscriber_id: user).present?
   end
 end

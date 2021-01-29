@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show]
   resources :articles, only: [:index, :create]
-  resources :friendships, only: [:index, :create, :delete]
-  get 'subscriptions', to: "friendships#subscriptions"
-  get 'subscribers', to: "friendships#subscribers"
+  resources :friendships, only: [:index, :create, :destroy]
+  get 'subscriptions', to: 'friendships#subscriptions'
+  get 'subscribers', to: 'friendships#subscribers'
 end
