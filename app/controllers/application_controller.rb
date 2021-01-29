@@ -7,4 +7,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :first_name, :last_name, :date_of_birth])
     devise_parameter_sanitizer.permit(:sign_in, keys: [:username, :first_name, :last_name, :date_of_birth])
   end
+
+  def flash_service_result(result)
+    if result.success?
+      flash[:notice] = result.data
+    else
+      flash[:alert] = result.error
+    end
+  end
 end
