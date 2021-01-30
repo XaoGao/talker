@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_24_160603) do
+ActiveRecord::Schema.define(version: 2021_01_30_160353) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +40,24 @@ ActiveRecord::Schema.define(version: 2021_01_24_160603) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["author_id"], name: "index_articles_on_author_id"
+  end
+
+  create_table "dialog_members", force: :cascade do |t|
+    t.integer "member_id", null: false
+    t.integer "dialog_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dialog_id"], name: "index_dialog_members_on_dialog_id"
+    t.index ["member_id"], name: "index_dialog_members_on_member_id"
+  end
+
+  create_table "dialogs", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.integer "owner_id", null: false
+    t.boolean "lock", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["owner_id"], name: "index_dialogs_on_owner_id"
   end
 
   create_table "friendships", force: :cascade do |t|
@@ -86,5 +104,8 @@ ActiveRecord::Schema.define(version: 2021_01_24_160603) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "articles", "users", column: "author_id"
+  add_foreign_key "dialog_members", "dialogs"
+  add_foreign_key "dialog_members", "users", column: "member_id"
+  add_foreign_key "dialogs", "users", column: "owner_id"
   add_foreign_key "friendships", "users", column: "subscriber_id"
 end

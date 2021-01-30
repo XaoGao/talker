@@ -12,10 +12,10 @@ require 'faker'
 #     date_of_birth: Faker::Date.between(from: '1992-09-23', to: '1998-09-25')
 #   )
 # end
-user = User.first
-10.times {
-  Article.create(
-    body: Faker::Lorem.paragraph(sentence_count: 3),
-    author: user
-  )
-}
+# user = User.first
+# 10.times {
+#   Article.create(
+#     body: Faker::Lorem.paragraph(sentence_count: 3),
+#     author: user
+#   )
+# }

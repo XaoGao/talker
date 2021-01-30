@@ -11,6 +11,11 @@ class User < ApplicationRecord
   has_many :friendships
   has_many :subscribers, through: :friendships
 
+  has_many :owner_dialogs, foreign_key: 'owner_id'
+
+  has_many :dialog_members, foreign_key: 'member_id'
+  has_many :dialogs, through: :dialog_members
+
   validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { maximum: 150 }
   validates :first_name, presence: true, length: { in: 2..50 }
   validates :last_name, presence: true, length: { in: 2..50 }
