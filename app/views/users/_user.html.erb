@@ -1,39 +1,45 @@
 <div class="card mb-2 user-card">
-  <div class="card-img-wrappe">
-    <%= image_tag("user", alt: "Card image cap", class: "card-img-top") %>
-  </div>
-  <div class="card-body p-1">
-    <h5 class="card-title text-center"><%= user.username %></h5>
-    <p class="card-text"><%= user.status.truncate(40) %></p>
-    <hr>
-    <ul class="list-inline member-icons animate text-center">
-      <li class="list-inline-item">
-        <%= link_to user_path(user) do   %>
-          <button class="btn btn-primary">
-            <i class="fa fa-user"></i>
-          </button>
-        <% end %>
-      </li>
-      <li class="list-inline-item">
-        <% if user.alredy_subscription?(current_user) %>
-          <%= link_to friendship_path(user), method: :delete do  %>
-            <button class="btn btn-primary" title="Отписаться">
-              <i class="fa fa-minus"></i>
+  <div class="row">
+    <div class="col-3">
+      <div class="card-img-wrappe">
+        <%= image_tag("user", alt: "Card image cap", class: "card-img-top rounded-circle", height: '150') %>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="card-body p-1">
+        <h5 class="card-title text-center"><%= user.username %></h5>
+        <p class="card-text"><%= user.status.truncate(80) %></p>
+        <hr>
+        <ul class="list-inline member-icons animate text-center">
+          <li class="list-inline-item">
+            <%= link_to user_path(user) do   %>
+              <button class="btn btn-primary">
+                <i class="fa fa-user"></i>
+              </button>
+            <% end %>
+          </li>
+          <li class="list-inline-item">
+            <% if user.alredy_subscription?(current_user) %>
+              <%= link_to friendship_path(user), method: :delete do  %>
+                <button class="btn btn-primary" title="Отписаться">
+                  <i class="fa fa-minus"></i>
+                </button>
+              <% end %>
+            <% else %>
+              <%= link_to friendships_path(user: user), method: :post do  %>
+                <button class="btn btn-primary" title="Подписаться">
+                  <i class="fas fa-plus"></i>
+                </button>
+              <% end %>
+            <% end %>
+          </li>
+          <li class="list-inline-item">
+            <button class="btn btn-primary">
+              <i class="fa fa-envelope"></i>
             </button>
-          <% end %>
-        <% else %>
-          <%= link_to friendships_path(user: user), method: :post do  %>
-            <button class="btn btn-primary" title="Подписаться">
-              <i class="fas fa-plus"></i>
-            </button>
-          <% end %>
-        <% end %>
-      </li>
-    <li class="list-inline-item">
-      <button class="btn btn-primary">
-        <i class="fa fa-envelope"></i>
-      </button>
-    </li>
-    </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>

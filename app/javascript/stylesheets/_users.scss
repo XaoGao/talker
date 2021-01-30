@@ -10,10 +10,9 @@
 //   transition-duration: 500ms;
 //   transition-timing-function: ease-out;
 // }
-// .card-img-wrapper {
-//   overflow: hidden;
-//   position: relative;
-// }
+.card-img-wrapper {
+  border-radius: 30 !important;
+}
 
 // .member-icons{
 //   position: absolute;
@@ -57,3 +56,9 @@
 a.avatar {
   color: transparent;
 } /* IE fix: removes blue border */
+.user-card:hover {
+  background-color: lightgray;
+}
+.user-card-image {
+  border-radius: 30 !important;
+}

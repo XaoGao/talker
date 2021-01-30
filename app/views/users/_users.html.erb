@@ -1,7 +1,9 @@
 <div class="row">
-  <% users.each do |user| %>
-    <div class="col-5 ml-2 mr-2">
-      <%= render 'users/user', user: user %>
-    </div>
-  <% end %>
+  <div class="col-1"></div>
+  <div class="col-10">
+    <% users.each do |user| %>  
+        <%= render 'users/user', user: user %>
+    <% end %>
+  </div>
+  <div class="col-1"></div>
 </div>

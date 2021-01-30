@@ -4,11 +4,7 @@ class FriendshipsController < ApplicationController
   end
 
   def subscriptions
-    subscriptions = Friendship.where(subscriber: params[:user_id])
-    @subscriptions = []
-    subscriptions.each do |subscription|
-      @subscriptions.push(User.find(subscription.user_id))
-    end
+    @subscriptions = current_user.subscriptions
   end
 
   def subscribers

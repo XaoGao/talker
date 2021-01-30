@@ -22,6 +22,10 @@ class User < ApplicationRecord
     "#{last_name} #{first_name}"
   end
 
+  def subscriptions
+    Friendship.subscriptions(id)
+  end
+
   def alredy_subscription?(user)
     Friendship.find_by(user: id, subscriber_id: user).present?
   end

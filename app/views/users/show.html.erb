@@ -14,7 +14,7 @@
       <div class="card-body">
         <% @user.subscribers.each do |subscriber| %>
           <%= link_to user_path(subscriber) do %>
-            <%= image_tag("user", alt: subscriber.username, class: "avatar", title: subscriber.username) %>
+              <%= image_tag("user", alt: subscriber.username, class: "avatar", title: subscriber.username) %>
           <% end %>
         <% end %>
       </div>
@@ -22,10 +22,11 @@
     <div class="card mt-4" style="width: 18rem;">
       <span class="badge badge-light">Подписки</span>
       <div class="card-body">
-        <div class="btn-group btn-block" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-success">Написать</button>
-          <button type="button" class="btn btn-info">Подписаться</button>
-        </div>
+        <% @user.subscriptions.each do |subscription| %>
+          <%= link_to user_path(subscription) do %>
+            <%= image_tag("user", alt: subscription.username, class: "avatar", title: subscription.username) %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -55,6 +56,11 @@
           </li>
         </ul>
       </div>
+    </div>
+    <div class="mt-4">
+      <% @user.articles.each do |article| %>
+        <%= render 'articles/article', article: article %>
+      <% end %>
     </div>
   </div>
 </div>
