@@ -4,5 +4,7 @@ class Dialog < ApplicationRecord
   has_many :dialog_members
   has_many :members, through: :dialog_members
 
+  has_many :messages
+
   validates :name, presence: true, length: { maximum: 150 }
 end

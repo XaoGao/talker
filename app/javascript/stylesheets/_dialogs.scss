@@ -5,3 +5,11 @@
   background-color: lightgray;
   cursor: pointer;
 }
+.dialog-card a {
+  text-decoration: none;
+}
+.chat-box {
+  height: 600px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}

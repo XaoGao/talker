@@ -19,3 +19,12 @@ require 'faker'
 #     author: user
 #   )
 # }
+# user = User.first
+# dialog = Dialog.first
+# 20.times { 
+#   Message.create(
+#     sender: user,
+#     dialog: dialog,
+#     body: Faker::Lorem.paragraph(sentence_count: 5)
+#   )
+# }

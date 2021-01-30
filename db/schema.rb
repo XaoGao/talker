@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_30_160353) do
+ActiveRecord::Schema.define(version: 2021_01_30_170147) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -69,6 +69,17 @@ ActiveRecord::Schema.define(version: 2021_01_30_160353) do
     t.index ["user_id"], name: "index_friendships_on_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.text "body", default: "", null: false
+    t.boolean "lock", default: false, null: false
+    t.integer "sender_id", null: false
+    t.integer "dialog_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dialog_id"], name: "index_messages_on_dialog_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
+  end
+
   create_table "pictures", force: :cascade do |t|
     t.string "title", default: "", null: false
     t.boolean "is_main", default: false, null: false
@@ -108,4 +119,6 @@ ActiveRecord::Schema.define(version: 2021_01_30_160353) do
   add_foreign_key "dialog_members", "users", column: "member_id"
   add_foreign_key "dialogs", "users", column: "owner_id"
   add_foreign_key "friendships", "users", column: "subscriber_id"
+  add_foreign_key "messages", "dialogs"
+  add_foreign_key "messages", "users", column: "sender_id"
 end

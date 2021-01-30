@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get 'subscriptions', to: 'friendships#subscriptions'
   get 'subscribers', to: 'friendships#subscribers'
   resources :dialogs, only: [:index, :show]
+  resources :messages, only: [:create, :update, :destroy]
 end

@@ -1,0 +1,30 @@
+class MessagesController < ApplicationController
+  def create
+    @message = Message.new message_params
+    @message.sender = current_user
+
+    flash[:alert] = 'Ошибка во время отправки сообщения' unless @message.save
+
+    redirect_to request.referer
+  end
+
+  def update
+    @message = Message.find(params[:id])
+    flash[:alert] = 'Ошибка во время отправки сообщения' unless @message.update message_params
+
+    redirect_to request.referer
+  end
+
+  def destroy
+    @message = Message.find(params[:id])
+    flash[:alert] = 'Ошибка во время отправки сообщения' unless @message.update(lock: true)
+
+    redirect_to request.referer
+  end
+
+  private
+
+  def message_params
+    params.require(:message).permit(:body, :dialog_id)
+  end
+end
