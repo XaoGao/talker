@@ -7,6 +7,8 @@ require("jquery")
 import 'bootstrap'
 import "@fortawesome/fontawesome-free/js/all";
 import '../stylesheets/application';
+import { scrollToBotton } from '../extension/chat';
+import { infiniteScrolling } from '../extension/scroll';
 
 let showArticleForm = function() {
   $('#article-form-field').on("click", function() {
@@ -15,20 +17,9 @@ let showArticleForm = function() {
   });
 }
 
-let infiniteScrolling = function() {
-  if ($('#infinite-scrolling').length > 0) {
-    if ($(window).on('scroll', function() {
-      if($(window).scrollTop() + $(window).height() == $(document).height()) {
-        let url = $('.pagination .next_page').attr('href')
-        if (url) {
-          $.getScript(url);
-        }
-    }}));
-  }
-}
-
 
 $(document).on('turbolinks:load', function(){
   showArticleForm();
   infiniteScrolling();
+  scrollToBotton();
 })

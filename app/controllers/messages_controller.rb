@@ -2,10 +2,9 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new message_params
     @message.sender = current_user
-
-    flash[:alert] = 'Ошибка во время отправки сообщения' unless @message.save
-
-    redirect_to request.referer
+    if @message.save
+      ActionCable.server.broadcast "room_channel_#{@message.dialog_id}", content: render_message(@message)
+    end
   end
 
   def update
@@ -26,5 +25,9 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).permit(:body, :dialog_id)
+  end
+
+  def render_message(message)
+    ApplicationController.render(partial: 'messages/message', locals: { message: message })
   end
 end

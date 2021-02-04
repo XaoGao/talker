@@ -1,7 +1,7 @@
-<%= form_with(model: message, html: {class: "", role: "form"}) do |f| %>
+<%= form_with(model: message) do |f| %>
   <div class="input-group mb-3">
     <%= f.hidden_field :dialog_id, value: dialog_id %>
-    <%= f.text_field :body, class: "form-control", placeholder: "Отправить" %>
+    <%= f.text_field :body, class: "form-control", placeholder: "Отправить", id: "message-body-field" %>
     <div class="input-group-append">
       <%= f.submit "Отправить", class: "btn btn-outline-secondary" %>
     </div>

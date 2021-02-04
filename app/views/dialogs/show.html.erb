@@ -1,21 +1,11 @@
 <div class="row">
   <div class="col-1"></div>
   <div class="col-10">
+    <div id="dialog-id" dialog-id="<%= @dialog.id %>"></div>
     <div class="card chat-box">
-      <ul class="">
+      <ul id="messages">
         <% @dialog.messages.each do |message| %>
-          <div class="row">
-            <div class="col-1 avatar-message">
-              <%= image_tag("user", alt: "Card image cap", class: "rounded-circle", height: '40') %>
-            </div>
-            <div class="col-10">
-              <li class="message-body">
-                <span class="badge badge-light message-username"><%= message.sender.username %></span>
-                <br>
-                <%= message.body %>
-              </li>
-            </div>
-          </div>
+          <%= render 'messages/message', message: message %>
         <% end %>
       </ul>
     </div>
