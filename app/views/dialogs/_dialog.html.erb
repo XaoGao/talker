@@ -1,9 +1,19 @@
 <div class="card mb-2 dialog-card">
   <div class="row"> 
-    <div class="col-3">
+    <div class="col-2">
+      <div class="text-center mt-2">
+        <%= image_tag("user", alt: "Card image cap", class: "rounded-circle", height: '70') %>
+      </div>
     </div>
-    <div class="col-9">
-      <%= dialog.name %>
+    <div class="col-10">
+      <div class="mt-2">
+        <div class="float-left"><%= dialog.name %></div>
+        <div class="float-right mr-4"><%= dialog.create_time_of_last_message.strftime("%d/%m/%Y") %></div>
+      </div>
+      <br/>
+      <div class="mt-2">
+        <%= dialog.body_of_last_messages.truncate(80) %>
+      </div>
     </div>    
   </div>
 </div>

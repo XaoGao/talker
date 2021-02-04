@@ -1,10 +1,11 @@
-<div class="row">
+<div class="row mb-3">
   <div class="col-1 avatar-message">
-    <%= image_tag("user", alt: "Card image cap", class: "rounded-circle", height: '40') %>
+    <%= image_tag("user", alt: "Card image cap", class: "rounded-circle mt-1", height: '40') %>
   </div>
   <div class="col-10">
     <li class="message-body">
-      <span class="badge badge-light message-username"><%= message.sender.username %></span>
+      <%= link_to message.sender.username, user_path(message.sender) %>
+      <span class="badge badge-light message-username"><%= message.created_at.strftime("%H:%M") %></span>
       <br>
       <%= message.body %>
     </li>

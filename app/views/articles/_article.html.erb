@@ -1,12 +1,23 @@
 <div class="card mb-4">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-1 avatar-message">
+        <%= image_tag("user", alt: "Card image cap", class: "rounded-circle", height: '40') %>
+      </div>
+      <div class="col-11">
+        <div class="mt-2">
+          <%= article.author.username %>
+        </div>
+      </div>
+    </div>
+  </div>
   <% if article.image? %>
     <%= image_tag url_for(article.image), alt: article.image_title, size: "286x180", class: "card-img-top"%>
   <% end %>
   <div class="card-body">
     <%= article.body %>
     <hr>
-    <i class="fas fa-heart mr-5"></i>
+    <i class="far fa-heart mr-5"></i>
     <i class="far fa-comment-alt"></i>
-    <i class="far fa-comment ml-5"></i>
   </div>
 </div>

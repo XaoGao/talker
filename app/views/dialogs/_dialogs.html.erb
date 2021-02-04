@@ -3,7 +3,9 @@
   <div class="col-10">
     <% dialogs.each do |dialog| %>
         <%= link_to dialog_path(dialog) do %>
-          <%= render 'dialogs/dialog', dialog: dialog %>
+          <div class="dialogs">
+            <%= render 'dialogs/dialog', dialog: dialog %>
+          </div>
         <% end %>
     <% end %>
   </div>

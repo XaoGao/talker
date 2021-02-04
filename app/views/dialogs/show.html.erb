@@ -2,12 +2,34 @@
   <div class="col-1"></div>
   <div class="col-10">
     <div id="dialog-id" dialog-id="<%= @dialog.id %>"></div>
-    <div class="card chat-box">
-      <ul id="messages">
-        <% @dialog.messages.each do |message| %>
-          <%= render 'messages/message', message: message %>
-        <% end %>
-      </ul>
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-2">
+            <%= link_to dialogs_path do %>
+              <button class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left"></i>
+                Назад
+              </button>
+            <% end %>        
+          </div>
+          <div class="col-8">
+            <div class="text-center mt-2">
+              <%= @dialog.name_all_members current_user %>
+            </div>
+          </div>
+          <div class="col-2">
+            
+          </div>
+        </div>
+      </div>
+      <div class="chat-box">
+        <ul id="messages">
+          <% @dialog.messages.each do |message| %>
+            <%= render 'messages/message', message: message %>
+          <% end %>
+        </ul>
+      </div>
     </div>
     <%= render 'messages/form', message: @message, dialog_id: @dialog.id%>
   </div>

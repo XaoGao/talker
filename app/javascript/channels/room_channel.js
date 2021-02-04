@@ -1,8 +1,10 @@
 import consumer from "./consumer";
 import { scrollToBotton, appendMessage } from "../extension/chat";
 
+let connected = false;
+
 $(document).on("turbolinks:load", function () {
-  if (document.getElementById("dialog-id")) {
+  if (document.getElementById("dialog-id") && !connected) {
     let dialogIdEl = document.getElementById("dialog-id");
     const dialog_id = Number(dialogIdEl.getAttribute("dialog-id"));
     consumer.subscriptions.create(
@@ -10,11 +12,11 @@ $(document).on("turbolinks:load", function () {
       {
         connected() {
           scrollToBotton();
-          // Called when the subscription is ready for use on the server
+          connected = true;
         },
 
         disconnected() {
-          // Called when the subscription has been terminated by the server
+          connected = false;
         },
 
         received(data) {
