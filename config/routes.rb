@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get 'subscriptions', to: 'friendships#subscriptions'
   get 'subscribers', to: 'friendships#subscribers'
   resources :dialogs, only: [:index, :show]
-  # resources :messages, only: [:create, :update, :destroy]
-  post 'messages', to: 'messages#create'
+  resources :messages, only: [:create, :update, :destroy]
+  resources :likes, only: [:create]
+
   mount ActionCable.server, at: '/cable'
 end

@@ -14,10 +14,13 @@
   <% if article.image? %>
     <%= image_tag url_for(article.image), alt: article.image_title, size: "286x180", class: "card-img-top"%>
   <% end %>
-  <div class="card-body">
+  <div class="card-body" id="<%= article.id%>" type="<%= article.class%>">
     <%= article.body %>
     <hr>
-    <i class="far fa-heart mr-5"></i>
-    <i class="far fa-comment-alt"></i>
+    <i id="<%= article.class %>-<%= article.id%>-likes" class="likes-for-ajax far fa-heart mr-1 <%= article.user_liked?(current_user) ? "liked" : ""%>"></i> 
+    <span id="<%= article.class %>-<%= article.id%>-likes-count">
+      <%= article.likes_count %>
+    </span>
+    <i class="far fa-comment-alt ml-3"></i>
   </div>
 </div>

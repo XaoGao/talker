@@ -28,3 +28,7 @@ require 'faker'
 #     body: Faker::Lorem.paragraph(sentence_count: 5)
 #   )
 # }
+Article.all.each do |a| 
+  a.likes_count = 0
+  a.save
+end

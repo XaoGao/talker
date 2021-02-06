@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_30_170147) do
+ActiveRecord::Schema.define(version: 2021_02_04_171613) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2021_01_30_170147) do
     t.integer "author_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "likes_count", default: 0, null: false
     t.index ["author_id"], name: "index_articles_on_author_id"
   end
 
@@ -67,6 +68,15 @@ ActiveRecord::Schema.define(version: 2021_01_30_170147) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["subscriber_id"], name: "index_friendships_on_subscriber_id"
     t.index ["user_id"], name: "index_friendships_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.bigint "likeable_id", null: false
+    t.string "likeable_type", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -109,6 +119,7 @@ ActiveRecord::Schema.define(version: 2021_01_30_170147) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "likes_count", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -119,6 +130,7 @@ ActiveRecord::Schema.define(version: 2021_01_30_170147) do
   add_foreign_key "dialog_members", "users", column: "member_id"
   add_foreign_key "dialogs", "users", column: "owner_id"
   add_foreign_key "friendships", "users", column: "subscriber_id"
+  add_foreign_key "likes", "users"
   add_foreign_key "messages", "dialogs"
   add_foreign_key "messages", "users", column: "sender_id"
 end

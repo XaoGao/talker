@@ -9,6 +9,7 @@ import "@fortawesome/fontawesome-free/js/all";
 import '../stylesheets/application';
 import { scrollToBotton } from '../extension/chat';
 import { infiniteScrolling } from '../extension/scroll';
+import '../extension/likes';
 
 let showArticleForm = function() {
   $('#article-form-field').on("click", function() {

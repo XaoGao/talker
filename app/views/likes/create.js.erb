@@ -1,0 +1,11 @@
+var icon = $('#<%= @type %>-<%= @id %>-likes');
+if(icon.length > 0) {
+  var count = $('#<%= @type %>-<%= @id %>-likes-count');
+  <% if @liked %>
+    $('#<%= @type %>-<%= @id %>-likes').addClass("liked");
+    count.text(Number(count.text()) + 1)
+  <% else %>
+    $('#<%= @type %>-<%= @id %>-likes').removeClass("liked");
+    count.text(Number(count.text()) - 1)
+  <% end %>
+}

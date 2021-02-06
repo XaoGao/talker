@@ -16,6 +16,8 @@ class User < ApplicationRecord
   has_many :dialog_members, foreign_key: 'member_id'
   has_many :dialogs, through: :dialog_members
 
+  has_many :likes
+
   validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { maximum: 150 }
   validates :first_name, presence: true, length: { in: 2..50 }
   validates :last_name, presence: true, length: { in: 2..50 }
