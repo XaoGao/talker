@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-1 avatar-message">
+    <%= link_to user_path(comment.user) do %>
+      <%= image_tag("user", alt: "Card image cap", class: "rounded-circle", height: '30', title: comment.user.username) %>
+    <% end %>
+  </div>
+  <div class="col-11 comment">
+    <%= comment.body %>
+  </div>
+</div>

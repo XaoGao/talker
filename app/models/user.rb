@@ -17,6 +17,7 @@ class User < ApplicationRecord
   has_many :dialogs, through: :dialog_members
 
   has_many :likes
+  has_many :comments
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { maximum: 150 }
   validates :first_name, presence: true, length: { in: 2..50 }

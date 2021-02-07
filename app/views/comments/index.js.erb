@@ -1,0 +1,5 @@
+var el = $('#<%= @type %>-<%= @id %>-comments-area');
+if(el.length > 0) {
+  el.empty();
+  el.append('<%= j render(partial: 'comments/comments', locals: { comments: @comments}) %>');
+}

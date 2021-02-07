@@ -10,6 +10,7 @@ import '../stylesheets/application';
 import { scrollToBotton } from '../extension/chat';
 import { infiniteScrolling } from '../extension/scroll';
 import '../extension/likes';
+import '../extension/comments';
 
 let showArticleForm = function() {
   $('#article-form-field').on("click", function() {

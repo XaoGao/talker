@@ -6,7 +6,12 @@
       </div>
       <div class="col-11">
         <div class="mt-2">
-          <%= article.author.username %>
+          <div class="float-right">
+            <%= article.created_at.strftime("%Y %m %H:%M") %>
+          </div>
+          <div class="float-left">
+            <%= article.author.username %>
+          </div>
         </div>
       </div>
     </div>
@@ -17,10 +22,11 @@
   <div class="card-body" id="<%= article.id%>" type="<%= article.class%>">
     <%= article.body %>
     <hr>
-    <i id="<%= article.class %>-<%= article.id%>-likes" class="likes-for-ajax far fa-heart mr-1 <%= article.user_liked?(current_user) ? "liked" : ""%>"></i> 
-    <span id="<%= article.class %>-<%= article.id%>-likes-count">
-      <%= article.likes_count %>
-    </span>
-    <i class="far fa-comment-alt ml-3"></i>
+    <%= render 'likes/like_icon', likeable: article %>
+    <%= render 'comments/comment_icon', commentable: article %>
   </div>
+  <div class="card-footer" id="<%= article.class %>-<%= article.id %>-comments-area">
+    <%# <%= render 'comments/comments', commentable: article.comments %>
+  </div>
+  <%= render 'comments/form' %>
 </div>
