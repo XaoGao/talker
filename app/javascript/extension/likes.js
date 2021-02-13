@@ -1,5 +1,5 @@
 $(function() {
-  $("body").on("click", ".likes-for-ajax", function(){
+  $(document).on("click", ".likes-for-ajax", function(){
     var id = $(this).parent().attr("id");
     var type = $(this).parent().attr("type");
     $.ajax({

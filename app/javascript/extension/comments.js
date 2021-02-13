@@ -1,5 +1,5 @@
 $(function () {
-  $("body").on("click", ".comments-for-ajax", function () {
+  $(document).on("click", ".comments-for-ajax", function () {
     var id = $(this).parent().attr("id");
     var type = $(this).parent().attr("type");
     var count = Number($("#" + type + "-" + id + "-comments-count").text());

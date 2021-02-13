@@ -1,0 +1,12 @@
+var input = $('<%= "#comment-form-#{@comment.commentable_type}-#{@comment.commentable_id}-body"%>');
+if(input.length > 0) {
+  input.val('');
+}
+var commentsArea = $('#<%= "#{@comment.commentable_type}-#{@comment.commentable_id}-comments-area" %>');
+if(commentsArea.length > 0) {
+  commentsArea.append('<%= j render(partial: 'comments/comment', locals: {comment: @comment })%>');
+}
+var commentsCount = $('#<%= "#{@comment.commentable_type}-#{@comment.commentable_id}-comments-count" %>');
+if(commentsCount.length > 0) {
+  commentsCount.text(Number(commentsCount.text()) + 1);
+}

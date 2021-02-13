@@ -26,7 +26,6 @@
     <%= render 'comments/comment_icon', commentable: article %>
   </div>
   <div class="card-footer" id="<%= article.class %>-<%= article.id %>-comments-area">
-    <%# <%= render 'comments/comments', commentable: article.comments %>
   </div>
-  <%= render 'comments/form' %>
+  <%= render 'comments/form', commentable: article %>
 </div>

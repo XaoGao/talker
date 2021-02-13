@@ -19,6 +19,11 @@ let showArticleForm = function() {
   });
 }
 
+let commentSubmit = function() {
+  $('#comment-form-').on("click", function() {
+    $('#comment-form-').trigger( "submit" );
+  });
+}
 
 $(document).on('turbolinks:load', function(){
   showArticleForm();

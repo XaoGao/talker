@@ -1,3 +1,7 @@
-<div class="form-group">
-  <input type="text" class="form-control" placeholder="Добавить комментраии">
-</div>
+<%= form_with model: Comment.new, remote: true, id: "comment-form-#{commentable.id}" do |f| %>
+  <div class="form-group">
+    <%= f.hidden_field :commentable_id, value: commentable.id %>
+    <%= f.hidden_field :commentable_type, value: commentable.class %>
+    <%= f.text_field :body, class: "form-control", placeholder: "Добавить комментраии", id: "comment-form-#{commentable.class}-#{commentable.id}-body" %>
+  </div>
+<% end %>

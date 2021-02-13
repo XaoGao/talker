@@ -1,4 +1,5 @@
 class DialogsController < ApplicationController
+  before_action :authenticate_user!
   def index
     @dialogs = current_user.dialogs
   end
