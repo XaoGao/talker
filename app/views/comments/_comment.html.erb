@@ -6,5 +6,9 @@
   </div>
   <div class="col-11 comment">
     <%= comment.body %>
+    <div class="float-right">
+      <%= render 'likes/like_icon', likeable: comment %>
+    </div>
   </div>
 </div>
+<hr>
