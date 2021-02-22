@@ -8,7 +8,7 @@ import 'bootstrap'
 import "@fortawesome/fontawesome-free/js/all";
 import '../stylesheets/application';
 import { scrollToBotton } from '../extension/chat';
-import { infiniteScrolling } from '../extension/scroll';
+import { infiniteScrolling, infiniteScrollingMessages } from '../extension/scroll';
 import '../extension/likes';
 import '../extension/comments';
 
@@ -29,4 +29,5 @@ $(document).on('turbolinks:load', function(){
   showArticleForm();
   infiniteScrolling();
   scrollToBotton();
+  infiniteScrollingMessages();
 })

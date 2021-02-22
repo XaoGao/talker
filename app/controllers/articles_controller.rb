@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!
   def index
-    @articles = Article.paginate(page: params[:page], per_page: 10).order(create_at: :desc)
+    @articles = Article.paginate(page: params[:page], per_page: 10).order('id DESC')
     @article = Article.new
 
     respond_to do |format|

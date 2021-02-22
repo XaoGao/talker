@@ -6,8 +6,13 @@ class DialogsController < ApplicationController
 
   def show
     @dialog = Dialog.find(params[:id])
-    @messages = @dialog.messages
+    @messages = @dialog.messages.paginate(page: params[:page], per_page: 15).order('id DESC')
     @message = Message.new
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create

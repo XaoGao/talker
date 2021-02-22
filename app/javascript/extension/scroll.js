@@ -15,3 +15,16 @@ export const infiniteScrolling = () => {
     );
   }
 };
+export const infiniteScrollingMessages = () => {
+  if ($("#infinite-scrolling-messages").length > 0) {
+    if ($('.chat-box').on("scroll", function () {
+        if ($('.chat-box').scrollTop() == 0) {
+          let url = $(".pagination .next_page").attr("href");
+          if (url) {
+            $.getScript(url);
+          }
+        }
+      })
+    );
+  }
+};

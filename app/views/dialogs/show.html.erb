@@ -24,8 +24,11 @@
         </div>
       </div>
       <div class="chat-box">
+        <div id="infinite-scrolling-messages">
+          <%= will_paginate @messages %>
+        </div>
         <ul id="messages">
-          <% @messages.each do |message| %>
+          <% @messages.reverse.each do |message| %>
             <%= render 'messages/message', message: message %>
           <% end %>
         </ul>
