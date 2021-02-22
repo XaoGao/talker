@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :friendships, only: [:index, :create, :destroy]
   get 'subscriptions', to: 'friendships#subscriptions'
   get 'subscribers', to: 'friendships#subscribers'
-  resources :dialogs, only: [:index, :show]
+  resources :dialogs, only: [:index, :show, :create]
   resources :messages, only: [:create, :update, :destroy]
   resources :likes, only: [:create]
   resources :comments, only: [:create, :index]

@@ -37,4 +37,17 @@ class User < ApplicationRecord
   def alredy_subscription?(user)
     Friendship.find_by(user: id, subscriber_id: user).present?
   end
+
+  def all_unread_messages
+    unread_messages = 0
+    dialogs.each { |dialog| unread_messages += dialog.unread_messages_count(self) }
+    unread_messages
+  end
+
+  def any_unread_messages?
+    dialogs.each do |dialog|
+      return true if dialog.unread_messages?(self)
+    end
+    false
+  end
 end

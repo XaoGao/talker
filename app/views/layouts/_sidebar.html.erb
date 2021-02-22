@@ -21,6 +21,9 @@
     <h4>
       <i class="fas fa-comment"></i>
       <%= link_to "Диалоги", dialogs_path, class: "d-inline-flex align-items-center rounded active" %>
+      <% if current_user.any_unread_messages? %>
+        <span class="badge bg-secondary text-white">+ <%= current_user.all_unread_messages %></span>
+      <% end %>
     </h4>
   </li>
   <li>

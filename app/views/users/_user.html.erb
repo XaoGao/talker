@@ -34,9 +34,11 @@
             <% end %>
           </li>
           <li class="list-inline-item">
-            <button class="btn btn-primary">
-              <i class="fa fa-envelope"></i>
-            </button>
+            <%= link_to dialogs_path(user: user), method: :post do  %>
+              <button class="btn btn-primary">
+                <i class="fa fa-envelope"></i>
+              </button>
+            <% end %>
           </li>
         </ul>
       </div>

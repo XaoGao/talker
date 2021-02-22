@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_13_165247) do
+ActiveRecord::Schema.define(version: 2021_02_14_122308) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 2021_02_13_165247) do
     t.integer "dialog_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "is_read", default: false, null: false
     t.index ["dialog_id"], name: "index_messages_on_dialog_id"
     t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
