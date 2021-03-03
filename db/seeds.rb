@@ -32,7 +32,11 @@ require 'faker'
 #   a.likes_count = 0
 #   a.save
 # end
-Article.all.each do |a| 
-  a.comments_count = 0
-  a.save
-end
+# Article.all.each do |a| 
+#   a.comments_count = 0
+#   a.save
+# end
+
+# User.all.each do |u|
+#   u.gender = 0
+# end

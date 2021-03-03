@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :trackable
 
+  enum gender: [:not_set, :man, :woman, :another]
+
   has_many :pictures, as: :imageable
   has_many :articles, foreign_key: 'author_id'
 
@@ -49,5 +51,18 @@ class User < ApplicationRecord
       return true if dialog.unread_messages?(self)
     end
     false
+  end
+
+  def gender_name
+    case gender
+    when 'not_set'
+      'Не указан'
+    when 'man'
+      'Мужской'
+    when 'woman'
+      'Женский'
+    when 'another'
+      'Другой'
+    end
   end
 end

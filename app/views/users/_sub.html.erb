@@ -1,0 +1,10 @@
+<div class="card mt-4" style="width: 18rem;">
+  <span class="badge badge-light">Подписчи</span>
+  <div class="card-body">
+    <% users.each do |sub| %>
+      <%= link_to user_path(sub) do %>
+        <%= image_tag("user", alt: sub.username, class: "avatar", title: sub.username) %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

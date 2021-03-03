@@ -33,11 +33,11 @@ class Dialog < ApplicationRecord
   end
 
   def unread_messages_count(user)
-    messages.where.not(sender_id: user).count
+    messages.where.not(sender_id: user, is_read: true).count
   end
 
   def unread_messages?(user)
-    messages.where.not(sender_id: user).any?
+    messages.where.not(sender_id: user, is_read: true).any?
   end
 
   def self.get_or_create(user1, user2)
