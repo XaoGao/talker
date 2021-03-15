@@ -8,6 +8,7 @@ import 'bootstrap'
 import "@fortawesome/fontawesome-free/js/all";
 import '../stylesheets/application';
 import { scrollToBotton } from '../extension/chat';
+import { changeStatus } from '../extension/status';
 import { infiniteScrolling, infiniteScrollingMessages } from '../extension/scroll';
 import '../extension/likes';
 import '../extension/comments';
@@ -30,4 +31,5 @@ $(document).on('turbolinks:load', function(){
   infiniteScrolling();
   scrollToBotton();
   infiniteScrollingMessages();
+  changeStatus();
 })
