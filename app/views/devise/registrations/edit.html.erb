@@ -4,11 +4,6 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="form-group">
-    <%= f.label "Почта" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"  %>
-  </div>
-
-  <div class="form-group">
     <%= f.label "Никнейм" %><br />
     <%= f.text_field :username, class: "form-control" %>
   </div>
@@ -22,12 +17,22 @@
     <%= f.label "Фамилия" %><br />
     <%= f.text_field :last_name, class: "form-control" %>
   </div>
-
+  
   <div class="input-group mb-3">
     <div class="input-group-prepend">
       <%= f.label "Пол", class: "input-group-text", for: "inputGroupSelect01" %>
     </div>
-    <%= f.select :gender, User.genders, {}, class: "custom-select", id:"inputGroupSelect01"%>
+  <%= f.select :gender, User.genders.keys.to_a, {}, class: "custom-select", id:"inputGroupSelect01" %> 
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Страна" %><br />
+    <%= f.text_field :country, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Город" %><br />
+    <%= f.text_field :city, class: "form-control" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

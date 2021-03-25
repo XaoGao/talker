@@ -1,8 +1,11 @@
-<div class="row">
-  <div class="col-6">
-    <p class="text-left"><%= name %>:</p>
+<% unless value.nil? %>
+  <div class="row">
+    <div class="col-6">
+      <p class="text-left"><%= name %>:</p>
+    </div>
+    <div class="col-6">
+      <p class="text-right"><%= value %></p>
+    </div>
   </div>
-  <div class="col-6">
-    <p class="text-right"><%= value %></p>
-  </div>
-</div>
+<% end %>
+

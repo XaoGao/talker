@@ -12,7 +12,7 @@
               <%= current_user.username %>
             </button>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to edit_user_registration_path(current_user), class: "dropdown-item" do %>
+              <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
                 <i class="fas fa-cog"></i> Настройки
               <% end %>
               <a class="dropdown-item" href="#">Another action</a>

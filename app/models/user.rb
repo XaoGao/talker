@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :trackable
 
-  enum gender: [:not_set, :man, :woman, :another]
+  enum gender: { not_set: 0, man: 1, woman: 2, another: 3 }
 
   has_many :pictures, as: :imageable
   has_many :articles, foreign_key: 'author_id'
@@ -64,5 +64,15 @@ class User < ApplicationRecord
     when 'another'
       'Другой'
     end
+  end
+
+  def location
+    [initial_filed(country), initial_filed(city)].join(', ')
+  end
+
+  private
+
+  def initial_filed(field)
+    field unless field.blank?
   end
 end
