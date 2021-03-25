@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show] do
     member do
       post 'change-status'
+      get  'photos'
     end
   end
   resources :articles, only: [:index, :create]
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   resources :messages, only: [:create, :update, :destroy]
   resources :likes, only: [:create]
   resources :comments, only: [:create, :index]
+  resources :pictures
 
   mount ActionCable.server, at: '/cable'
 end

@@ -16,4 +16,12 @@ class UsersController < ApplicationController
       redirect_to request.referer
     end
   end
+
+  def photos
+    @user = User
+            .includes([pictures: { image_attachment: :blob }])
+            .find(params[:id])
+    @pictures = @user.pictures
+    @picture = Picture.new
+  end
 end

@@ -1,0 +1,8 @@
+<%= form_with model: @picture, local: true  do |f| %>
+  <div class="form-group">
+    <%= f.file_field :image %>
+  </div>
+  <div>
+    <%= f.submit "Добавить", class: "btn btn-primary" %>
+  </div>
+<% end %>

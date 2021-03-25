@@ -62,3 +62,14 @@ a.avatar {
 .user-card-image {
   border-radius: 30 !important;
 }
+
+.pictures-area {
+  height: 800px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: gray;
+}
+.photo-item {
+  height: 286px;
+  width: 180px;
+}

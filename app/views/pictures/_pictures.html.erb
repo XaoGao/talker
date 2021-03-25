@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="pictures-area">
+    <div class="row">
+      <% @pictures.each do |picture| %>
+        <div class="col-3">
+          <%= render 'pictures/picture', picture: picture %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

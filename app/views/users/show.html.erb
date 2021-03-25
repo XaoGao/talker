@@ -34,6 +34,13 @@
         </ul>
       </div>
     </div>
+    <div class="card mt-3">
+      <div class="card-body">
+        <%= link_to photos_user_path(id: @user) do %>
+          <p class="text-center">Фотографии</p>
+        <% end %>
+      </div>
+    </div>
     <div class="mt-4">
       <% @articles.each do |article| %>
         <%= render 'articles/article', article: article %>
