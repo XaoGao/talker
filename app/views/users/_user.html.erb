@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-3">
       <div class="card-img-wrappe">
-        <%= image_tag("user", alt: "Card image cap", class: "card-img-top rounded-circle", height: '150') %>
+        <%= image_tag("user", alt: "Card image cap", class: "card-img-top rounded-circle #{user.online ? 'online' : ''}", height: '150') %>
       </div>
     </div>
     <div class="col-9">

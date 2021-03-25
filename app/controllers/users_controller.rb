@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @articles = @user.articles.includes([:author]).includes([:picture])
+    @articles = @user.articles.includes([:author]).includes([picture: { image_attachment: :blob }])
   end
 
   def change_status
