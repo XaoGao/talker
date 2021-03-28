@@ -28,13 +28,13 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-rails'
   gem "factory_bot_rails"
+  gem 'pry-byebug'
+  gem 'pry-rails'
 end
 
 group :development do
   gem 'bullet'
   gem 'listen', '~> 3.2'
-  gem 'pry-byebug'
-  gem 'pry-rails'
   gem 'rubocop', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -44,9 +44,10 @@ end
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
-  gem 'webdrivers'
   gem 'simplecov', require: false
+  gem 'shoulda-matchers'
+  gem 'webdrivers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

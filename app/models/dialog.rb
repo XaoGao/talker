@@ -1,5 +1,5 @@
 class Dialog < ApplicationRecord
-  belongs_to :owner, class_name: "User", foreign_key: "owner_id"
+  belongs_to :owner, class_name: 'User', foreign_key: 'owner_id'
 
   has_many :dialog_members
   has_many :members, through: :dialog_members
@@ -18,7 +18,7 @@ class Dialog < ApplicationRecord
 
   def create_time_of_last_message
     if messages.last.present?
-      messages.last.created_at.strftime("%d/%m/%Y")
+      messages.last.created_at.strftime('%d/%m/%Y')
     else
       ''
     end
@@ -33,11 +33,11 @@ class Dialog < ApplicationRecord
   end
 
   def unread_messages_count(user)
-    messages.where.not(sender_id: user, is_read: true).count
+    messages.where.not(sender: user).where.not(is_read: true).count
   end
 
   def unread_messages?(user)
-    messages.where.not(sender_id: user, is_read: true).any?
+    messages.where.not(sender: user).where.not(is_read: true).any?
   end
 
   def self.get_or_create(user1, user2)

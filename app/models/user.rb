@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include Activeable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -25,7 +26,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true, length: { in: 2..50 }
   validates :last_name, presence: true, length: { in: 2..50 }
 
-  scope :all_active, -> { where(lock: false) }
+  # scope :all_active, -> { where(lock: false) }
   scope :all_except, ->(user) { where.not(id: user) }
 
   def full_name
@@ -67,7 +68,10 @@ class User < ApplicationRecord
   end
 
   def location
-    [initial_filed(country), initial_filed(city)].join(', ')
+    user_location = [initial_filed(country), initial_filed(city)].compact.join(', ')
+    return user_location if user_location.present?
+
+    '-'
   end
 
   private
