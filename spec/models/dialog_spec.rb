@@ -68,5 +68,25 @@ RSpec.describe Dialog, type: :model do
         expect(unread_messages_count).to eq(0)
       end
     end
+
+    context '.name_all_members' do
+      let(:user) { create(:user) }
+      it 'dialog name for user' do
+        dialog.dialog_members << DialogMember.create(member: sender)
+        dialog.dialog_members << DialogMember.create(member: consumer)
+
+        expect(dialog.name_all_members(sender)).to eq(consumer.username)
+        expect(dialog.name_all_members(consumer)).to eq(sender.username)
+      end
+
+      it 'dialog name for some users' do
+        dialog.dialog_members << DialogMember.create(member: sender)
+        dialog.dialog_members << DialogMember.create(member: consumer)
+        dialog.dialog_members << DialogMember.create(member: user)
+
+        expect(dialog.name_all_members(sender)).to eq("#{consumer.username}, #{user.username}")
+        expect(dialog.name_all_members(consumer)).to eq("#{sender.username}, #{user.username}")
+      end
+    end
   end
 end

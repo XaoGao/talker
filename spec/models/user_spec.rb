@@ -29,9 +29,9 @@ RSpec.describe User, type: :model do
         create(:user, lock: true)
       end
 
-      it 'active user' do
+      it '#active user' do
         all_user = User.all
-        active_user = User.all_active
+        active_user = User.actived
 
         expect(all_user.size).to eq(3)
         expect(active_user.size).to eq(2)
@@ -75,6 +75,88 @@ RSpec.describe User, type: :model do
         user.country = ''
         user.city = ''
         expect(user.location).to eq('-')
+      end
+    end
+
+    context '.gender' do
+      let(:user) { create(:user, gender: 0) }
+      it 'not set' do
+        expect(user.gender).to eq('not_set')
+        expect(user.gender_name).to eq('Не указан')
+      end
+
+      it 'woman' do
+        user.gender = 2
+        expect(user.gender).to eq('woman')
+        expect(user.gender_name).to eq('Женский')
+      end
+
+      it 'man' do
+        user.gender = 1
+        expect(user.gender).to eq('man')
+        expect(user.gender_name).to eq('Мужской')
+      end
+
+      it 'another' do
+        user.gender = 3
+        expect(user.gender).to eq('another')
+        expect(user.gender_name).to eq('Другой')
+      end
+    end
+
+    context '.subscriptions' do
+      let!(:user) { create(:user) }
+      let(:user2) { create(:user) }
+
+      it 'have subscriptions' do
+        create_list(:friendship, 3, subscriber: user)
+        expect(user.subscriptions.count).to eq(3)
+      end
+
+      it 'havent subscriptions' do
+        create_list(:friendship, 3, subscriber: user2)
+        expect(user.subscriptions.count).to eq(0)
+      end
+    end
+
+    context '.alredy_subscription?' do
+      let!(:user) { create(:user) }
+      let!(:friend) { create(:user) }
+
+      it 'have subscription' do
+        create(:friendship, user: user, subscriber: friend)
+
+        expect(user.alredy_subscription?(friend)).to be true
+      end
+
+      it 'havent subscription' do
+        expect(user.alredy_subscription?(friend)).to be false
+      end
+    end
+
+    context '.any_unread_messages?' do
+      let(:user) { create(:user) }
+      it 'have unread messages' do
+        user.dialogs << create(:dialog, messages: create_list(:message, 3))
+        expect(user.any_unread_messages?).to be true
+      end
+
+      it 'have only read messages' do
+        user.dialogs << create(:dialog, messages: create_list(:message, 3, is_read: true))
+        expect(user.any_unread_messages?).to be false
+      end
+    end
+
+    context '.all_unread_messages' do
+      let(:user) { create(:user) }
+      it 'have unread messages' do
+        user.dialogs << create(:dialog, messages: create_list(:message, 3))
+        expect(user.all_unread_messages).to eq(3)
+      end
+
+      it 'have only read messages' do
+        user.dialogs << create(:dialog, messages: create_list(:message, 3, is_read: true))
+        expect(user.all_unread_messages).to eq(0)
       end
     end
   end

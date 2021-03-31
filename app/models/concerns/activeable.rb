@@ -2,7 +2,7 @@ module Activeable
   extend ActiveSupport::Concern
 
   included do
-    scope :all_active,   -> { where(lock: false) }
-    scope :all_disabled, -> { where(lock: true) }
+    scope :actived,   -> { where(lock: false) }
+    scope :disabled, -> { where(lock: true) }
   end
 end
