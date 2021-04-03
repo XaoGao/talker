@@ -7,6 +7,7 @@
 #  commentable_type :string
 #  likes_count      :integer          default(0), not null
 #  lock             :boolean          default(FALSE), not null
+#  spam             :boolean          default(FALSE), not null
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  commentable_id   :integer

@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :dialogs, only: [:index, :show, :create]
   resources :messages, only: [:create, :update, :destroy]
   resources :likes, only: [:create]
-  resources :comments, only: [:create, :index]
+  resources :comments, only: [:create, :index, :show]
   resources :pictures
 
   mount ActionCable.server, at: '/cable'

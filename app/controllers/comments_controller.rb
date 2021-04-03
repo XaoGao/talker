@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+
   def index
-    comments = Comment.where(commentable_id: params[:id], commentable_type: params[:type])
+    comments = Comment.includes([:user]).where(commentable_id: params[:id], commentable_type: params[:type])
     respond_to do |format|
       format.js do
         @type = params[:type]
@@ -15,6 +16,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new comment_params
     @comment.user = current_user
+
     if @comment.save
       respond_to do |format|
         format.js do
@@ -22,8 +24,19 @@ class CommentsController < ApplicationController
         end
       end
     else
-      flash[:alert] = 'Непредвиденная ошибка в ходе добавления комментария, обратитесь к администратору'
-      redirect_to request.referer
+      redirect_to request.referer, alert: 'Непредвиденная ошибка в ходе добавления комментария, обратитесь к администратору'
+    end
+  end
+
+  def show
+    comment = Comment.find(params[:id])
+    if comment.present?
+      respond_to do |format|
+        format.js do
+          @comment = comment
+          render '/comments/show'
+        end
+      end
     end
   end
 

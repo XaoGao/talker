@@ -1,3 +1,9 @@
 <% comments.each do |comment| %>
-  <%= render 'comments/comment', comment: comment %>
+  <div id=<%= "comment-#{comment.id}"%>>
+    <% if !comment.spam %>
+      <%= render 'comments/comment', comment: comment %>
+    <% else %>  
+      <%= render 'comments/spam', comment: comment %>
+    <% end %>
+  </div>
 <% end %>

@@ -1,0 +1,5 @@
+var spam = $('#comment-' + '<%= @comment.id %>');
+if(spam.length > 0) {
+  var comment = '<%= j render(partial: 'comments/comment', locals: {comment: @comment })%>'
+  spam.html(comment);
+}
