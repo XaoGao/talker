@@ -1,8 +1,8 @@
-<%= form_with model: @picture, local: true  do |f| %>
+<%= form_with model: @picture, local: true, id: "picture-form"  do |f| %>
   <div class="form-group">
-    <%= f.file_field :image %>
+    <%= f.file_field :image, id: "picture-from-file-field" %>
   </div>
   <div>
-    <%= f.submit "Добавить", class: "btn btn-primary" %>
+    <%= f.submit "Добавить", class: "btn btn-primary", id: "picture-form-submit" %>
   </div>
 <% end %>

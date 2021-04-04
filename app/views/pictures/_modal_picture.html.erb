@@ -1,0 +1,15 @@
+<div class="modal fade" id="exampleModal-<%= picture.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= image_tag(picture.image, alt: "1", class: "card-img-top") %>
+      </div>
+      <div class="card-footer" id="<%= picture.class %>-<%= picture.id %>-comments-area">
+      </div>
+      <%= render 'comments/form', commentable: picture %>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+      </div>
+    </div>
+  </div>
+</div>

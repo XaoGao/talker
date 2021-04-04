@@ -1,5 +1,6 @@
-<div class="photo-item m-2 mr-2 ml-2">
-  <div class="card">
+<div class="photo-item m-2">
+  <div class="card" data-toggle="modal" data-target="#exampleModal-<%= picture.id %>">
     <%= image_tag(picture.image, size: '286x180', alt: "1", class: "card-img-top")  %>
   </div>
 </div>
+<%= render 'pictures/modal_picture', picture: picture %>

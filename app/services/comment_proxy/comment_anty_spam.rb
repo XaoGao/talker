@@ -1,5 +1,5 @@
 module CommentProxy
-  class CommentFilterCreate
+  class CommentAntySpam
     def initialize(comment)
       @comment = comment
     end

@@ -14,10 +14,10 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment_without_filter = Comment.new comment_params
-    @comment_without_filter.user = current_user
+    @comment = Comment.new comment_params
+    @comment.user = current_user
 
-    @comment = CommentProxy::CommentFilterCreate.new(@comment_without_filter)
+    # @comment = CommentProxy::CommentAntySpam.new(comment)
 
     if @comment.save
       respond_to do |format|

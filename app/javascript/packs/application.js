@@ -13,11 +13,24 @@ import { infiniteScrolling, infiniteScrollingMessages } from '../extension/scrol
 import '../extension/likes';
 import '../extension/comments';
 
-let showArticleForm = function() {
+let showForm = function() {
   $('#article-form-field').on("click", function() {
     $('#article-form-field').hide();
     $('#article-form').show();
   });
+
+  $('#picture-form-field').on("click", function() {
+    $('#picture-form-field').hide();
+    $('#picture-form').show();
+  });
+}
+
+let disableSubmit = function() {
+  if ($('#picture-from-file-field').files.length > 0) {
+    $('#picture-form-submit').attr("disabled", true);
+  } else {
+    $('#picture-form-submit').attr("disabled", false);
+  }
 }
 
 let commentSubmit = function() {
@@ -27,9 +40,10 @@ let commentSubmit = function() {
 }
 
 $(document).on('turbolinks:load', function(){
-  showArticleForm();
+  showForm();
   infiniteScrolling();
   scrollToBotton();
   infiniteScrollingMessages();
   changeStatus();
+  disableSubmit();
 })

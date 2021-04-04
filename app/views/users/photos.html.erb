@@ -1,4 +1,7 @@
-<% if current_user == @user %>
+<div class="form-group">
+  <input type="text" class="form-control" placeholder="Добавить новость" id="picture-form-field">
+</div>
+<% if current_user == @user %>  
   <%= render 'pictures/form' %>
 <% end %>
 <br>

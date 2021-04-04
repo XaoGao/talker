@@ -1,37 +1,9 @@
-// .user-card:hover img {
-//   transform: scale(1.2, 1.2);
-//   transition-duration: 500ms;
-//   transition-timing-function: ease-out;
-//   opacity: 0.7;
-// }
-// .user-card img {
-//   // width: 300px;
-//   transform: scale(1.0, 1.0);
-//   transition-duration: 500ms;
-//   transition-timing-function: ease-out;
-// }
 .card-img-wrapper {
   border-radius: 30 !important;
 }
-
-// .member-icons{
-//   position: absolute;
-//   bottom: -30%;
-//   left: 0;
-//   right: 0;
-//   margin-left: auto;
-//   margin-left: auto;
-//   opacity: 0;
-// }
-
-// .card-img-wrapper:hover .member-icons{
-//   bottom: 0;
-//   opacity: 1;
-// }
-
-// .animate {
-//   transition: all 0.3s ease-in-out;
-// }
+#picture-form {
+  display: none;
+}
 
 .avatar {
   line-height: 0; /* remove line-height */
@@ -39,14 +11,12 @@
   margin: 5px;
   border: 2px solid rgba(255, 255, 255, 0.4);
   border-radius: 50%; /* relative value */
-  /*box-shadow: 0px 0px 5px rgba(0,0,0,0.4);*/
   transition: linear 0.25s;
   height: 32px;
   width: 32px;
 }
 .avatar img {
-  border-radius: 50%; /* relative value for
-             adjustable image size */
+  border-radius: 50%;
 }
 .avatar:hover {
   transition: ease-out 0.2s;
@@ -55,7 +25,7 @@
 }
 a.avatar {
   color: transparent;
-} /* IE fix: removes blue border */
+}
 .user-card:hover {
   background-color: lightgray;
 }
@@ -70,8 +40,9 @@ a.avatar {
   border: gray;
 }
 .photo-item {
-  height: 286px;
-  width: 180px;
+  // height: 286px;
+  // width: 180px;
+  cursor: pointer;
 }
 .online {
   border-color: green;
