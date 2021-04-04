@@ -1,9 +1,10 @@
 module CommentProxy
   class SpamFilter
     def spam?(message)
-      message.each do |word|
-        return true if words_dictinary.include? word
+      words_dictinary.each do |word|
+        return true if message.include? word
       end
+      false
     end
 
     private
