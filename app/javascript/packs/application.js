@@ -26,11 +26,13 @@ let showForm = function() {
 }
 
 let disableSubmit = function() {
-  if ($('#picture-from-file-field').files.length > 0) {
-    $('#picture-form-submit').attr("disabled", true);
-  } else {
-    $('#picture-form-submit').attr("disabled", false);
-  }
+  if ($('#picture-form-file-field').length > 0) {
+    if ($('#picture-form-file-field').files.length > 0) {
+      $('#picture-form-submit').attr("disabled", false);
+    } else {
+      $('#picture-form-submit').attr("disabled", true);
+    }
+  }  
 }
 
 let commentSubmit = function() {

@@ -9,6 +9,7 @@
         <% if user_signed_in? %>
           <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= avatar current_user %>
               <%= current_user.username %>
             </button>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">

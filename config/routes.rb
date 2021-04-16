@@ -16,7 +16,11 @@ Rails.application.routes.draw do
   resources :messages, only: [:create, :update, :destroy]
   resources :likes, only: [:create]
   resources :comments, only: [:create, :index, :show]
-  resources :pictures
+  resources :pictures, only: [:create, :destroy] do
+    member do
+      put 'main', to: 'pictures#main'
+    end
+  end
 
   mount ActionCable.server, at: '/cable'
 end

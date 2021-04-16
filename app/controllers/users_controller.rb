@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   def photos
     @user = User
             .includes([pictures: { image_attachment: :blob }])
+            .includes([pictures: { comments: :user}])
             .find(params[:id])
     @pictures = @user.pictures
     @picture = Picture.new
