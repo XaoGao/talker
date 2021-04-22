@@ -5,9 +5,6 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     attributes = %i[username first_name last_name date_of_birth gender country city]
-    # [:sign_up, :sign_in, :account_update].each do |method|
-    #   devise_parameter_sanitizer.permit(method, keys: attributes)
-    # end
     devise_parameter_sanitizer.permit(:sign_up, keys: attributes)
     devise_parameter_sanitizer.permit(:sign_in, keys: attributes)
     devise_parameter_sanitizer.permit(:account_update, keys: attributes)

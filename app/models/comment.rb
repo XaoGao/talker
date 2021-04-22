@@ -29,4 +29,6 @@ class Comment < ApplicationRecord
   has_many :likes, as: :likeable
 
   validates :body, presence: true, length: { maximum: 1000 }
+
+  scope :with_user, -> { includes([:user]) }
 end

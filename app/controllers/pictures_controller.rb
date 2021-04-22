@@ -12,19 +12,26 @@ class PicturesController < ApplicationController
 
   def main
     @picture = Picture.find(params[:id])
-    main_picture = @picture.imageable.pictures.find_by(is_main: true)
-    main_picture.update(is_main: false) if main_picture.present?
+    clear_main_photo @picture
 
     if @picture.update(is_main: true)
-      redirect_to request.referer, notice: 'Главная фогтография обновлена'
+      flash[:notice] = 'Главная фотография обновлена'
     else
-      redirect_to request.referer, alert: 'Ошибка при обновлении фотографии'
+      flash[:alert] = 'Ошибка при обновлении фотографии'
     end
+    redirect_to request.referer
   end
 
   def destroy; end
 
+  private
+
   def picture_params
     params.require(:picture).permit(:image)
+  end
+
+  def clear_main_photo(picture)
+    main_picture = picture.imageable.pictures.find_by(is_main: true)
+    main_picture.update(is_main: false) if main_picture.present?
   end
 end

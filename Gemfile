@@ -6,6 +6,7 @@ ruby '2.7.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'htmlbeautifier'
+gem 'httparty'
 gem 'image_processing', '~> 1.2'
 gem 'jbuilder', '~> 2.7'
 gem 'puma', '~> 4.1'
@@ -16,6 +17,9 @@ gem 'sqlite3', '~> 1.4'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 gem 'will_paginate'
+
+gem 'sidekiq'
+gem 'sidekiq-cron'
 
 group :development, :test do
   gem 'annotate'
@@ -28,6 +32,8 @@ group :development, :test do
 end
 
 group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
   gem 'bullet'
   gem 'listen', '~> 3.2'
   gem 'rubocop', require: false

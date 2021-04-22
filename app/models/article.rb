@@ -21,10 +21,14 @@
 #
 class Article < ApplicationRecord
   include Likeable
+  include Orderable
+  include Picturable
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
   has_one :picture, as: :imageable
   has_many :likes, as: :likeable
   has_many :comments, as: :commentable
+
+  scope :with_author, -> { includes([:author]) }
 
   def image?
     picture.present? && picture.is_main

@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   root to: 'home#welcome'
   devise_for :users
@@ -22,5 +24,8 @@ Rails.application.routes.draw do
     end
   end
 
+  Talker::Application.routes.draw do
+    mount Sidekiq::Web => "/sidekiq"
+  end
   mount ActionCable.server, at: '/cable'
 end

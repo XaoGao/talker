@@ -18,6 +18,7 @@
 #  owner_id  (owner_id => users.id)
 #
 class Dialog < ApplicationRecord
+  include Orderable
   belongs_to :owner, class_name: 'User', foreign_key: 'owner_id'
 
   has_many :dialog_members
@@ -26,6 +27,8 @@ class Dialog < ApplicationRecord
   has_many :messages
 
   # validates :name, presence: true, length: { maximum: 150 }
+
+  scope :with_sender, -> { includes([:sender]) }
 
   def body_of_last_messages
     if messages.last.present?

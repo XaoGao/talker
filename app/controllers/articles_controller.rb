@@ -1,11 +1,11 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!
   def index
-    @articles = Article
-                .includes([:author])
-                .includes([picture: { image_attachment: :blob }])
-                .paginate(page: params[:page], per_page: 5)
-                .order('id DESC')
+    Sidekiq::Queue.all.each(&:clear)
+    # TestWorker.perform_async('rishat', 3)
+    @articles = Article.with_author.with_picture
+                       .paginate(page: params[:page], per_page: 5)
+                       .recently
     @article = Article.new
 
     respond_to do |format|

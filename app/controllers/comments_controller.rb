@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    comments = Comment.includes([:user]).where(commentable_id: params[:id], commentable_type: params[:type])
+    comments = Comment.with_user.where(commentable_id: params[:id], commentable_type: params[:type])
     respond_to do |format|
       format.js do
         @type = params[:type]
@@ -14,10 +14,10 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new comment_params
-    @comment.user = current_user
+    comment = Comment.new comment_params
+    comment.user = current_user
 
-    # @comment = CommentProxy::CommentAntySpam.new(comment)
+    @comment = CommentProxy::CommentAntySpam.new(comment)
 
     if @comment.save
       respond_to do |format|

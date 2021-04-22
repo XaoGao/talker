@@ -7,9 +7,9 @@ class DialogsController < ApplicationController
   def show
     @dialog = Dialog.find(params[:id])
     @messages = @dialog.messages
-                       .includes([:sender])
+                       .with_sender
                        .paginate(page: params[:page], per_page: 15)
-                       .order('id DESC')
+                       .resently
 
     @messages.each do |m|
       m.read_message current_user

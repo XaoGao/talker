@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @articles = @user.articles.includes([:author]).includes([picture: { image_attachment: :blob }])
+    @articles = @user.articles.with_author.with_picture
   end
 
   def change_status
@@ -19,8 +19,8 @@ class UsersController < ApplicationController
 
   def photos
     @user = User
-            .includes([pictures: { image_attachment: :blob }])
-            .includes([pictures: { comments: :user}])
+            .with_pictures
+            .with_pictures_for_comments
             .find(params[:id])
     @pictures = @user.pictures
     @picture = Picture.new
