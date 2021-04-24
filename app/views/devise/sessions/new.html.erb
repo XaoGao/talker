@@ -1,17 +1,27 @@
-<h2>Зайти</h2>
+<div class="row mt-5">
+  <div class="col-4"></div>
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="text-center">Зайти</h1>
+        <hr>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-group">
+            <%= f.label "Почта" %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+          </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <div class="form-group">
+            <%= f.label "Пароль" %><br />
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+          </div>
+          <hr>
+          <div class="actions mt-4">
+            <%= f.submit "Войти", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions mt-4">
-    <%= f.submit "Войти", class: "btn btn-primary" %>
-  </div>
-<% end %>
+  <div class="col-3"></div>
+</div>
