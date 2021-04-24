@@ -5,7 +5,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.with_pictures.find(params[:id])
+    @subscribers = @user.subscribers.includes([pictures: { image_attachment: :blob }])
+    @subscriptions = @user.subscriptions.includes([pictures: { image_attachment: :blob }])
     @articles = @user.articles.with_author.with_picture
   end
 

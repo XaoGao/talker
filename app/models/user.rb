@@ -67,7 +67,7 @@ class User < ApplicationRecord
   scope :all_except, ->(user) { where.not(id: user) }
 
   def main_photo
-    pictures.find { |picture| picture.is_main }
+    pictures.find(&:is_main)
   end
 
   def full_name

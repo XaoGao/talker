@@ -3,7 +3,7 @@
   <div class="card-body">
     <% users.each do |sub| %>
       <%= link_to user_path(sub) do %>
-        <%= image_tag("user", alt: sub.username, class: "avatar", title: sub.username) %>
+        <%= avatar sub %>
       <% end %>
     <% end %>
   </div>

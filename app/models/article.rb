@@ -41,4 +41,8 @@ class Article < ApplicationRecord
   def image_title
     picture.title
   end
+
+  def created_time
+    created_at.strftime('%Y %m %H:%M')
+  end
 end

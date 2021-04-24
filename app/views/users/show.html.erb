@@ -3,8 +3,8 @@
 <div class="row">
   <div class="col-4 mr-3">
     <%= render 'users/image_card' %>
-    <%= render 'users/sub', users: @user.subscribers %>
-    <%= render 'users/sub', users: @user.subscriptions %>
+    <%= render 'users/sub', users: @subscribers %>
+    <%= render 'users/sub', users: @subscriptions %>
   </div>
   <div class="col-7">
     <div class="card">
