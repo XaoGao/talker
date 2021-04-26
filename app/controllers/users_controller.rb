@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.with_pictures.find(params[:id])
+    @user = User.with_pictures.friendly.find(params[:id])
     @subscribers = @user.subscribers.includes([pictures: { image_attachment: :blob }])
     @subscriptions = @user.subscriptions.includes([pictures: { image_attachment: :blob }])
     @articles = @user.articles.with_author.with_picture
@@ -23,6 +23,7 @@ class UsersController < ApplicationController
     @user = User
             .with_pictures
             .with_pictures_for_comments
+            .friendly
             .find(params[:id])
     @pictures = @user.pictures
     @picture = Picture.new

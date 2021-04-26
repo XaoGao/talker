@@ -24,6 +24,7 @@
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  sign_in_count          :integer          default(0), not null
+#  slug                   :string
 #  status                 :string           default(""), not null
 #  username               :string           default(""), not null
 #  created_at             :datetime         not null
@@ -33,6 +34,7 @@
 #
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_slug                  (slug) UNIQUE
 #
 FactoryBot.define do
   factory :user do

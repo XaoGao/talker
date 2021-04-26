@@ -24,6 +24,7 @@
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  sign_in_count          :integer          default(0), not null
+#  slug                   :string
 #  status                 :string           default(""), not null
 #  username               :string           default(""), not null
 #  created_at             :datetime         not null
@@ -33,11 +34,15 @@
 #
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_slug                  (slug) UNIQUE
 #
 class User < ApplicationRecord
   include Activeable
   include Orderable
   include Picturable
+
+  extend FriendlyId
+  friendly_id :username, use: :slugged
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -114,6 +119,10 @@ class User < ApplicationRecord
 
     '-'
   end
+
+  # def should_generate_new_friendly_id?
+  #   username_changed?
+  # end
 
   private
 

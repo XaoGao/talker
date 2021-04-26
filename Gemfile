@@ -5,6 +5,7 @@ ruby '2.7.0'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
+gem 'friendly_id'
 gem 'high_voltage'
 gem 'htmlbeautifier'
 gem 'httparty'
