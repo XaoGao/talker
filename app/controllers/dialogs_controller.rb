@@ -7,10 +7,10 @@ class DialogsController < ApplicationController
   def show
     @dialog = Dialog.find(params[:id])
     @messages = @dialog.messages
-                       .with_sender
+                       .includes([:sender])
                        .paginate(page: params[:page], per_page: 15)
-                       .resently
-
+                       .order('id DESC')
+    # TODO: написать в функциональном стиле
     @messages.each do |m|
       m.read_message current_user
     end
@@ -24,7 +24,7 @@ class DialogsController < ApplicationController
   end
 
   def create
-    user = User.find(params[:user])
+    user = User.friendly.find(params[:user])
     if user.present?
       dialog = Dialog.get_or_create(current_user, user)
       redirect_to dialog_path dialog

@@ -40,6 +40,7 @@ class User < ApplicationRecord
   include Activeable
   include Orderable
   include Picturable
+  include Filterable
 
   extend FriendlyId
   friendly_id :username, use: :slugged
@@ -70,6 +71,9 @@ class User < ApplicationRecord
   validates :last_name, presence: true, length: { in: 2..50 }
 
   scope :all_except, ->(user) { where.not(id: user) }
+  scope :filter_by_first_name, ->(first_name) { where('first_name LIKE ?' , first_name) }
+  scope :filter_by_last_name,  ->(last_name)  { where('last_name LIKE ?'  , last_name) }
+  scope :filter_by_username,   ->(username)   { where('username LIKE ?'   , username) }
 
   def main_photo
     pictures.find(&:is_main)
@@ -83,17 +87,22 @@ class User < ApplicationRecord
     Friendship.subscriptions(id)
   end
 
+  # TODO: переименовать
   def alredy_subscription?(user)
     Friendship.find_by(user: id, subscriber_id: user).present?
   end
 
+  # TODO: написать в функциональном стиле
   def all_unread_messages
+    # dialog.sum { |d| d.unread_messages_count(self) }
     unread_messages = 0
     dialogs.each { |dialog| unread_messages += dialog.unread_messages_count(self) }
     unread_messages
   end
 
+  # TODO: написать в функциональном стиле
   def any_unread_messages?
+    # dialogs.any? { |d| d.unread_messages?(self)}
     dialogs.each do |dialog|
       return true if dialog.unread_messages?(self)
     end

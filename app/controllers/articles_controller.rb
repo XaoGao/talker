@@ -14,9 +14,9 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(author: current_user, body: params[:article][:body])
-    if @article.save
-      create_picture if params[:article][:picture].present?
+    create_picture if params[:article][:picture].present?
 
+    if @article.save
       flash[:notice] = 'Новость опубликована'
     else
       flash[:alert] = 'Ошибка при публикации новости'
@@ -26,6 +26,7 @@ class ArticlesController < ApplicationController
 
   private
 
+  # TODO: убрать picture
   def create_picture
     picture = Picture.create(
       image: params[:article][:picture],

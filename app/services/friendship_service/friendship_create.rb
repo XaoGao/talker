@@ -1,7 +1,7 @@
 module FriendshipService
   class FriendshipCreate < Service
     def call(user_id, subscriber)
-      user = User.find(user_id)
+      user = User.friendly.find(user_id)
       if user.blank?
         error 'Ошибка во время подписки'
       else
