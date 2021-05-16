@@ -47,22 +47,15 @@ class Dialog < ApplicationRecord
   end
 
   def name_all_members(user)
-    # TODO: функциональный стиль members.where.not(username: user.username).map { |m| m.username }.join(', ')
-    all_names = []
-    members.each do |member|
-      all_names << member.username unless user == member
-    end
-    all_names.join(', ')
+    members.where.not(username: user.username).map(&:username).join(', ')
   end
 
   def unread_messages_count(user)
-    # messages.where.not(sender: user, is_read: true).count
-    messages.where.not(sender: user).where.not(is_read: true).count
+    messages.where.not(sender: user, is_read: true).count
   end
 
   def unread_messages?(user)
-    # messages.where.not(sender: user, is_read: true).any?
-    messages.where.not(sender: user).where.not(is_read: true).any?
+    messages.where.not(sender: user, is_read: true).any?
   end
 
   def self.get_or_create(user1, user2)

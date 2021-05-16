@@ -26,13 +26,11 @@ class ArticlesController < ApplicationController
 
   private
 
-  # TODO: убрать picture
   def create_picture
-    picture = Picture.create(
+    @article.pictures << Picture.create(
       image: params[:article][:picture],
       title: params[:article][:picture].original_filename,
       is_main: true
     )
-    @article.pictures << picture
   end
 end

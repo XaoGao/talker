@@ -14,9 +14,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    # TODO: comment = current_user.comments.new comment_params
-    comment = Comment.new comment_params
-    comment.user = current_user
+    comment = current_user.comments.new comment_params
+    # comment = Comment.new comment_params
+    # comment.user = current_user
 
     @comment = CommentProxy::CommentAntySpam.new(comment)
 

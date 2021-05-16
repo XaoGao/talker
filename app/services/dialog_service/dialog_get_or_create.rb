@@ -1,19 +1,20 @@
 module DialogService
   class DialogGetOrCreate < Service
-    def call(user1, user2)
-      dialog_members = DialogMember.where(member: [user1, user2])
-      return create_dialog_with_members(user1, user2) if dialog_members.empty?
+    include Callable
+    def call(owner_member:, second_member:)
+      dialog_members = DialogMember.where(member: [owner_member, second_member])
+      return create_dialog_with_members(owner_member, second_member) if dialog_members.empty?
 
       members_in_one_dialog = dialog_members.group_by(&:dialog).find { |d| d.second.count == 2 }
-      return create_dialog_with_members(user1, user2) if members_in_one_dialog.nil?
+      return create_dialog_with_members(owner_member, second_member) if members_in_one_dialog.nil?
 
       members_in_one_dialog.first
     end
 
-    def create_dialog_with_members(user1, user2)
-      dialog = Dialog.new(owner: user1)
-      DialogMember.create(member: user1, dialog: dialog)
-      DialogMember.create(member: user2, dialog: dialog)
+    def create_dialog_with_members(owner_member:, second_member:)
+      dialog = Dialog.new(owner: owner_member)
+      DialogMember.create(member: owner_member, dialog: dialog)
+      DialogMember.create(member: second_member, dialog: dialog)
       dialog
     end
   end

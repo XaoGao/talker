@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
   before_action :authenticate_user!
   def create
-    result = LikeService::LikeCreate.new.call(current_user, params[:type], params[:id])
+    result = LikeService::LikeCreate.call(user: current_user, likeable_type: params[:type], likeable_id: params[:id])
     respond_to do |format|
       format.js do
         @liked = result.data[:liked]

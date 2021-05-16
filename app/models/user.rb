@@ -92,21 +92,12 @@ class User < ApplicationRecord
     Friendship.find_by(user: id, subscriber_id: user).present?
   end
 
-  # TODO: написать в функциональном стиле
   def all_unread_messages
-    # dialog.sum { |d| d.unread_messages_count(self) }
-    unread_messages = 0
-    dialogs.each { |dialog| unread_messages += dialog.unread_messages_count(self) }
-    unread_messages
+    dialogs.sum { |d| d.unread_messages_count(self) }
   end
 
-  # TODO: написать в функциональном стиле
   def any_unread_messages?
-    # dialogs.any? { |d| d.unread_messages?(self)}
-    dialogs.each do |dialog|
-      return true if dialog.unread_messages?(self)
-    end
-    false
+    dialogs.any? { |d| d.unread_messages?(self) }
   end
 
   def gender_name
@@ -128,10 +119,6 @@ class User < ApplicationRecord
 
     '-'
   end
-
-  # def should_generate_new_friendly_id?
-  #   username_changed?
-  # end
 
   private
 
