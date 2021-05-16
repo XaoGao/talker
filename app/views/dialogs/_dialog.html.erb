@@ -15,9 +15,7 @@
         <%= dialog.body_of_last_messages.truncate(80) %>
       </div>
       <% if dialog.unread_messages?(current_user) %>
-        <div class="">
-          <span class="badge bg-light">+ <%= dialog.unread_messages_count(current_user) %> сообщении</span>
-        </div>
+        <span class="badge bg-light">+ <%= dialog.unread_messages_count(current_user) %> сообщении</span>
       <% end %>
     </div>    
   </div>

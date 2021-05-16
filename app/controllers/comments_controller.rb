@@ -15,9 +15,6 @@ class CommentsController < ApplicationController
 
   def create
     comment = current_user.comments.new comment_params
-    # comment = Comment.new comment_params
-    # comment.user = current_user
-
     @comment = CommentProxy::CommentAntySpam.new(comment)
 
     if @comment.save
@@ -33,14 +30,12 @@ class CommentsController < ApplicationController
 
   def show
     comment = Comment.find(params[:id])
-    # if comment.present?
     respond_to do |format|
       format.js do
         @comment = comment
         render '/comments/show'
       end
     end
-    # end
   end
 
   private

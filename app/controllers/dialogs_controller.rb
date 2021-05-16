@@ -9,12 +9,9 @@ class DialogsController < ApplicationController
     @messages = @dialog.messages
                        .includes([:sender])
                        .paginate(page: params[:page], per_page: 15)
-                       .order('id DESC')
-    # TODO: написать в функциональном стиле
-    @messages.each do |m|
-      m.read_message current_user
-    end
+                       .recently
 
+    @messages.each { |m| m.read_message current_user }
     @message = Message.new
 
     respond_to do |format|
