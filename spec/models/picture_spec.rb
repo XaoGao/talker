@@ -1,4 +1,5 @@
 require 'rails_helper'
-RSpec.describe MoneyWorker, type: :worker do
+
+RSpec.describe Picture, type: :model do
   # pending "add some examples to (or delete) #{__FILE__}"
 end

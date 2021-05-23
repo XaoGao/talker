@@ -1,9 +1,11 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!
   def index
-    @articles = Article.with_author.with_picture
-                       .paginate(page: params[:page], per_page: 5)
-                       .recently
+    @articles = Article
+                .with_author
+                .includes([pictures: { image_attachment: :blob }])
+                .paginate(page: params[:page], per_page: 5)
+                .recently
     @article = Article.new
 
     respond_to do |format|
