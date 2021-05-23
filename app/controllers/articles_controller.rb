@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article
                 .with_author
-                .includes([pictures: { image_attachment: :blob }])
+                .includes([picture: { image_attachment: :blob }])
                 .paginate(page: params[:page], per_page: 5)
                 .recently
     @article = Article.new

@@ -686,6 +686,20 @@
           null
         ]
       },
+      "/home/xaogao/Documents/Ruby/talker/spec/factories/comments.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
       "/home/xaogao/Documents/Ruby/talker/spec/factories/dialogs.rb": {
         "lines": [
           null,
@@ -1237,6 +1251,60 @@
           1,
           0,
           null,
+          null
+        ]
+      },
+      "/home/xaogao/Documents/Ruby/talker/spec/models/comment_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          2,
+          null,
+          1,
+          2,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/xaogao/Documents/Ruby/talker/app/models/comment.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
           null
         ]
       },
@@ -1922,6 +1990,6 @@
         ]
       }
     },
-    "timestamp": 1621767651
+    "timestamp": 1621770153
   }
 }
