@@ -15,6 +15,9 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    unless ArticlePolicy::ArticleCreatePolicy.create?(current_user)
+      redirect_to request.referer flash[:alert] = 'Пользователь не имеет прав'
+    end
     @article = Article.new(author: current_user, body: params[:article][:body])
     create_picture if params[:article][:picture].present?
 
