@@ -34,8 +34,8 @@ group :development, :test do
 end
 
 group :development do
-  gem "better_errors"
-  gem "binding_of_caller"
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'bullet'
   gem 'listen', '~> 3.2'
   gem 'rubocop', require: false
@@ -46,6 +46,7 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
+  gem 'chromedriver-helper'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'selenium-webdriver'
