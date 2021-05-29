@@ -76,7 +76,7 @@ class User < ApplicationRecord
   scope :filter_by_username,   ->(username)   { where('username LIKE ?'   , username) }
 
   def main_photo
-    pictures.find(&:is_main)
+    pictures.includes([image_attachment: :blob]).find(&:is_main)
   end
 
   def full_name
