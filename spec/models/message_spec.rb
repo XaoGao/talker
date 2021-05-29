@@ -35,7 +35,7 @@ RSpec.describe Message, type: :model do
   end
 
   describe 'methods' do
-    context '.read_message' do
+    context '#read_message' do
       let(:message) { create(:message) }
       let(:sender)  { create(:user) }
       let(:user)    { create(:user) }

@@ -41,7 +41,7 @@ RSpec.describe Dialog, type: :model do
       end
     end
 
-    context '.create_time_of_last_message' do
+    context '#create_time_of_last_message' do
       let(:message) { create(:message, created_at: '2021-02-23 19:01:50.368544') }
       it 'have messages' do
         dialog_with_messags.messages << message
@@ -53,42 +53,42 @@ RSpec.describe Dialog, type: :model do
       end
     end
 
-    context '.unread_messages?' do
+    context '#unread_messages?' do
       it 'consumer have messages' do
         unread_messages = dialog_with_sender_and_message.unread_messages? consumer
         expect(unread_messages).to be true
       end
 
-      it 'consumer havent unread messages' do
+      it "consumer haven't unread messages" do
         unread_messages = dialog_with_sender_and_read_message.unread_messages? consumer
         expect(unread_messages).to be false
       end
 
-      it 'unconsumer havent unread messages' do
+      it "unconsumer haven't unread messages" do
         unread_messages = dialog_with_sender_and_message.unread_messages? sender
         expect(unread_messages).to be false
       end
     end
 
-    context '.unread_messages_count' do
-      it 'have only unread message' do
+    context '#unread_messages_count' do
+      it 'have only unread messages' do
         unread_messages_count = dialog_with_sender_and_message.unread_messages_count consumer
         expect(unread_messages_count).to eq(3)
       end
 
-      it 'have some unread message' do
+      it 'have some unread messages' do
         dialog_with_sender_and_message.messages.first.update(is_read: true)
         unread_messages_count = dialog_with_sender_and_message.unread_messages_count consumer
         expect(unread_messages_count).to eq(2)
       end
 
-      it 'unconsumer havent unread messages' do
+      it "unconsumer haven't unread messages" do
         unread_messages_count = dialog_with_sender_and_message.unread_messages_count sender
         expect(unread_messages_count).to eq(0)
       end
     end
 
-    context '.name_all_members' do
+    context '#name_all_members' do
       let(:user) { create(:user) }
       it 'dialog name for user' do
         dialog.dialog_members << DialogMember.create(member: sender)
@@ -105,6 +105,35 @@ RSpec.describe Dialog, type: :model do
 
         expect(dialog.name_all_members(sender)).to eq("#{consumer.username}, #{user.username}")
         expect(dialog.name_all_members(consumer)).to eq("#{sender.username}, #{user.username}")
+      end
+    end
+
+    context '.create_dialog_with_members' do
+      let(:user1) { create(:user) }
+      let(:user2) { create(:user) }
+      it 'successfully create a new dialog between users' do
+        dialog = Dialog.create_dialog_with_members(user1, user2)
+        expect(dialog.members.count).to eq(2)
+        expect(dialog.members.first).to eq(user1)
+        expect(dialog.members.last).to eq(user2)
+      end
+    end
+
+    context '.get_or_create' do
+      let(:user1) { create(:user) }
+      let(:user2) { create(:user) }
+      let(:dialog) { create(:dialog) }
+      it "dialog between users doesn't exist" do
+        dialog = Dialog.get_or_create(user1, user2)
+        expect(dialog.members.include?(user1)).to be true
+        expect(dialog.members.include?(user2)).to be true
+      end
+      it 'dialog between users exist' do
+        dialog.dialog_members.create(member: user1)
+        dialog.dialog_members.create(member: user2)
+        dialog = Dialog.get_or_create(user1, user2)
+        expect(dialog.members.include?(user1)).to be true
+        expect(dialog.members.include?(user2)).to be true
       end
     end
   end

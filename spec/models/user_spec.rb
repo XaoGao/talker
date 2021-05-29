@@ -61,13 +61,13 @@ RSpec.describe User, type: :model do
   end
 
   describe 'methods' do
-    context 'scope' do
+    context 'scopes' do
       before(:each) do
         create_list(:user, 2)
         create(:user, lock: true)
       end
 
-      it '#active user' do
+      it '#active_user' do
         all_user = User.all
         active_user = User.actived
 
@@ -75,7 +75,7 @@ RSpec.describe User, type: :model do
         expect(active_user.size).to eq(2)
       end
 
-      it 'all user exept one' do
+      it 'all_user_exept_one' do
         user = User.first
         all_user_except_one = User.all_except(user)
 
@@ -86,14 +86,14 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context '.full name' do
+    context '#full name' do
       let(:user) { build(:user, first_name: 'Jon', last_name: 'James') }
       it 'full name of user' do
         expect(user.full_name).to eq('James Jon')
       end
     end
 
-    context '.location' do
+    context '#location' do
       let(:user) { build(:user, country: 'USA', city: 'Minsk') }
       it 'full location' do
         expect(user.location).to eq('USA, Minsk')
@@ -116,7 +116,7 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context '.gender' do
+    context '#gender' do
       let(:user) { create(:user, gender: 0) }
       it 'not set' do
         expect(user.gender).to eq('not_set')
@@ -142,7 +142,7 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context '.subscriptions' do
+    context '#subscriptions' do
       let!(:user) { create(:user) }
       let(:user2) { create(:user) }
 
@@ -151,13 +151,13 @@ RSpec.describe User, type: :model do
         expect(user.subscriptions.count).to eq(3)
       end
 
-      it 'havent subscriptions' do
+      it "haven't subscriptions" do
         create_list(:friendship, 3, subscriber: user2)
         expect(user.subscriptions.count).to eq(0)
       end
     end
 
-    context '.alredy_subscription?' do
+    context '#alredy_subscription?' do
       let!(:user) { create(:user) }
       let!(:friend) { create(:user) }
 
@@ -167,12 +167,12 @@ RSpec.describe User, type: :model do
         expect(user.alredy_subscription?(friend)).to be true
       end
 
-      it 'havent subscription' do
+      it "haven't subscription" do
         expect(user.alredy_subscription?(friend)).to be false
       end
     end
 
-    context '.any_unread_messages?' do
+    context '#any_unread_messages?' do
       let(:user) { create(:user) }
       it 'have unread messages' do
         user.dialogs << create(:dialog, messages: create_list(:message, 3))
@@ -185,7 +185,7 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context '.all_unread_messages' do
+    context '#all_unread_messages' do
       let(:user) { create(:user) }
       it 'have unread messages' do
         user.dialogs << create(:dialog, messages: create_list(:message, 3))
