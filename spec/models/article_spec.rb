@@ -1,6 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
+  describe 'scopes' do
+    context '.user_liked?' do
+      let(:user) { create(:user) }
+      let(:article) { create(:article) }
+      it 'user liked a article' do
+        article.likes.create(user: user)
+        expect(article.user_liked?(user)).to be true
+      end
+      it "user didn't like a article" do
+        expect(article.user_liked?(user)).to be false
+      end
+    end
+  end
+
   describe 'methods' do
     context '#image?' do
       let(:picture) { create(:picture) }
@@ -39,6 +53,7 @@ RSpec.describe Article, type: :model do
       end
 
       it 'havent image' do
+        # TODO
         # article.picture.is_main = false
         # article.save
         # expect(article.image_title).to eq(picture.title)

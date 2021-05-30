@@ -677,10 +677,10 @@
         "lines": [
           1,
           1,
-          10,
-          10,
-          10,
-          10,
+          12,
+          12,
+          12,
+          12,
           1,
           null,
           null
@@ -859,19 +859,19 @@
           null,
           1,
           1,
-          147,
-          147,
+          151,
+          151,
+          152,
+          152,
+          152,
+          152,
+          152,
+          150,
+          152,
           148,
           148,
           148,
-          148,
-          148,
-          146,
-          148,
-          144,
-          144,
-          144,
-          148,
+          152,
           null,
           null
         ]
@@ -1249,7 +1249,7 @@
           1,
           null,
           1,
-          0,
+          2,
           null,
           null
         ]
@@ -1993,6 +1993,33 @@
           null
         ]
       },
+      "/home/xaogao/Documents/Ruby/talker/app/models/like.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
       "/home/xaogao/Documents/Ruby/talker/app/models/dialog_member.rb": {
         "lines": [
           null,
@@ -2022,6 +2049,6 @@
         ]
       }
     },
-    "timestamp": 1622318508
+    "timestamp": 1622319344
   }
 }
