@@ -2,14 +2,12 @@
   <div class="container">
     <%= link_to "Talker", root_path, class: "navbar-brand" %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        
-      </ul>
+      <%= render 'layouts/money' %>
       <div class="my-2 my-lg-0">
         <% if user_signed_in? %>
           <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%# <%= avatar current_user %>
+              <%# TODO:  <%= avatar current_user %>
               <%= image_tag('user', alt: current_user.username, class: 'avatar') %>
               <%= current_user.username %>
             </button>

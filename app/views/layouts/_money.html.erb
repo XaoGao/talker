@@ -1,0 +1,8 @@
+
+<% if user_signed_in? %>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item" title="Курс доллара">
+      <span class="nav-link" id="money"><%= ExchangeRate.last_rate.nil? ? 0 : ExchangeRate.last_rate.USD %></span>
+    </li>
+  </ul>
+<% end %>

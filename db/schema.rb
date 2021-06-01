@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_26_104855) do
+ActiveRecord::Schema.define(version: 2021_06_01_130114) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -74,6 +74,14 @@ ActiveRecord::Schema.define(version: 2021_04_26_104855) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["owner_id"], name: "index_dialogs_on_owner_id"
+  end
+
+  create_table "exchange_rates", force: :cascade do |t|
+    t.integer "USD", null: false
+    t.integer "EUR", default: 0, null: false
+    t.boolean "last", default: true, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
