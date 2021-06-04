@@ -10,10 +10,9 @@
 #  updated_at :datetime         not null
 #
 class ExchangeRate < ApplicationRecord
-  scope :last_rate, -> { where(last: true).first }
-  # after_create :send_new_rate
+  # scope :last_rate, -> { find_by(last: true) }
 
-  # def send_new_rate
-  #   ActionCable.server.broadcast 'money_channel', content: USD
-  # end
+  def self.last_rate
+    find_by(last: true)
+  end
 end

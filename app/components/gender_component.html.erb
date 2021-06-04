@@ -1,0 +1,6 @@
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <%= @f.label "Пол", class: "input-group-text", for: "inputGroupSelect01" %>
+  </div>
+<%= @f.select :gender, humanize_gender, {}, class: "custom-select", id:"inputGroupSelect01" %> 
+</div>  

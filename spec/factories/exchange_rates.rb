@@ -11,6 +11,8 @@
 #
 FactoryBot.define do
   factory :exchange_rate do
-    
+    EUR  { Faker::Number.between(from: 1, to: 10) }
+    USD  { Faker::Number.between(from: 1, to: 10) }
+    last { false }
   end
 end

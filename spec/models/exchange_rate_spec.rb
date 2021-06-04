@@ -12,5 +12,17 @@
 require 'rails_helper'
 
 RSpec.describe ExchangeRate, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'methods' do
+    context '.last_rate' do
+      let!(:rates) { create_list(:exchange_rate, 4) }
+      it 'last rate is not exist' do
+        expect(ExchangeRate.last_rate).to eq(nil)
+      end
+
+      it 'last rate is exist' do
+        rate = create(:exchange_rate, last: true)
+        expect(ExchangeRate.last_rate).to eq(rate)
+      end
+    end
+  end
 end

@@ -18,12 +18,7 @@
     <%= f.text_field :last_name, class: "form-control" %>
   </div>
   
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <%= f.label "Пол", class: "input-group-text", for: "inputGroupSelect01" %>
-    </div>
-  <%= f.select :gender, User.genders.keys.to_a, {}, class: "custom-select", id:"inputGroupSelect01" %> 
-  </div>
+  <%= render GenderComponent.new f: f%>
 
   <div class="form-group">
     <%= f.label "Страна" %><br />
@@ -39,32 +34,35 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label "Пароль" %> <i>(leave blank if you don't want to change it)</i><br />
+  <hr>
+  <h3>Пароль</h3>
+  <div class="form-group mt-3">
+    <%= f.label "Новый пароль" %> <i>(оставьте пустым если вы не хотите обновить пароль)</i><br />
     <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <em><%= @minimum_password_length %> минимальное количество символов</em>
     <% end %>
   </div>
 
   <div class="form-group">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label "Повторите новый пароль" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
   </div>
+  <hr>
 
   <div class="form-group">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label "Текущий пароль" %> <i>(для сохранения изменний введите ваш пароль)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Обновить", class: "btn btn-primary" %>
   </div>
 <% end %>
+<hr>
+<h3>Зблокировать учетную запись</h3>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<%= button_to "Заблокировать", registration_path(resource_name), data: { confirm: "Вы уверены?" }, method: :delete, class: "btn btn-danger" %>
+<hr>
+<%= link_to "Назад", :back, class: "btn btn-primary" %>
