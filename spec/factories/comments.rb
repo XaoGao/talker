@@ -29,6 +29,6 @@ FactoryBot.define do
     lock { false }
     spam { false }
     association :user
-    association :imageable, factory: :article
+    association :commentable, factory: :article
   end
 end

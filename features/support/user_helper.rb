@@ -7,6 +7,13 @@ def new_session
   user
 end
 
+def new_session_of_user(email, password)
+  visit '/users/sign_in'
+  fill_in 'user_email',	with: email
+  fill_in 'user_password',	with: password
+  click_on 'user_signin_submit'
+end
+
 def create_article
   visit '/articles'
   page.find('#article-form-field').click
