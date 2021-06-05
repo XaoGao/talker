@@ -19,7 +19,7 @@
 #
 class Dialog < ApplicationRecord
   include Orderable
-  belongs_to :owner, class_name: 'User', foreign_key: 'owner_id'
+  belongs_to :owner, class_name: 'User', foreign_key: 'owner_id', dependent: :destroy
 
   has_many :dialog_members
   has_many :members, through: :dialog_members

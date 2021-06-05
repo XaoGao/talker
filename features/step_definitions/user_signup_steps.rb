@@ -13,5 +13,5 @@ When('I signup a new account') do
 end
 
 Then('I see a welcome message for new user') do
-  expect(page).to have_content('Welcome! You have signed up successfully.') 
+  expect(page).to have_content('Welcome! You have signed up successfully.')
 end

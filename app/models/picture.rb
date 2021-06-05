@@ -12,7 +12,7 @@
 #  imageable_id   :bigint           not null
 #
 class Picture < ApplicationRecord
-  belongs_to :imageable, polymorphic: true
+  belongs_to :imageable, polymorphic: true, dependent: :destroy
   has_one_attached :image
 
   has_many :likes, as: :likeable

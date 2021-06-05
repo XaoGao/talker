@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_05_133330) do
+ActiveRecord::Schema.define(version: 2021_06_05_175558) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -135,13 +135,6 @@ ActiveRecord::Schema.define(version: 2021_06_05_133330) do
     t.integer "comments_count", default: 0, null: false
   end
 
-  create_table "roles", force: :cascade do |t|
-    t.string "name", default: "", null: false
-    t.boolean "lock", default: false, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "", null: false
@@ -169,10 +162,9 @@ ActiveRecord::Schema.define(version: 2021_06_05_133330) do
     t.string "city", default: "", null: false
     t.boolean "online", default: false, null: false
     t.string "slug"
-    t.integer "role_id"
+    t.integer "role", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["role_id"], name: "index_users_on_role_id"
     t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
@@ -186,5 +178,4 @@ ActiveRecord::Schema.define(version: 2021_06_05_133330) do
   add_foreign_key "likes", "users"
   add_foreign_key "messages", "dialogs"
   add_foreign_key "messages", "users", column: "sender_id"
-  add_foreign_key "users", "roles"
 end

@@ -19,6 +19,6 @@
 #  member_id  (member_id => users.id)
 #
 class DialogMember < ApplicationRecord
-  belongs_to :member, class_name: "User", foreign_key: "member_id"
-  belongs_to :dialog
+  belongs_to :member, class_name: 'User', foreign_key: 'member_id', dependent: :destroy
+  belongs_to :dialog, dependent: :destroy
 end

@@ -793,12 +793,41 @@
           1,
           23,
           23,
-          16,
+          15,
           null,
           null
         ]
       },
       "/home/xaogao/Documents/Ruby/talker/spec/factories/friendships.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/xaogao/Documents/Ruby/talker/spec/factories/likes.rb": {
         "lines": [
           null,
           null,
@@ -897,8 +926,34 @@
           null
         ]
       },
+      "/home/xaogao/Documents/Ruby/talker/spec/factories/roles.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          152,
+          156,
+          null,
+          null
+        ]
+      },
       "/home/xaogao/Documents/Ruby/talker/spec/factories/users.rb": {
         "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           null,
           null,
@@ -952,6 +1007,7 @@
           148,
           148,
           152,
+          1,
           null,
           null
         ]
@@ -986,6 +1042,7 @@
           null,
           1,
           1,
+          null,
           null,
           1,
           null
@@ -1031,6 +1088,12 @@
           null,
           null,
           null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           1,
           1,
           1,
@@ -1044,6 +1107,8 @@
           1,
           null,
           null,
+          null,
+          1,
           null,
           1,
           null,
@@ -1113,6 +1178,10 @@
           4,
           null,
           1,
+          null,
+          null,
+          1,
+          0,
           null,
           null,
           1,
@@ -1869,7 +1938,7 @@
           null,
           1,
           1,
-          0,
+          1,
           null,
           null,
           null,
@@ -1893,7 +1962,7 @@
           null,
           null,
           1,
-          9,
+          10,
           null,
           null
         ]
@@ -1966,6 +2035,60 @@
           3,
           3,
           null,
+          null
+        ]
+      },
+      "/home/xaogao/Documents/Ruby/talker/spec/models/like_spec.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/xaogao/Documents/Ruby/talker/app/models/like.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
           null
         ]
       },
@@ -2113,8 +2236,75 @@
           null
         ]
       },
+      "/home/xaogao/Documents/Ruby/talker/spec/models/role_spec.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          2,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/xaogao/Documents/Ruby/talker/app/models/role.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          2,
+          null,
+          1,
+          3,
+          null,
+          null
+        ]
+      },
       "/home/xaogao/Documents/Ruby/talker/spec/models/user_spec.rb": {
         "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           null,
           null,
@@ -2465,33 +2655,6 @@
           null
         ]
       },
-      "/home/xaogao/Documents/Ruby/talker/app/models/like.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
       "/home/xaogao/Documents/Ruby/talker/app/models/dialog_member.rb": {
         "lines": [
           null,
@@ -2542,6 +2705,6 @@
         ]
       }
     },
-    "timestamp": 1622888276
+    "timestamp": 1622911469
   }
 }
