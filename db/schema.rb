@@ -77,9 +77,9 @@ ActiveRecord::Schema.define(version: 2021_06_01_130114) do
   end
 
   create_table "exchange_rates", force: :cascade do |t|
-    t.integer "USD", null: false
-    t.integer "EUR", default: 0, null: false
-    t.boolean "last", default: true, null: false
+    t.string "USD", null: false
+    t.string "EUR", default: "", null: false
+    t.boolean "current", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

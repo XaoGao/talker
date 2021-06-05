@@ -1,7 +1,7 @@
 
 <% if user_signed_in? %>
   <ul class="navbar-nav mr-auto">
-    <li class="nav-item" title="<%= current_rate_title %>">
+    <li class="nav-item" id="money-title" title="<%= current_rate_title %>">
       <span class="nav-link" id="money"><%= current_rate_usd %></span>
     </li>
   </ul>

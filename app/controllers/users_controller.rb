@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   def index
-    @users = User.all_except current_user
+    @users = User.paginate(page: params[:page], per_page: 15).all_except current_user
   end
 
   def show

@@ -5,7 +5,8 @@ class ArticlesController < ApplicationController
                 .includes([:author])
                 .includes([picture: { image_attachment: :blob }])
                 .paginate(page: params[:page], per_page: 5)
-                .order('id DESC')
+                .recently
+
     @article = Article.new
 
     respond_to do |format|

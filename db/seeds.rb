@@ -1,8 +1,8 @@
 require 'faker'
 
-# 10.times do |i|
+# 50.times do |i|
 #   User.create(
-#     email: "test#{i}@test.com",
+#     email: "test#{i+10}@test.com",
 #     password: "password",
 #     username: Faker::Internet.username,
 #     first_name: Faker::Name.first_name,

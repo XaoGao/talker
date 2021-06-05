@@ -3,9 +3,9 @@ require 'spec_helper'
 describe ApplicationHelper do
   describe '#current_rate' do
     context 'exchange rate is exist' do
-      let!(:rate) { create(:exchange_rate, last: true) }
+      let!(:rate) { create(:exchange_rate, current: true) }
       it 'return last exchange rate' do
-        expect(helper.current_rate.last).to eq(true)
+        expect(helper.current_rate.current).to eq(true)
       end
 
       it 'return titls of last rate' do
@@ -18,7 +18,7 @@ describe ApplicationHelper do
     end
 
     context "last exchange rate isn't exist" do
-      let!(:rate) { create(:exchange_rate, last: false) }
+      let!(:rate) { create(:exchange_rate, current: false) }
       it 'return last exchange rate' do
         expect(helper.current_rate).to eq(nil)
       end

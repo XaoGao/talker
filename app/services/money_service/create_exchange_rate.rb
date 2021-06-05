@@ -7,10 +7,11 @@ module MoneyService
     def call
       nodes = usd_and_eur_rate
       # ActiveRecord::Base.transaction do
-      last = ExchangeRate.last_rate
-      last.update(last: false) if last.present?
-      rate = ExchangeRate.create(USD: nodes[:USD], EUR: nodes[:EUR], last: true)
-      ActionCable.server.broadcast 'money_channel', content: rate.USD
+      last_rate = ExchangeRate.last
+      if last_rate.present? && last_rate.current == true
+        last_rate.update(current: false)
+      end
+      rate = ExchangeRate.create(USD: nodes[:USD], EUR: nodes[:EUR], current: true)
       success(rate)
       # end
     end

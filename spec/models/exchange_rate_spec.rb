@@ -3,9 +3,9 @@
 # Table name: exchange_rates
 #
 #  id         :integer          not null, primary key
-#  EUR        :integer          default(0), not null
-#  USD        :integer          not null
-#  last       :boolean          default(TRUE), not null
+#  EUR        :string           default(""), not null
+#  USD        :string           not null
+#  current    :boolean          default(TRUE), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -20,7 +20,7 @@ RSpec.describe ExchangeRate, type: :model do
       end
 
       it 'last rate is exist' do
-        rate = create(:exchange_rate, last: true)
+        rate = create(:exchange_rate, current: true)
         expect(ExchangeRate.last_rate).to eq(rate)
       end
     end
