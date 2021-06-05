@@ -29,12 +29,18 @@
 #  username               :string           default(""), not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  role_id                :integer
 #
 # Indexes
 #
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_role_id               (role_id)
 #  index_users_on_slug                  (slug) UNIQUE
+#
+# Foreign Keys
+#
+#  role_id  (role_id => roles.id)
 #
 class User < ApplicationRecord
   include Activeable
@@ -51,6 +57,8 @@ class User < ApplicationRecord
          :trackable
 
   enum gender: { not_set: 0, man: 1, woman: 2, another: 3 }
+
+  belongs_to :role, class_name: 'Role', foreign_key: 'role_id'
 
   has_many :pictures, as: :imageable
   has_many :articles, foreign_key: 'author_id'
@@ -118,6 +126,10 @@ class User < ApplicationRecord
     return user_location if user_location.present?
 
     '-'
+  end
+
+  def admin?
+    role.name == 'admin'
   end
 
   private

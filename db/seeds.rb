@@ -40,3 +40,11 @@ require 'faker'
 # User.all.each do |u|
 #   u.gender = 0
 # end
+
+# ['default', 'user', 'admin'].each do |role|
+#   Role.create(name: role, lock: false)
+# end
+
+# User.all.each do |user|
+#   user.update(role: Role.first)
+# end

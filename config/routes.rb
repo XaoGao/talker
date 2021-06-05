@@ -24,8 +24,9 @@ Rails.application.routes.draw do
     end
   end
 
-  Talker::Application.routes.draw do
-    mount Sidekiq::Web => "/sidekiq"
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
   end
+
   mount ActionCable.server, at: '/cable'
 end
