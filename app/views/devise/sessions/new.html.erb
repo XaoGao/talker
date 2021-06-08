@@ -1,23 +1,24 @@
 <div class="row mt-5">
-  <div class="col-4"></div>
+  <div class="col-4">
+  </div>
   <div class="col-6">
     <div class="card">
       <div class="card-body">
-        <h1 class="text-center">Зайти</h1>
+        <h1 class="text-center"><%= t '.to_come_in' %></h1>
         <hr>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-group">
-            <%= f.label "Почта" %><br />
+            <%= f.label :email %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: 'user_email' %>
           </div>
 
           <div class="form-group">
-            <%= f.label "Пароль" %><br />
+            <%= f.label :password %><br />
             <%= f.password_field :password, autocomplete: "current-password", class: "form-control", id: 'user_password' %>
           </div>
           <hr>
           <div class="actions mt-4">
-            <%= f.submit "Войти", class: "btn btn-primary", id: "user_signin_submit" %>
+            <%= f.submit t('.singin'), class: "btn btn-primary", id: "user_signin_submit" %>
           </div>
         <% end %>
       </div>

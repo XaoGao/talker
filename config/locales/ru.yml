@@ -1,0 +1,61 @@
+ru:
+  activerecord:
+    attributes:
+      user:
+        email: 'Почта'
+        password: 'Пароль'
+        first_name: 'Имя'
+        last_name: 'Фамилия'
+        username: 'Никнейм'
+        country: 'Страна'
+        city: 'Город'
+        password_confirmation: 'Повторите пароль'
+        current_password: 'Текущий пароль'
+      article:
+        body: 'Новость'
+  authorization:
+    signup: 'Зарегистрироваться'
+    singin: 'Войти'
+    login: 'Авторизоваться'
+    to_come_in: 'Войти'
+    current_password: 'Текущий пароль'
+    characters_minimum: '%{lenght} минимальное количество символов'
+    empty_password: 'оставьте пустым если вы не хотите обновить пароль'
+    password_for_update_account: 'для сохранения изменний введите ваш пароль'
+  devise:
+    registrations:
+      edit:
+        profile: 'Профиль %{current_profile}'
+        block: 'Заблокировать'
+        block_profile: 'Заблокировать учетную запись'
+    sessions:
+      new:
+        to_come_in: 'Войти'
+        singin: 'Войти'
+  users:
+    show:
+      profile: 'Профиль %{profile}'
+      password: 'Пароль'
+      about: 'Обо мне'
+      photos: 'Фотографии'
+      name: 'Имя'
+      known_as: 'Известен как'
+      date_of_birthday: 'Дата рождения'
+      gender: 'Пол'
+      city: 'Город'
+      interests: 'Инетересы'
+      subscribers: 'Подписчики'
+      subscriptions: 'Подписки'
+  article:
+    form:
+      publish: 'Опубликовать'
+      add_news: 'Опубликовать новость'
+  global:
+    language: 'Язык'
+  #   confirm:
+  #     warning: 'Вы уверены?'
+  #     ok: 'Да'
+  #     canel: 'Отмена'
+  button:
+    back: 'Назад'
+    update: 'Обновить'

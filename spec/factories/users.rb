@@ -52,6 +52,6 @@ FactoryBot.define do
     country       { Faker::Address.community }
     city          { Faker::Address.city }
     online        { false }
-    association :role, factory: :role
+    role          { User.roles[:user] }
   end
 end

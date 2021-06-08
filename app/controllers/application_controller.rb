@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_locale
 
   protected
 
@@ -16,5 +17,15 @@ class ApplicationController < ActionController::Base
     else
       flash[:alert] = result.error
     end
+  end
+
+  def set_locale
+    # I18n.locale = locale_from_header || I18n.default_locale
+    I18n.locale = I18n.default_locale
+    # I18n.locale = :en
+  end
+
+  def locale_from_header
+    request.env.fetch('HTTP_ACCEPT_LANGUAGE', '').scan(/[a-z]{2}/).first
   end
 end

@@ -1,33 +1,62 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      user:
+        email: 'Email'
+        password: 'Password'
+        first_name: 'First name'
+        last_name: 'Last name'
+        username: 'Username'
+        country: 'Country'
+        city: 'City'
+        password_confirmation: 'Password confirmation'
+        current_password: 'Current password'
+      article:
+        body: 'News'
+  authorization:
+    signup: 'Sign up'
+    singin: 'Sign in'
+    login: 'Log in'
+    to_come_in: 'To come in'
+    current_password: 'Current password'
+    characters_minimum: '%{lenght} characters minimum'
+    empty_password: 'leave it blank if you do not want to change it'
+    password_for_update_account: 'we need your current password to confirm your changes'
+
+  devise:
+    registrations:
+      edit:
+        profile: 'Profile %{current_profile}'
+        block: 'Block'
+        block_profile: 'Block account'
+    sessions:
+      new:
+        to_come_in: 'To come in'
+        singin: 'Sign in'
+  users:
+    show:
+      profile: 'Profile s %{profile}'
+      password: 'Password'
+      about: 'About'
+      photos: 'Photos'
+      name: 'Name'
+      known_as: 'Known as'
+      date_of_birthday: 'Date of birthday'
+      gender: 'Gender'
+      city: 'City'
+      interests: 'Interests'
+      subscribers: 'Subscribers'
+      subscriptions: 'Subscriptions'
+  article:
+    index:
+      publish: 'Publish'
+      add_news: 'Publish a new article'
+  global:
+    language: 'Language'
+      # confirm:
+        # warning: 'Are you sure?'
+        # ok: 'Ok'
+        # cancel: 'Cancel'
+  button:
+    back: 'Back'
+    update: 'Update'

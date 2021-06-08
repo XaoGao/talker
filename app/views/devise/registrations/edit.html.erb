@@ -1,32 +1,32 @@
-<h2>Профиль <%= current_user.full_name %></h2>
+<h2><%= t('.profile', current_profile: current_user.full_name) %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="form-group">
-    <%= f.label "Никнейм" %><br />
+    <%= f.label :username %><br />
     <%= f.text_field :username, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label "Имя" %><br />
+    <%= f.label :first_name %><br />
     <%= f.text_field :first_name, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label "Фамилия" %><br />
+    <%= f.label :last_name %><br />
     <%= f.text_field :last_name, class: "form-control" %>
   </div>
   
-  <%= render GenderComponent.new f: f%>
+  <%= render GenderComponent.new f: f %>
 
   <div class="form-group">
-    <%= f.label "Страна" %><br />
+    <%= f.label :country %><br />
     <%= f.text_field :country, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label "Город" %><br />
+    <%= f.label :city %><br />
     <%= f.text_field :city, class: "form-control" %>
   </div>
 
@@ -35,34 +35,34 @@
   <% end %>
 
   <hr>
-  <h3>Пароль</h3>
+  <h3><%= t 'password' %></h3>
   <div class="form-group mt-3">
-    <%= f.label "Новый пароль" %> <i>(оставьте пустым если вы не хотите обновить пароль)</i><br />
+    <%= f.label :password %> <i>(<%= t('authorization.empty_password') %>)</i><br />
     <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %> минимальное количество символов</em>
+      <em><%= t('authorization.characters_minimum', lenght: @minimum_password_length) %></em>
     <% end %>
   </div>
 
   <div class="form-group">
-    <%= f.label "Повторите новый пароль" %><br />
+    <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
   </div>
   <hr>
 
   <div class="form-group">
-    <%= f.label "Текущий пароль" %> <i>(для сохранения изменний введите ваш пароль)</i><br />
+    <%= f.label :current_password %> <i>(<%= t 'authorization.password_for_update_account' %>)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Обновить", class: "btn btn-primary" %>
+    <%= f.submit t('button.update'), class: "btn btn-primary" %>
   </div>
 <% end %>
 <hr>
-<h3>Зблокировать учетную запись</h3>
+<h3><%= t('.block_profile') %></h3>
 
-<%= button_to "Заблокировать", registration_path(resource_name), data: { confirm: "Вы уверены?" }, method: :delete, class: "btn btn-danger" %>
+<%= button_to t('.block'), registration_path(resource_name), data: { confirm: t('global.confirm.warning') }, method: :delete, class: "btn btn-danger" %>
 <hr>
-<%= link_to "Назад", :back, class: "btn btn-primary" %>
+<%= link_to t('button.back'), :back, class: "btn btn-primary" %>

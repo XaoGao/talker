@@ -52,7 +52,7 @@ class User < ApplicationRecord
          :trackable
 
   enum gender: { not_set: 0, man: 1, woman: 2, another: 3 }
-  enum role:   { simple_user: 1, admin: 2 }
+  enum role:   { user: 1, moderator: 2, admin: 3 }
 
   has_many :pictures, as: :imageable
   has_many :articles, foreign_key: 'author_id'

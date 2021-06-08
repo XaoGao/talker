@@ -1,5 +1,5 @@
 <div class="article-form" id="article-form">
-  <h3 class="text-center">Добавить новость</h3>
+  <h3 class="text-center"><%= t 'article.form.add_news' %></h3>
   <%= form_with model: @article, local: true  do |f| %>
     <div class="form-group">
       <%= f.text_area :body, class: "form-control", rows: 3, placeholder: "Новость", id: "article-form-body-field" %>
@@ -8,7 +8,7 @@
       <%= f.file_field :picture, id: "article-form-file-field" %>
     </div>
     <div>
-      <%= f.submit "Опубликовать", class: "btn btn-primary float-right", id: "article-form-submit" %>
+      <%= f.submit (t 'article.form.publish'), class: "btn btn-primary float-right", id: "article-form-submit" %>
     </div>
   <% end %>
 </div>
