@@ -1,53 +1,8 @@
 <ul class="list-unstyled fw-normal pb-1 small sidebar">
-  <%= link_to user_path(current_user) do %>
-    <li>
-      <h4>
-        <i class="fas fa-user"></i>
-        <p class="d-inline-flex align-items-center rounded active">Моя страница</p>
-      </h4>
-    </li>
-  <% end %>
-  <%= link_to articles_path do %>
-    <li>
-      <h4>
-        <i class="fas fa-newspaper"></i>
-        <p class="d-inline-flex align-items-center rounded active">Новости</p>
-      </h4>
-    </li>
-  <% end %>
-  <%= link_to users_path do %>
-    <li>
-      <h4>
-        <i class="fas fa-users"></i>
-        <p class="d-inline-flex align-items-center rounded active">Пользователи</p>
-      </h4>
-    </li>
-  <% end %>
-  <%= link_to dialogs_path do %>
-    <li>
-      <h4>
-        <i class="fas fa-comment"></i>
-        <p class="d-inline-flex align-items-center rounded active">Диалоги</p>
-        <% if current_user.any_unread_messages? %>
-          <span class="badge bg-secondary text-white">+ <%= current_user.all_unread_messages %></span>
-        <% end %>
-      </h4>
-    </li>
-  <% end %>
-  <%= link_to subscribers_path do %>
-    <li>
-      <h4>
-        <i class="fas fa-user-friends"></i>
-        <p class="d-inline-flex align-items-center rounded active">Подписчики</p>
-      </h4>
-    </li>
-  <% end %>
-  <%= link_to subscriptions_path(user_id: current_user.id) do %>
-    <li>
-      <h4>
-        <i class="fas fa-user-friends"></i>
-        <p class="d-inline-flex align-items-center rounded active">Подписки</p>
-      </h4>
-    </li>
-  <% end %>
+  <%= render SidebarItemComponent.new(path: user_path(current_user), title: t('layouts.application.my_page'), icon: 'fas fa-user') %>
+  <%= render SidebarItemComponent.new(path: articles_path, title: t('layouts.application.news'), icon: 'fas fa-newspaper') %>
+  <%= render SidebarItemComponent.new(path: users_path, title: t('layouts.application.users'), icon: 'fas fa-users') %>
+  <%= render SidebarItemComponent.new(path: dialogs_path, title: t('layouts.application.dialogs'), icon: 'fas fa-comment') %>
+  <%= render SidebarItemComponent.new(path: subscribers_path, title: t('layouts.application.subscribers'), icon: 'fas fa-user-friends') %>
+  <%= render SidebarItemComponent.new(path: subscriptions_path(user_id: current_user.id), title: t('layouts.application.subscriptions'), icon: 'fas fa-user-friends') %>
 </ul>

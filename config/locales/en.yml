@@ -23,6 +23,16 @@ en:
     empty_password: 'leave it blank if you do not want to change it'
     password_for_update_account: 'we need your current password to confirm your changes'
 
+  layouts:
+    application:
+      my_page: 'My page'
+      news: 'News'
+      users: 'Users'
+      dialogs: 'Messenger'
+      subscribers: 'Subscribers'
+      subscriptions: 'Subscriptions'
+      logout: 'Logout'
+      login: 'Login'
   devise:
     registrations:
       edit:
@@ -33,6 +43,11 @@ en:
       new:
         to_come_in: 'To come in'
         singin: 'Sign in'
+
+  home:
+    welcome:
+      welcome_message: 'Welcome'
+
   users:
     show:
       profile: 'Profile s %{profile}'
@@ -47,10 +62,15 @@ en:
       interests: 'Interests'
       subscribers: 'Subscribers'
       subscriptions: 'Subscriptions'
-  article:
+
+  articles:
     index:
+      title: 'News'
+      new_article: 'Add a new article'
+    form:
       publish: 'Publish'
       add_news: 'Publish a new article'
+      
   global:
     language: 'Language'
       # confirm:

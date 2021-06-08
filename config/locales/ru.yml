@@ -22,6 +22,18 @@ ru:
     characters_minimum: '%{lenght} минимальное количество символов'
     empty_password: 'оставьте пустым если вы не хотите обновить пароль'
     password_for_update_account: 'для сохранения изменний введите ваш пароль'
+
+  layouts:
+    application:
+      my_page: 'Моя страница'
+      news: 'Новости'
+      users: 'Пользователи'
+      dialogs: 'Диалоги'
+      subscribers: 'Подписчики'
+      subscriptions: 'Подписки'
+      logout: 'Выйти'
+      login: 'Войти'
+
   devise:
     registrations:
       edit:
@@ -32,6 +44,11 @@ ru:
       new:
         to_come_in: 'Войти'
         singin: 'Войти'
+
+  home:
+    welcome:
+      welcome_message: 'Добро пожаловать'
+
   users:
     show:
       profile: 'Профиль %{profile}'
@@ -46,7 +63,11 @@ ru:
       interests: 'Инетересы'
       subscribers: 'Подписчики'
       subscriptions: 'Подписки'
-  article:
+
+  articles:
+    index:
+      title: 'Новости'
+      new_article: 'Добавить новость'
     form:
       publish: 'Опубликовать'
       add_news: 'Опубликовать новость'

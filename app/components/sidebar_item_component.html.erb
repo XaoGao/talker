@@ -1,0 +1,10 @@
+<%= link_to @path do %>
+  <li>
+    <h4>
+      <% if icon? %>
+        <i class='<%= @icon %>'> </i>
+      <% end %>
+      <p class="d-inline-flex align-items-center rounded active"><%= @title %></p>
+    </h4>
+  </li>
+<% end %>

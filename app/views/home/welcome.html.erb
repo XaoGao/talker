@@ -3,10 +3,10 @@
   <div class="col-6">
     <div class="card">
       <div class="card-body">
-        <h1 class="text-center">Добро пожаловать</h1>
+        <h1 class="text-center"><%= t('.welcome_message') %></h1>
       </div>
-      <%= link_to "Зарегистрироваться", new_user_registration_path, class: "btn btn-primary" %>
-      <%= link_to "Войти", new_user_session_path, class: "btn btn-primary" %>
+      <%= link_to t('authorization.signup'), new_user_registration_path, class: "btn btn-primary" %>
+      <%= link_to t('authorization.singin'), new_user_session_path, class: "btn btn-primary" %>
     </div>
   </div>
   <div class="col-3"></div>

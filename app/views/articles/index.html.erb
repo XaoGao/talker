@@ -1,9 +1,9 @@
-<%= title "Новости" %>
+<%= title(t('.title')) %>
 <div class="row">
   <div class="col-2"></div>
   <div class="col-8 mb-4">
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="Добавить новость" id="article-form-field">
+      <input type="text" class="form-control" placeholder='<%= t('.new_article')%>' id="article-form-field">
     </div>
     <%= render 'articles/form', article: @article %>
   </div>
@@ -16,4 +16,4 @@
     <% end %>
   </div>
 </div>
-<%= render 'layouts/paginate', objects: @articles %>
+<%= render 'partials/paginate', objects: @articles %>
