@@ -71,6 +71,26 @@ ru:
     form:
       publish: 'Опубликовать'
       add_news: 'Опубликовать новость'
+
+  dialogs:
+    index:
+      title: 'Диалоги'
+      messages: 'сообщении'
+    show:
+      title: 'Диалог'
+
+  comments:
+    show:
+      warning: 'Данный комментарии может содерать не приемлемый контент'
+    form:
+      add_new_comment: 'Добавить комментраии'
+
+  friendships:
+    subscribers:
+      title: 'Подписчики'
+    subscriptions:
+      title: 'Подписки'
+
   global:
     language: 'Язык'
   #   confirm:
@@ -80,3 +100,7 @@ ru:
   button:
     back: 'Назад'
     update: 'Обновить'
+    show: 'Показать'
+    send: 'Отправить'
+    close: 'Закрыть'
+    add: 'Добавить'

@@ -70,6 +70,25 @@ en:
     form:
       publish: 'Publish'
       add_news: 'Publish a new article'
+
+  dialogs:
+    index:
+      title: 'Dialogs'
+      messages: 'messages'
+    show:
+      title: 'Dialog'
+
+  comments:
+    show:
+      warning: 'The comment have a not acceptable content'
+    form:
+      add_new_comment: 'Add a comment'
+
+  friendships:
+    subscribers:
+      title: 'Subscribers'
+    subscriptions:
+      title: 'Subscriptions'
       
   global:
     language: 'Language'
@@ -80,3 +99,7 @@ en:
   button:
     back: 'Back'
     update: 'Update'
+    show: 'Show'
+    send: 'Send'
+    close: 'Close'
+    add: 'Add'
