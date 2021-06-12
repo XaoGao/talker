@@ -7,5 +7,5 @@ When('I click button new article') do
 end
 
 Then('I should see a form for new article') do
-  expect(page).to have_content('Добавить новость')
+  expect(page).to have_content(I18n.t('articles.form.add_news'))
 end

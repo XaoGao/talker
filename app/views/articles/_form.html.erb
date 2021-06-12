@@ -5,7 +5,12 @@
       <%= f.text_area :body, class: "form-control", rows: 3, placeholder: "Новость", id: "article-form-body-field" %>
     </div>
     <div class="form-group">
-      <%= f.file_field :picture, id: "article-form-file-field" %>
+      <label class="btn btn-outline-secondary btn-change-avatar btn-lg" id="btn-article-form-file-field">
+        Upload new image
+        <span style="display:none;">
+          <%= f.file_field :picture, id: "article-form-file-field" %>
+        </span>
+      </label>
     </div>
     <div>
       <%= f.submit t('articles.form.publish'), class: "btn btn-primary float-right", id: "article-form-submit" %>
