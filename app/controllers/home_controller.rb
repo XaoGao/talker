@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
   before_action :redirect_user_signed_in
-  def welcome
-  end
+  def welcome; end
 
   private
 
