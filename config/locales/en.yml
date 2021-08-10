@@ -33,6 +33,8 @@ en:
       subscriptions: 'Subscriptions'
       logout: 'Logout'
       login: 'Login'
+    navbar:
+      about: 'About'
   devise:
     registrations:
       edit:
@@ -70,6 +72,7 @@ en:
     form:
       publish: 'Publish'
       add_news: 'Publish a new article'
+      upload: 'Upload image'
 
   dialogs:
     index:

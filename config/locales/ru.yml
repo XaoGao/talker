@@ -33,6 +33,8 @@ ru:
       subscriptions: 'Подписки'
       logout: 'Выйти'
       login: 'Войти'
+    navbar:
+      about: 'О нас'
 
   devise:
     registrations:
@@ -71,6 +73,7 @@ ru:
     form:
       publish: 'Опубликовать'
       add_news: 'Опубликовать новость'
+      upload: 'Загрузить картинку'
 
   dialogs:
     index:

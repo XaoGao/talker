@@ -15,8 +15,7 @@
               <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
                 <i class="fas fa-cog"></i> Настройки
               <% end %>
-              <%= link_to 'About', page_path('about'), class: "dropdown-item" %>
-              <a class="dropdown-item" href="#">Another action</a>
+              <%= link_to t('layouts.navbar.about'), page_path('about'), class: "dropdown-item" %>
               <div class="dropdown-divider"></div>
               <%= link_to destroy_user_session_path, class: "dropdown-item", method: :delete do %>
                 <i class="fas fa-sign-out-alt"></i> <%= t('layouts.application.logout') %>
