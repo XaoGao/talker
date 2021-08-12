@@ -198,5 +198,29 @@ RSpec.describe User, type: :model do
         expect(user.all_unread_messages).to eq(0)
       end
     end
+
+    context '#filter' do
+      let!(:users) { create_list(:user, 5) }
+      it 'by first_name' do
+        create(:user, first_name: 'test')
+        params = { first_name: 'test' }
+        expect(User.all.count).to eq(6)
+        expect(User.filter(params).count).to eq(1)
+      end
+
+      it 'by last name' do
+        create(:user, last_name: 'test')
+        params = { last_name: 'test' }
+        expect(User.all.count).to eq(6)
+        expect(User.filter(params).count).to eq(1)
+      end
+
+      it 'by username' do
+        create(:user, username: 'test')
+        params = { username: 'test' }
+        expect(User.all.count).to eq(6)
+        expect(User.filter(params).count).to eq(1)
+      end
+    end
   end
 end
