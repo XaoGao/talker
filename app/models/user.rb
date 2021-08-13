@@ -122,10 +122,6 @@ class User < ApplicationRecord
     '-'
   end
 
-  def admin?
-    role.admin?
-  end
-
   private
 
   def initial_filed(field)

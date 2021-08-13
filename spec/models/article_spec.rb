@@ -88,5 +88,14 @@ RSpec.describe Article, type: :model do
         expect(article.created_time).to eq('2021 01 21:10')
       end
     end
+
+    context '#image' do
+      let(:picture) { create(:picture) }
+      let(:article) { create(:article, picture: picture) }
+
+      it 'return a picture of an article' do
+        expect(article.image).to eq(picture.image)
+      end
+    end
   end
 end
