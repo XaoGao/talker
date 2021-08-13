@@ -199,7 +199,7 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context '#filter' do
+    context '.filter' do
       let!(:users) { create_list(:user, 5) }
       it 'by first_name' do
         create(:user, first_name: 'test')

@@ -1,13 +1,12 @@
 require "rails_helper"
 
 RSpec.describe GenderComponent, type: :component do
-  # pending "add some examples to (or delete) #{__FILE__}"
+  let(:component) { GenderComponent.new(f: nil) }
+  it '.genders' do
+    expect(component.gendes).to eq(User.genders.keys.to_a)
+  end
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+  it '.humanize_gender' do
+    expect(component.humanize_gender).to eq([['Не указан', 'not_set'], ['Мужской', 'man'], ['Женский', 'woman'], ['Другой', 'another']])
+  end
 end
