@@ -1,10 +1,11 @@
 class MoneyWorker
   include Sidekiq::Worker
 
-  def perform(*args)
+  def perform(*_args)
     result = MoneyService::CreateExchangeRate.call
-    if result.success?
-      ActionCable.server.broadcast 'money_channel', content: result.data
-    end
+    ActionCable.server.broadcast 'money_channel', content: result.data if result.success?
+  rescue StandardError => e
+    Rails.logger.error e.message
+    Rails.logger.error backtrace.join("\n")
   end
 end
