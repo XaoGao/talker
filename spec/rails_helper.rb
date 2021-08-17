@@ -9,6 +9,12 @@ require 'rspec/rails'
 require 'shoulda/matchers'
 require 'capybara/rspec'
 require 'database_cleaner'
+
+require_relative 'support/controller_macros'
+require_relative 'support/factory_bot'
+require_relative 'support/devise'
+require_relative 'support/shoulda_matchers'
+
 begin
   ActiveRecord::Migration.maintain_test_schema!
 rescue ActiveRecord::PendingMigrationError => e
@@ -17,7 +23,6 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 
 RSpec.configure do |config|
-  config.include FactoryBot::Syntax::Methods
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
@@ -30,24 +35,5 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
-  end
-
-  Capybara.register_driver :selenium_chrome do |app|
-    Capybara::Selenium::Driver.new(app, browser: :chrome)
-  end
-
-  Capybara.javascript_driver = :selenium_chrome
-
-  Capybara.configure do |config|
-    config.default_max_wait_time = 10 #seconds
-    config.default_driver = :selenium
-    # config.always_include_port = true
-  end
-
-  Shoulda::Matchers.configure do |config|
-    config.integrate do |with|
-      with.test_framework :rspec
-      with.library :rails
-    end
   end
 end
