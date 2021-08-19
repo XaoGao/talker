@@ -971,21 +971,21 @@
           null,
           1,
           1,
-          183,
-          183,
+          184,
           184,
           185,
-          185,
-          185,
-          185,
+          186,
+          186,
+          186,
+          186,
+          184,
+          186,
+          182,
+          182,
+          182,
           183,
-          185,
-          181,
-          181,
-          181,
-          182,
-          185,
-          182,
+          186,
+          183,
           null,
           null
         ]
@@ -1321,9 +1321,9 @@
           1,
           null,
           1,
-          5,
-          5,
-          5,
+          6,
+          6,
+          6,
           null,
           null,
           1,
@@ -2534,7 +2534,6 @@
           1,
           1,
           1,
-          1,
           null,
           null,
           null,
@@ -2563,6 +2562,33 @@
           null,
           null,
           1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/xaogao/Documents/Ruby/talker/spec/requests/home_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
           1,
           1,
           1,
@@ -2881,7 +2907,7 @@
           null,
           1,
           null,
-          11,
+          13,
           null,
           null,
           null,
@@ -2960,6 +2986,20 @@
           null
         ]
       },
+      "/home/xaogao/Documents/Ruby/talker/app/controllers/home_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          2,
+          null,
+          null
+        ]
+      },
       "/home/xaogao/Documents/Ruby/talker/app/controllers/users_controller.rb": {
         "lines": [
           1,
@@ -2996,6 +3036,6 @@
         ]
       }
     },
-    "timestamp": 1629364681
+    "timestamp": 1629369504
   }
 }
