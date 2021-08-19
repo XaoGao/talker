@@ -8,7 +8,7 @@ RSpec.describe 'Homes', type: :request do
         sign_in user
       end
 
-      it 'should be a redirect to articles path' do
+      it 'should be redirect to an articles path' do
         get root_path
         expect(response).to redirect_to(articles_path)
       end
