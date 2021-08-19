@@ -27,7 +27,7 @@ class ArticlesController < ApplicationController
     else
       flash[:alert] = 'Ошибка при публикации новости'
     end
-    redirect_to request.referer
+    redirect_to articles_path
   end
 
   private
