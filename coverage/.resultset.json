@@ -971,21 +971,21 @@
           null,
           1,
           1,
+          199,
+          199,
+          200,
+          201,
+          201,
+          201,
+          201,
+          197,
+          201,
+          197,
           197,
           197,
           198,
-          199,
-          199,
-          199,
-          199,
-          197,
-          199,
-          195,
-          195,
-          195,
-          196,
-          199,
-          196,
+          201,
+          198,
           null,
           null
         ]
@@ -1135,9 +1135,9 @@
           1,
           5,
           null,
-          1,
-          null,
           2,
+          null,
+          1,
           null,
           1,
           null,
@@ -2519,6 +2519,48 @@
           null
         ]
       },
+      "/home/xaogao/Documents/Ruby/talker/spec/policies/article_create_policy_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          3,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/xaogao/Documents/Ruby/talker/app/policies/article_policy/article_create_policy.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          3,
+          null,
+          null,
+          1,
+          3,
+          null,
+          null,
+          1,
+          3,
+          null,
+          null,
+          1,
+          3,
+          null,
+          null,
+          null
+        ]
+      },
       "/home/xaogao/Documents/Ruby/talker/spec/requests/articles_spec.rb": {
         "lines": [
           1,
@@ -3140,29 +3182,6 @@
           null
         ]
       },
-      "/home/xaogao/Documents/Ruby/talker/app/services/article_policy/article_create_policy.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
       "/home/xaogao/Documents/Ruby/talker/app/controllers/dialogs_controller.rb": {
         "lines": [
           1,
@@ -3326,6 +3345,6 @@
         ]
       }
     },
-    "timestamp": 1629802761
+    "timestamp": 1629807458
   }
 }
