@@ -1,13 +1,13 @@
 module LikeService
   class LikeCreate < Service
     include Callable
-    def call(user:, likeable_type:, likeable_id:)
-      like = Like.find_by(user: user, likeable_type: likeable_type, likeable_id: likeable_id)
+    def call(**options)
+      like = Like.find_by(user: options[:user], likeable_type: options[:likeable_type], likeable_id: options[:likeable_id])
       if like.present?
         liked = false
         like.destroy
       else
-        Like.create(user: user, likeable_type: likeable_type, likeable_id: likeable_id)
+        Like.create(user: options[:user], likeable_type: options[:likeable_type], likeable_id: options[:likeable_id])
         liked = true
       end
       success({ liked: liked, like: like })
