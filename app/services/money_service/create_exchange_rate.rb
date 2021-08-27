@@ -30,7 +30,7 @@ module MoneyService
     end
 
     def request_to_bank
-      response = URI.open('https://www.cbr.ru/scripts/XML_daily.asp').read
+      response = URI.open(Rails.application.credentials[Rails.env.to_sym][:exchange_rate_source]).read
       Nokogiri::XML(response)
     end
   end
