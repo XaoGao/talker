@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def change_status
-    user = User.friendly.find(params[:id])
+    user = User.friendly.find_by(slug: params[:id])
     if current_user == user
       user.update(status: params[:status])
       redirect_to request.referer
