@@ -23,6 +23,10 @@ class Article < ApplicationRecord
   include Likeable
   include Orderable
   include Picturable
+
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   belongs_to :author, class_name: 'User', foreign_key: 'author_id', dependent: :destroy
   has_one :picture, as: :imageable
   has_many :likes, as: :likeable

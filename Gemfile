@@ -5,6 +5,9 @@ ruby '2.7.0'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+gem 'elasticsearch'
 gem 'friendly_id'
 gem 'high_voltage'
 gem 'htmlbeautifier'
