@@ -1,6 +1,6 @@
 # I see a form to create a new article
 Given('I am logged in') do
-  new_session
+  new_session(email: 't1@t.t')
 end
 
 When('I click button new article') do
@@ -12,7 +12,7 @@ Then('I should see a form for new article') do
 end
 # I can create a new article an see in a wall
 Given('I logged in and click input Create article') do
-  new_session
+  new_session(email: 't2@t.t')
   visit '/articles'
   page.find('#article-form-field').click
 end

@@ -1,10 +1,15 @@
-def new_session
-  user = FactoryBot.create(:user, email: 'test@test.com', password: 'password')
+def new_session(email: 'test@test.com', password: 'password')
+  user = FactoryBot.create(:user, email: email, password: password)
   visit '/users/sign_in'
-  fill_in 'user_email',	with: 'test@test.com'
-  fill_in 'user_password',	with: 'password'
+  fill_in 'user_email',	with: email
+  fill_in 'user_password',	with: password
   click_on 'user_signin_submit'
   user
+end
+
+def logout
+  visit '/articles'
+  click_on 'logout'
 end
 
 def new_session_of_user(email, password)

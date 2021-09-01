@@ -1,7 +1,6 @@
 Given('I logged in a see a article') do
-  user = FactoryBot.create(:user, email: 't@t.t', password: 'password')
   @article = FactoryBot.create(:article)
-  new_session_of_user(user.email, user.password)
+  new_session(email: 't3@t.t')
 end
 
 When('I write a new comment field and submit') do
