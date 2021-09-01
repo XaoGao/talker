@@ -1,4 +1,4 @@
-Feature: Create acomment
+Feature: Create a comment
     @javascript
     Scenario: Create a new a comment for article
       Given I logged in a see a article

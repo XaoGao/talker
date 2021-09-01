@@ -14,6 +14,7 @@ module JwtService
       rescue JWT::ExpiredSignature => e
         Rails.logger.error e.message
         Rails.logger.error backtrace.join('\n')
+        nil
     end
   end
 end
