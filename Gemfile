@@ -27,6 +27,9 @@ gem 'turbolinks', '~> 5'
 gem 'view_component', require: 'view_component/engine'
 gem 'webpacker', '~> 4.0'
 gem 'will_paginate'
+gem 'rswag'
+gem 'rswag-api'
+gem 'rswag-ui'
 
 group :development, :test do
   gem 'annotate'
@@ -36,6 +39,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rspec-rails'
+  gem 'rswag-specs'
 end
 
 group :development do
