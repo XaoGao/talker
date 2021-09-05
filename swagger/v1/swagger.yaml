@@ -4,6 +4,27 @@ info:
   title: API V1
   version: v1
 paths:
+  "/api/v1/articles":
+    get:
+      summary: index articles
+      tags:
+      - Articles
+      parameters: []
+      responses:
+        '200':
+          description: get all articles
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                page:
+                  type: integer
+              required:
+              - query
   "/api/v1/login":
     post:
       summary: Creat a new jwt

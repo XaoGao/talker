@@ -11,12 +11,11 @@ describe 'Sessions API' do
           email: { type: :string },
           password: { type: :string }
         },
-        required: [ 'email', 'password' ]
+        required: ['email', 'password']
       }
 
       response '200', 'user found and genereate a new token' do
-        let!(:user) { create(:user, email: 'test@test.com', password: 'password') }
-        let(:session) { { email: 'test@test.com', password: 'password' } }
+        let(:session) { { email: 'test0@test.com', password: 'password' } }
         run_test!
       end
     end
