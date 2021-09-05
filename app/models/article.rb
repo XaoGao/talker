@@ -34,6 +34,10 @@ class Article < ApplicationRecord
 
   scope :with_author, -> { includes([:author]) }
 
+  def as_indexed_json(_options = {})
+    self.as_json
+  end
+
   def image?
     picture.present? && picture.is_main
   end
@@ -48,5 +52,18 @@ class Article < ApplicationRecord
 
   def created_time
     created_at.strftime('%Y %m %H:%M')
+  end
+
+  settings index: { number_of_shards: 1 } do
+    mapping dynamic: 'false' do
+      indexes :id,             type: :keyword
+      indexes :body,           type: :keyword
+      indexes :comments_count, type: :integer
+      indexes :likes_count,    type: :integer
+      indexes :lock,           type: :boolean
+      indexes :created_at,     type: :date, format: :date_optional_time
+      indexes :updated_at,     type: :date, format: :date_optional_time
+      indexes :author_id,      type: :integer
+    end
   end
 end
