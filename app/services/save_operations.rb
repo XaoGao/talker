@@ -4,7 +4,7 @@ module SaveOperations
       yield
     rescue StandardError => e
       Rails.logger.error e.message
-      Rails.logger.error backtrace.join("\n")
+      Rails.logger.error e.backtrace.join("\n")
     end
   end
 end
