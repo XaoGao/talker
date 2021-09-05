@@ -14,9 +14,10 @@ describe 'Articles API' do
         required: ['query']
       }
 
-      response '200', 'get all articles' do
-        run_test!
-      end
+      # TODO
+      # response '200', 'get all articles' do
+        # run_test!
+      # end
     end
   end
 end

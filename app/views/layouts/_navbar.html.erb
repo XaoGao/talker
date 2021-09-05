@@ -13,9 +13,11 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
-                <i class="fas fa-cog"></i> Настройки
+                <i class="fas fa-cog"></i> <%= t('layouts.navbar.settings') %> 
               <% end %>
-              <%= link_to t('layouts.navbar.about'), page_path('about'), class: "dropdown-item" %>
+              <%= link_to  page_path('about'), class: "dropdown-item" do %>
+                <i class="far fa-address-card"></i> <%= t('layouts.navbar.about') %> 
+              <% end %>
               <div class="dropdown-divider"></div>
               <%= link_to destroy_user_session_path, class: "dropdown-item", method: :delete, id: 'logout' do %>
                 <i class="fas fa-sign-out-alt"></i> <%= t('layouts.application.logout') %>

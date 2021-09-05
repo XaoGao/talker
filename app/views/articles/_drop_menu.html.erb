@@ -1,0 +1,20 @@
+<div>
+  <div href="#" id="article-dropdown-<%= article.id %>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fas fa-grip-vertical drop-menu-grip" title="меню"></i>
+  </div>
+
+  <div class="dropdown-menu" aria-labelledby="article-dropdown-<%= article.id %>">
+    <div class="dropdown-item">
+      <i class="fas fa-save"></i> <%= t('layouts.dropdown.save') %> 
+    </div>
+    <div class="dropdown-divider"></div>
+    
+    <% if current_user.admin? %>
+      <div class="dropdown-item">
+        <i class="fas fa-ban"></i> <%= t('layouts.dropdown.ban') %> 
+      </div>
+    <% end %>
+  </div>
+</div>
+
+  

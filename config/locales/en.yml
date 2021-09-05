@@ -35,6 +35,7 @@ en:
       login: 'Login'
     navbar:
       about: 'About'
+      settings: 'Settings'
   devise:
     registrations:
       edit:
@@ -73,6 +74,9 @@ en:
       publish: 'Publish'
       add_news: 'Publish a new article'
       upload: 'Upload image'
+    dropdown:
+      save: 'Save'
+      ban: 'Ban'
 
   dialogs:
     index:
