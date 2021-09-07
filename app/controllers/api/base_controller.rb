@@ -16,7 +16,7 @@ class Api::BaseController < ApplicationController
   end
 
   def decoded
-    JwtService::Encoder.decode(token)[0]
+    JwtService.decode(token)[0]
   rescue StandardError => e
     nil
   end
