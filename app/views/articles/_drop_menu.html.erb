@@ -5,13 +5,13 @@
 
   <div class="dropdown-menu" aria-labelledby="article-dropdown-<%= article.id %>">
     <div class="dropdown-item">
-      <i class="fas fa-save"></i> <%= t('layouts.dropdown.save') %> 
+      <i class="fas fa-save"></i> <%= t('articles.dropdown.save') %> 
     </div>
     <div class="dropdown-divider"></div>
     
     <% if current_user.admin? %>
       <div class="dropdown-item">
-        <i class="fas fa-ban"></i> <%= t('layouts.dropdown.ban') %> 
+        <i class="fas fa-ban"></i> <%= t('articles.dropdown.ban') %> 
       </div>
     <% end %>
   </div>
