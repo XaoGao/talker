@@ -14,7 +14,7 @@ RSpec.describe 'Dialogs', type: :request do
       end
     end
     context 'without sign in user' do
-      it 'should be a success response' do
+      it 'should be a redirect to root response' do
         get dialogs_path
         expect(response).to have_http_status(:found)
         expect(response).to redirect_to(new_user_session_path)
@@ -35,7 +35,7 @@ RSpec.describe 'Dialogs', type: :request do
       end
     end
     context 'without sign in user' do
-      it 'should be a success response' do
+      it 'should be a redirect to root response' do
         get dialog_path(dialog)
         expect(response).to have_http_status(:found)
         expect(response).to redirect_to(new_user_session_path)
@@ -55,9 +55,15 @@ RSpec.describe 'Dialogs', type: :request do
         expect(response).to have_http_status(:found)
         expect(response).to redirect_to(dialog_path(1))
       end
+
+      it 'should be a error response' do
+        post dialogs_path, params: dialog.attributes.merge({ user: 0 })
+        expect(response).to have_http_status(:found)
+        expect(flash[:alert]).to match(I18n.t('dialogs.create.error'))
+      end
     end
     context 'without sign in user' do
-      it 'should be a success response' do
+      it 'should be a redirect to root response' do
         post dialogs_path, params: dialog.attributes
         expect(response).to have_http_status(:found)
         expect(response).to redirect_to(new_user_session_path)

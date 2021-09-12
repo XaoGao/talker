@@ -10,14 +10,14 @@ class MessagesController < ApplicationController
 
   def update
     @message = Message.find(params[:id])
-    flash[:alert] = 'Ошибка во время отправки сообщения' unless @message.update message_params
+    flash[:alert] = t('messages.error') unless @message.update message_params
 
     redirect_to request.referer
   end
 
   def destroy
     @message = Message.find(params[:id])
-    flash[:alert] = 'Ошибка во время отправки сообщения' unless @message.update(lock: true)
+    flash[:alert] = t('messages.error') unless @message.update(lock: true)
 
     redirect_to request.referer
   end

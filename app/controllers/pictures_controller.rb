@@ -15,9 +15,9 @@ class PicturesController < ApplicationController
     clear_main_photo @picture
 
     if @picture.update(is_main: true)
-      flash[:notice] = 'Главная фотография обновлена'
+      flash[:notice] = t('pictures.main.success')
     else
-      flash[:alert] = 'Ошибка при обновлении фотографии'
+      flash[:alert] = t('pictures.main.error')
     end
     redirect_to request.referer
   end

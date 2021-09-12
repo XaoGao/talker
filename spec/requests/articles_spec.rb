@@ -35,6 +35,7 @@ RSpec.describe 'Articles', type: :request do
         post articles_path, params: { article: article.attributes }
         expect(response).to have_http_status(:found)
         expect(response).to redirect_to(articles_path)
+        expect(flash[:notice]).to match(I18n.t('articles.create.success'))
       end
     end
 

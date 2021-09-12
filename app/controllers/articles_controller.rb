@@ -17,15 +17,15 @@ class ArticlesController < ApplicationController
 
   def create
     unless ArticlePolicy::ArticleCreatePolicy.create?(current_user)
-      redirect_to request.referer flash[:alert] = 'Пользователь не имеет прав'
+      redirect_to request.referer flash[:alert] = t('articles.create.policy.error')
     end
     @article = Article.new(author: current_user, body: params[:article][:body])
     create_picture if params[:article][:picture].present?
 
     if @article.save
-      flash[:notice] = 'Новость опубликована'
+      flash[:notice] = t('articles.create.success')
     else
-      flash[:alert] = 'Ошибка при публикации новости'
+      flash[:alert] = t('articles.create.error')
     end
     redirect_to articles_path
   end

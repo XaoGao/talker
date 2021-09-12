@@ -25,6 +25,7 @@ RSpec.describe 'Bookmarks', type: :request do
              headers: { 'HTTP_REFERER' => root_path }
         expect(response).to have_http_status(:found)
         expect(response).to redirect_to(root_path)
+        expect(flash[:notice]).to match(I18n.t('bookmarks.create.success'))
       end
 
       it 'should be a error by create a new bookmark' do
@@ -33,6 +34,7 @@ RSpec.describe 'Bookmarks', type: :request do
              headers: { 'HTTP_REFERER' => root_path }
         expect(response).to have_http_status(:found)
         expect(response).to redirect_to(root_path)
+        expect(flash[:alert]).to match(I18n.t('bookmarks.create.error'))
       end
     end
   end

@@ -67,6 +67,12 @@ en:
       subscriptions: 'Subscriptions'
 
   articles:
+    create:
+      policy:
+        error: 'User have not rule'
+      success: 'Create a new article'
+      error: 'Error by create a new article'
+
     index:
       title: 'News'
       new_article: 'Add a new article'
@@ -79,13 +85,26 @@ en:
       ban: 'Ban'
 
   dialogs:
+    create:
+      error: 'Error when search the dialog'
     index:
       title: 'Dialogs'
       messages: 'messages'
     show:
       title: 'Dialog'
 
+  messages:
+    error: 'Error sending message'
+
+  pictures:
+    main:
+      success: 'The photo set main'
+      error: 'Error while updating photo'
+
+
   comments:
+    create:
+      error: 'Unexcpected error when create a new comment'
     show:
       warning: 'The comment have a not acceptable content'
     form:

@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
         end
       end
     else
-      redirect_to request.referer, alert: 'Непредвиденная ошибка в ходе добавления комментария, обратитесь к администратору'
+      redirect_to request.referer, alert: t('comments.create.error')
     end
   end
 

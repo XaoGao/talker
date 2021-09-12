@@ -21,12 +21,13 @@ class DialogsController < ApplicationController
   end
 
   def create
-    user = User.friendly.find(params[:user])
+    user = User.friendly.find_by(slug: params[:user])
     if user.present?
       dialog = Dialog.get_or_create(current_user, user)
       redirect_to dialog_path dialog
     else
-      flash[:alert] = 'Ошибка при переходе к диалогу'
+      flash[:alert] = t('dialogs.create.error')
+      redirect_to root_path
     end
   end
 end
