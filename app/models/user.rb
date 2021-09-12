@@ -23,7 +23,7 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
-#  role                   :integer          default("old"), not null
+#  role                   :integer          default(NULL), not null
 #  sign_in_count          :integer          default(0), not null
 #  slug                   :string
 #  status                 :string           default(""), not null

@@ -26,6 +26,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :bookmarks, only: [:index, :create, :destroy]
+
   namespace :api do
     namespace :v1 do
       post 'login', to: 'sessions#create'
