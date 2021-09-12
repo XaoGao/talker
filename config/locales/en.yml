@@ -120,6 +120,8 @@ en:
     create:
       success: 'Add a new bookmark'
       error: 'Error by create a new bookmark'
+    destroy:
+      success: 'The bookmark is delited'
       
   global:
     language: 'Language'

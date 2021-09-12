@@ -120,6 +120,8 @@ ru:
     create:
       success: 'Добавлена закладка'
       error: 'Ошибка при добавлении закладки'
+    destroy:
+      success: 'Закладка удалена'
 
   global:
     language: 'Язык'

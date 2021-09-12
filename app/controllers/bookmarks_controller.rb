@@ -12,7 +12,12 @@ class BookmarksController < ApplicationController
     redirect_to request.referer
   end
 
-  def destroy; end
+  def destroy
+    @bookmark = Bookmark.find(params[:id])
+    @bookmark.destroy
+    flash[:notice] = t('bookmarks.destroy.success')
+    redirect_to request.referer
+  end
 
   private
 
