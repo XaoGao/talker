@@ -31,6 +31,7 @@ class Article < ApplicationRecord
   has_one :picture, as: :imageable
   has_many :likes, as: :likeable
   has_many :comments, as: :commentable
+  has_many :bookmarks, as: :bookmarkable
 
   scope :with_author, -> { includes([:author]) }
 

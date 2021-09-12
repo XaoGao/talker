@@ -68,6 +68,8 @@ class User < ApplicationRecord
   has_many :likes
   has_many :comments
 
+  has_many :bookmarks
+
   validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { maximum: 150 }
   validates :first_name, presence: true, length: { in: 2..50 }
   validates :last_name, presence: true, length: { in: 2..50 }

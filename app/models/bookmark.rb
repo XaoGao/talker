@@ -19,5 +19,5 @@
 #
 class Bookmark < ApplicationRecord
   belongs_to :user
-  belongs_to :bookmarable, polymorphic: true
+  belongs_to :bookmarkable, polymorphic: true
 end

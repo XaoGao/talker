@@ -96,6 +96,11 @@ en:
       title: 'Subscribers'
     subscriptions:
       title: 'Subscriptions'
+
+  bookmarks:
+    create:
+      success: 'Add a new bookmark'
+      error: 'Error by create a new bookmark'
       
   global:
     language: 'Language'
