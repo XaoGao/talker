@@ -1,1 +1,16 @@
-<div class="">test</div>
+<div class="">
+  <% @likes_posts.each do |post| %>
+    
+    <% if post.class.to_s == 'Article' %>
+      <%= render 'articles/article', article: post %>
+    <% end %>
+    
+    <% if post.class.to_s == 'Comment' %>
+      <div class="card mb-4">
+        <div class="card-footer">
+          <%= render 'comments/comment', comment: post %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

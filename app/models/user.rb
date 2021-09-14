@@ -66,6 +66,9 @@ class User < ApplicationRecord
   has_many :dialogs, through: :dialog_members
 
   has_many :likes
+  has_many :likes_articles, through: :likes, source: :likeable, source_type: 'Article'
+  has_many :likes_comments, through: :likes, source: :likeable, source_type: 'Comment'
+
   has_many :comments
 
   has_many :bookmarks
@@ -89,6 +92,10 @@ class User < ApplicationRecord
 
   def subscriptions
     Friendship.subscriptions(id)
+  end
+
+  def likes_posts
+    (likes_articles.with_author.with_picture + likes_comments.with_user)
   end
 
   # TODO: переименовать

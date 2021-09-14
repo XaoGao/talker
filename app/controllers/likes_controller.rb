@@ -2,7 +2,7 @@ class LikesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @likes = current_user.likes
+    @likes_posts = current_user.likes_posts
   end
 
   def create
