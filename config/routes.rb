@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get 'subscribers', to: 'friendships#subscribers'
   resources :dialogs, only: [:index, :show, :create]
   resources :messages, only: [:create, :update, :destroy]
-  resources :likes, only: [:create]
+  resources :likes, only: [:index, :create]
   resources :comments, only: [:create, :index, :show]
   resources :pictures, only: [:create, :destroy] do
     member do

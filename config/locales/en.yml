@@ -31,6 +31,7 @@ en:
       dialogs: 'Messenger'
       subscribers: 'Subscribers'
       subscriptions: 'Subscriptions'
+      likes: 'Likes'
       logout: 'Logout'
       login: 'Login'
     navbar:

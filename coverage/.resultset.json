@@ -3310,6 +3310,36 @@
           null
         ]
       },
+      "/home/xaogao/Documents/Ruby/talker/spec/requests/likes_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
       "/home/xaogao/Documents/Ruby/talker/spec/requests/users_spec.rb": {
         "lines": [
           1,
@@ -3725,6 +3755,6 @@
         ]
       }
     },
-    "timestamp": 1631640770
+    "timestamp": 1631641497
   }
 }

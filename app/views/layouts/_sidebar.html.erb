@@ -5,4 +5,5 @@
   <%= render SidebarItemComponent.new(path: dialogs_path, title: t('layouts.application.dialogs'), icon: 'fas fa-comment') %>
   <%= render SidebarItemComponent.new(path: subscribers_path, title: t('layouts.application.subscribers'), icon: 'fas fa-user-friends') %>
   <%= render SidebarItemComponent.new(path: subscriptions_path(user_id: current_user.id), title: t('layouts.application.subscriptions'), icon: 'fas fa-user-friends') %>
+  <%= render SidebarItemComponent.new(path: likes_path, title: t('layouts.application.likes'), icon: 'fas fa-heart') %>
 </ul>
