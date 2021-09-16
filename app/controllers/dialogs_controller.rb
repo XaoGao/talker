@@ -23,7 +23,7 @@ class DialogsController < ApplicationController
   def create
     user = User.friendly.find_by(slug: params[:user])
     if user.present?
-      dialog = Dialog.get_or_create(current_user, user)
+      dialog = DialogService::DialogGetOrCreate.call(owner_member: current_user, second_member: user)
       redirect_to dialog_path dialog
     else
       flash[:alert] = t('dialogs.create.error')

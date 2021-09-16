@@ -51,7 +51,7 @@ RSpec.describe 'Dialogs', type: :request do
         sign_in user
       end
       it 'should be a success response' do
-        post dialogs_path, params: dialog.attributes.merge({ user: user.id })
+        post dialogs_path, params: dialog.attributes.merge({ user: user.slug })
         expect(response).to have_http_status(:found)
         expect(response).to redirect_to(dialog_path(1))
       end

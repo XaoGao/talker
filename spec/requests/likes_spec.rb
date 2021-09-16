@@ -16,10 +16,9 @@ RSpec.describe 'Likes', type: :request do
         sign_in current_user
       end
 
-      it 'should success response', :focus do
+      it 'should success response' do
         get likes_path
         expect(response).to have_http_status(:ok)
-        expect(response).to redirect_to(likes_path)
       end
     end
   end

@@ -11,7 +11,9 @@ module DialogService
       members_in_one_dialog.first
     end
 
-    def create_dialog_with_members(owner_member:, second_member:)
+    private
+
+    def create_dialog_with_members(owner_member, second_member)
       dialog = Dialog.new(owner: owner_member)
       DialogMember.create(member: owner_member, dialog: dialog)
       DialogMember.create(member: second_member, dialog: dialog)

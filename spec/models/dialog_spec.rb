@@ -108,33 +108,33 @@ RSpec.describe Dialog, type: :model do
       end
     end
 
-    context '.create_dialog_with_members' do
-      let(:user1) { create(:user) }
-      let(:user2) { create(:user) }
-      it 'successfully create a new dialog between users' do
-        dialog = Dialog.create_dialog_with_members(user1, user2)
-        expect(dialog.members.count).to eq(2)
-        expect(dialog.members.first).to eq(user1)
-        expect(dialog.members.last).to eq(user2)
-      end
-    end
+    # context '.create_dialog_with_members' do
+    #   let(:user1) { create(:user) }
+    #   let(:user2) { create(:user) }
+    #   it 'successfully create a new dialog between users' do
+    #     dialog = Dialog.create_dialog_with_members(user1, user2)
+    #     expect(dialog.members.count).to eq(2)
+    #     expect(dialog.members.first).to eq(user1)
+    #     expect(dialog.members.last).to eq(user2)
+    #   end
+    # end
 
-    context '.get_or_create' do
-      let(:user1) { create(:user) }
-      let(:user2) { create(:user) }
-      let(:dialog) { create(:dialog) }
-      it "dialog between users doesn't exist" do
-        dialog = Dialog.get_or_create(user1, user2)
-        expect(dialog.members.include?(user1)).to be true
-        expect(dialog.members.include?(user2)).to be true
-      end
-      it 'dialog between users exist' do
-        dialog.dialog_members.create(member: user1)
-        dialog.dialog_members.create(member: user2)
-        dialog = Dialog.get_or_create(user1, user2)
-        expect(dialog.members.include?(user1)).to be true
-        expect(dialog.members.include?(user2)).to be true
-      end
-    end
+    # context '.get_or_create' do
+    #   let(:user1) { create(:user) }
+    #   let(:user2) { create(:user) }
+    #   let(:dialog) { create(:dialog) }
+    #   it "dialog between users doesn't exist" do
+    #     dialog = Dialog.get_or_create(user1, user2)
+    #     expect(dialog.members.include?(user1)).to be true
+    #     expect(dialog.members.include?(user2)).to be true
+    #   end
+    #   it 'dialog between users exist' do
+    #     dialog.dialog_members.create(member: user1)
+    #     dialog.dialog_members.create(member: user2)
+    #     dialog = Dialog.get_or_create(user1, user2)
+    #     expect(dialog.members.include?(user1)).to be true
+    #     expect(dialog.members.include?(user2)).to be true
+    #   end
+    # end
   end
 end
