@@ -2,6 +2,7 @@ require 'rails_helper'
 describe MoneyService::CreateExchangeRate do
   describe '.create_exchange_rate_spec' do
     context 'exist old rates' do
+      let!(:money_service) { create(:toggle_service, name: 'money', env: 'test', work: false) }
       let!(:rates) { create_list(:exchange_rate, 3) }
       it 'success' do
         result = MoneyService::CreateExchangeRate.call
