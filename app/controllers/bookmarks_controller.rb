@@ -2,8 +2,8 @@ class BookmarksController < ApplicationController
   before_action :authenticate_user!
   def index
     @bookmarks = current_user.bookmarks_posts
-                             .includes([:author])
-                             .includes([picture: { image_attachment: :blob }])
+                             .with_author
+                             .with_picture
                              .recently
   end
 

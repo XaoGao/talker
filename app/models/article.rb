@@ -23,6 +23,7 @@ class Article < ApplicationRecord
   include Likeable
   include Orderable
   include Picturable
+  include Bookmarkable
 
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks

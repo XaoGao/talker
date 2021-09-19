@@ -85,6 +85,7 @@ ru:
       upload: 'Загрузить картинку'
     dropdown:
       save: 'Сохранить'
+      delete: 'Удалить'
       ban: 'Удалить'
 
   dialogs:

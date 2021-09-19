@@ -84,6 +84,7 @@ en:
       upload: 'Upload image'
     dropdown:
       save: 'Save'
+      delete: 'Delete'
       ban: 'Ban'
 
   dialogs:

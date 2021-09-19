@@ -5,7 +5,11 @@
 
   <div class="dropdown-menu" aria-labelledby="article-dropdown-<%= article.id %>">
     <div class="dropdown-item">
-      <i class="fas fa-save"></i> <%= t('articles.dropdown.save') %> 
+      <% if article.alredy_bookmark?(current_user) %>
+        <i class="fas fa-trash"></i> <%= t('articles.dropdown.delete') %>
+      <% else %>
+        <i class="fas fa-save"></i> <%= t('articles.dropdown.save') %>  
+      <% end %>
     </div>
     <div class="dropdown-divider"></div>
     

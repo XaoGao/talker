@@ -1,5 +1,10 @@
 <%= title(t('.title')) %>
 
-<% @bookmarks.each do |bookmark| %>
-  <%= render 'articles/article', article: bookmark %>
-<% end %>
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-8 mb-4">
+    <% @bookmarks.each do |bookmark| %>
+      <%= render 'articles/article', article: bookmark %>
+    <% end %>
+  </div>
+</div>
