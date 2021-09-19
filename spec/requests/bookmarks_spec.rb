@@ -1,6 +1,27 @@
 require 'rails_helper'
 
 RSpec.describe 'Bookmarks', type: :request do
+  describe 'GET /index' do
+    context 'when user not sign in' do
+      it 'should redirect to sign in' do
+        get bookmarks_path
+        expect(response).to have_http_status(:found)
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+
+    context 'when user is sign in' do
+      let(:current_user) { create(:user) }
+      before(:each) do
+        sign_in current_user
+      end
+      it 'should be a success response' do
+        get bookmarks_path
+        expect(response).to have_http_status(:ok)
+      end
+    end
+  end
+
   describe 'POST /create' do
     let(:article) { create(:article) }
     let(:user) { create(:user) }

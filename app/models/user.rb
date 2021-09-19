@@ -68,10 +68,12 @@ class User < ApplicationRecord
   has_many :likes
   has_many :likes_articles, through: :likes, source: :likeable, source_type: 'Article'
   has_many :likes_comments, through: :likes, source: :likeable, source_type: 'Comment'
+  has_many :likes_pictures, through: :likes, source: :likeable, source_type: 'Picture'
 
   has_many :comments
 
   has_many :bookmarks
+  has_many :bookmarks_posts, through: :bookmarks, source: :bookmarkable, source_type: 'Article'
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { maximum: 150 }
   validates :first_name, presence: true, length: { in: 2..50 }
@@ -95,7 +97,7 @@ class User < ApplicationRecord
   end
 
   def likes_posts
-    (likes_articles.with_author.with_picture + likes_comments.with_user)
+    (likes_articles.with_author.with_picture + likes_comments.with_user + likes_pictures)
   end
 
   # TODO: переименовать

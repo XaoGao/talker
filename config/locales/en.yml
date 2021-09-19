@@ -32,6 +32,7 @@ en:
       subscribers: 'Subscribers'
       subscriptions: 'Subscriptions'
       likes: 'Likes'
+      bookmarks: 'Bookmarks'
       logout: 'Logout'
       login: 'Login'
     navbar:
@@ -123,6 +124,12 @@ en:
       error: 'Error by create a new bookmark'
     destroy:
       success: 'The bookmark is delited'
+    index:
+      title: 'Bookmarks'
+
+  likes:
+    index:
+      title: 'likes'
       
   global:
     language: 'Language'

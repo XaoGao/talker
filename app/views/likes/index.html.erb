@@ -1,4 +1,6 @@
-<div class="">
+<%= title(t('.title')) %>
+
+<div>
   <% @likes_posts.each do |post| %>
     
     <% if post.class.to_s == 'Article' %>

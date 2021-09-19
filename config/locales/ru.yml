@@ -32,6 +32,7 @@ ru:
       subscribers: 'Подписчики'
       subscriptions: 'Подписки'
       likes: 'Понравилось'
+      bookmarks: 'Закладки'
       logout: 'Выйти'
       login: 'Войти'
     navbar:
@@ -123,6 +124,12 @@ ru:
       error: 'Ошибка при добавлении закладки'
     destroy:
       success: 'Закладка удалена'
+    index:
+      title: 'Закладки'
+
+  likes:
+    index:
+      title: 'Понравилось'
 
   global:
     language: 'Язык'

@@ -1,6 +1,11 @@
 class BookmarksController < ApplicationController
   before_action :authenticate_user!
-  def index; end
+  def index
+    @bookmarks = current_user.bookmarks_posts
+                             .includes([:author])
+                             .includes([picture: { image_attachment: :blob }])
+                             .recently
+  end
 
   def create
     @bookmark = current_user.bookmarks.new bookmark_params

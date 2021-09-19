@@ -1,0 +1,5 @@
+<%= title(t('.title')) %>
+
+<% @bookmarks.each do |bookmark| %>
+  <%= render 'articles/article', article: bookmark %>
+<% end %>
