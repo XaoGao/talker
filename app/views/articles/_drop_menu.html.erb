@@ -6,9 +6,13 @@
   <div class="dropdown-menu" aria-labelledby="article-dropdown-<%= article.id %>">
     <div class="dropdown-item">
       <% if article.alredy_bookmark?(current_user) %>
-        <i class="fas fa-trash"></i> <%= t('articles.dropdown.delete') %>
+        <%= button_to bookmark_path(article), { remote: true, method: :delete } do %>
+          <i class="fas fa-trash"></i> <%= t('articles.dropdown.delete') %>
+        <% end %>
       <% else %>
-        <i class="fas fa-save"></i> <%= t('articles.dropdown.save') %>  
+        <%= button_to bookmarks_path, { remote: true, method: :post } do %>
+          <i class="fas fa-save"></i> <%= t('articles.dropdown.save') %>  
+        <% end %>
       <% end %>
     </div>
     <div class="dropdown-divider"></div>

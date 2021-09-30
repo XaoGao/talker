@@ -1232,6 +1232,7 @@
           1,
           null,
           1,
+          1,
           null,
           1,
           1,
@@ -1928,6 +1929,7 @@
           1,
           1,
           1,
+          1,
           null,
           1,
           1,
@@ -1976,6 +1978,17 @@
         ]
       },
       "/home/xaogao/Documents/Ruby/talker/app/models/concerns/likeable.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/xaogao/Documents/Ruby/talker/app/models/concerns/bookmarkable.rb": {
         "lines": [
           1,
           1,
@@ -3961,6 +3974,6 @@
         ]
       }
     },
-    "timestamp": 1632056589
+    "timestamp": 1633031301
   }
 }
