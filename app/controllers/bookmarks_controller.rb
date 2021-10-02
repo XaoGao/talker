@@ -8,7 +8,7 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    @bookmark = current_user.bookmarks.new bookmark_params
+    @bookmark = current_user.bookmarks.new(bookmarkable_type: params[:bookmarkable_type], bookmarkable_id: params[:bookmarkable_id])
     if @bookmark.save
       flash[:notice] = t('bookmarks.create.success')
     else

@@ -56,6 +56,10 @@ class Article < ApplicationRecord
     created_at.strftime('%Y %m %H:%M')
   end
 
+  def bookmark(user)
+    bookmarks.find_by(user: user)
+  end
+
   settings index: { number_of_shards: 1 } do
     mapping dynamic: 'false' do
       indexes :id,             type: :keyword
