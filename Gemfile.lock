@@ -466,9 +466,7 @@ DEPENDENCIES
   redis (~> 4.0)
   rspec-rails
   rswag
-  rswag-api
   rswag-specs
-  rswag-ui
   rubocop
   sass-rails (>= 6)
   selenium-webdriver

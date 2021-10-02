@@ -1,32 +1,22 @@
-require 'rails_helper'
+require 'swagger_helper'
 
-RSpec.describe 'Api::V1::Sessions', type: :request do
-  describe 'POST /create' do
-    context 'login' do
-      let(:user) { create(:user, email: 't@t.t', password: 'password') }
-      let(:session_params) { { email: user.email, password: user.password } }
-      it 'should be a success response' do
-        post api_v1_login_path, params: session_params
-        expect(response).to have_http_status(:ok)
-        expect(JSON.parse(response.body).include?('token')).to be true
-      end
-
-      it 'should be a bad request have not email in body' do
-        session_params[:email] = nil
-        post api_v1_login_path, params: session_params
-        expect(response).to have_http_status(:bad_request)
-      end
-
-      it 'should be a bad request have not password in body' do
-        session_params[:password] = nil
-        post api_v1_login_path, params: session_params
-        expect(response).to have_http_status(:bad_request)
-      end
-
-      it 'should be a bad request user not found' do
-        session_params[:email] = ''
-        post api_v1_login_path, params: session_params
-        expect(response).to have_http_status(:bad_request)
+RSpec.describe 'api/v1/sessions', type: :request do
+  path '/api/v1/login' do
+    post('create session') do
+      tags 'Login'
+      description 'Creates a new jwt'
+      consumes 'application/json'
+      produces 'application/json'
+      parameter name: :user, in: :body, schema: {
+        type: :object,
+        properties: {
+          email: { type: :string },
+          password: { type: :string }
+        },
+        required: ["email", "password"],
+      }
+      response(200, 'successful') do
+        run_test!
       end
     end
   end

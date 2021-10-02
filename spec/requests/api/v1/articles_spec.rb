@@ -1,14 +1,21 @@
-require 'rails_helper'
+require 'swagger_helper'
 
-RSpec.describe 'Api::V1::Articles', type: :request do
-  describe 'GET /index' do
-    let!(:articles) { create_list(:article, 4, body: 'test') }
-    let!(:user) { create(:user) }
-
-    it 'should be a success response' do
-      get api_v1_articles_path, params: { query: 'test' }, headers: RequestHelper.authenticated_header(user)
-      expect(response).to have_http_status(:ok)
-      expect(JSON.parse(response.body).include?('result')).to be true
+RSpec.describe 'api/v1/articles', type: :request do
+  path '/api/v1/articles' do
+    get('list articles') do
+      tags 'Get articles'
+      description 'Find list of articles'
+      consumes 'application/json'
+      produces 'application/json'
+      parameter name: :Authorization,
+                in: :header,
+                type: :string,
+                required: true,
+                description: 'Client token'
+      parameter name: :query, in: :path
+      response(200, 'successful') do
+        run_test!
+      end
     end
   end
 end

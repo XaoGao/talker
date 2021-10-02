@@ -6,34 +6,48 @@ info:
 paths:
   "/api/v1/articles":
     get:
-      summary: index articles
+      summary: list articles
       tags:
-      - Articles
+      - Get articles
+      description: Find list of articles
+      security:
+      - Bearer: {}
       parameters:
       - name: Authorization
         in: header
         required: true
         description: Client token
-        default: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6InRlc3RAdGVzdC50ZXN0IiwiZXhwIjo3OTQxODAxNjAwfQ.zpLErslgllgn3NxqrDjz5jxcZG0uOYiuqQhn-Ey3ToI
         schema:
           type: string
+      - name: query
+        in: path
+        required: true
       responses:
         '200':
-          description: ok
-        '401':
-          description: unauthorized
+          description: successful
+  "/api/v1/login":
+    post:
+      summary: create session
+      tags:
+      - Login
+      description: Creates a new jwt
+      parameters: []
+      responses:
+        '200':
+          description: successful
       requestBody:
         content:
           application/json:
             schema:
               type: object
               properties:
-                query:
+                email:
                   type: string
-                page:
-                  type: integer
+                password:
+                  type: string
               required:
-              - query
+              - email
+              - password
 servers:
 - url: http://{defaultHost}
   variables:
