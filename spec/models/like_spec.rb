@@ -20,4 +20,12 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
+  describe 'methods' do
+    context '#likeable_type_with_id' do
+      let(:like) { create(:like) }
+      it 'should retrun a string likeable class with id'  do
+        expect(like.likeable_type_with_id).to eq('Article-1')
+      end
+    end
+  end
 end

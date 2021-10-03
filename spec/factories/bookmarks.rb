@@ -19,6 +19,7 @@
 #
 FactoryBot.define do
   factory :bookmark do
-    
+    association :user
+    association :bookmarkable, factory: :article
   end
 end

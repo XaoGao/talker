@@ -14,5 +14,12 @@
 require 'rails_helper'
 
 RSpec.describe Picture, type: :model do
-  # pending "add some examples to (or delete) #{__FILE__}"
+  describe 'methods' do
+    context '#type_with_id' do
+      let(:picture) { create(:picture) }
+      it 'should return a string class name with id' do
+        expect(picture.type_with_id).to eq('Picture-1')
+      end
+    end
+  end
 end

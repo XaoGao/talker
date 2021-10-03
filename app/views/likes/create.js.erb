@@ -1,11 +1,11 @@
-var icon = $('#<%= @type %>-<%= @id %>-likes');
+var icon = $('#<%= @like.likeable_type_with_id %>-likes');
 if(icon.length > 0) {
-  var count = $('#<%= @type %>-<%= @id %>-likes-count');
+  var count = $('#<%= @like.likeable_type_with_id %>-likes-count');
   <% if @liked %>
-    $('#<%= @type %>-<%= @id %>-likes').addClass("liked");
+    $('#<%= @like.likeable_type_with_id %>-likes').addClass("liked");
     count.text(Number(count.text()) + 1)
   <% else %>
-    $('#<%= @type %>-<%= @id %>-likes').removeClass("liked");
+    $('#<%= @like.likeable_type_with_id %>-likes').removeClass("liked");
     count.text(Number(count.text()) - 1)
   <% end %>
 }

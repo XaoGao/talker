@@ -20,4 +20,12 @@
 require 'rails_helper'
 
 RSpec.describe Bookmark, type: :model do
+  describe 'methods' do
+    context '#bookmarkable_type_with_id' do
+      let(:bookmark) { create(:bookmark) }
+      it 'return type with id' do
+        expect(bookmark.bookmarkable_type_with_id).to eq('Article-1')
+      end
+    end
+  end
 end

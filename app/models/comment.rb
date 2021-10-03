@@ -24,6 +24,8 @@
 #
 class Comment < ApplicationRecord
   include Likeable
+  include Typeable
+
   belongs_to :user, counter_cache: true, dependent: :destroy
   belongs_to :commentable, counter_cache: true, polymorphic: true, dependent: :destroy
   has_many :likes, as: :likeable

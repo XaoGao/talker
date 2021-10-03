@@ -26,7 +26,7 @@
     <%= render 'likes/like_icon', likeable: article %>
     <%= render 'comments/comment_icon', commentable: article %>
   </div>
-  <div class="card-footer" id="<%= article.class %>-<%= article.id %>-comments-area">
+  <div class="card-footer" id="<%= article.type_with_id %>-comments-area">
   </div>
   <%= render 'comments/form', commentable: article %>
 </div>

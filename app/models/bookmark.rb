@@ -20,4 +20,8 @@
 class Bookmark < ApplicationRecord
   belongs_to :user
   belongs_to :bookmarkable, polymorphic: true
+
+  def bookmarkable_type_with_id
+    "#{bookmarkable_type}-#{bookmarkable_id}"
+  end
 end

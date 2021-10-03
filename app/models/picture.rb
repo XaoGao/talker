@@ -12,6 +12,8 @@
 #  imageable_id   :bigint           not null
 #
 class Picture < ApplicationRecord
+  include Typeable
+
   belongs_to :imageable, polymorphic: true, dependent: :destroy
   has_one_attached :image
 

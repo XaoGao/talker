@@ -20,4 +20,8 @@
 class Like < ApplicationRecord
   belongs_to :user, counter_cache: true
   belongs_to :likeable, polymorphic: true, counter_cache: true
+
+  def likeable_type_with_id
+    "#{likeable_type}-#{likeable_id}"
+  end
 end

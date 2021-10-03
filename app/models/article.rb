@@ -24,6 +24,7 @@ class Article < ApplicationRecord
   include Orderable
   include Picturable
   include Bookmarkable
+  include Typeable
 
   # include Elasticsearch::Model
   # include Elasticsearch::Model::Callbacks

@@ -33,4 +33,13 @@ RSpec.describe Comment, type: :model do
       it { should validate_length_of(:body).is_at_most(1000) }
     end
   end
+
+  describe 'methods' do
+    context '#type_with_id' do
+      let(:comment) { create(:comment) }
+      it 'should return a string class name with id' do
+        expect(comment.type_with_id).to eq('Comment-1')
+      end
+    end
+  end
 end

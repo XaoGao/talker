@@ -2,6 +2,6 @@
   <div class="form-group">
     <%= f.hidden_field :commentable_id, value: commentable.id, id: "commentable_id_#{commentable.id}" %>
     <%= f.hidden_field :commentable_type, value: commentable.class, id: "commentable_type_#{commentable.class}_#{commentable.id}" %>
-    <%= f.text_field :body, class: "form-control", placeholder: t('comments.form.add_new_comment'), id: "comment-form-#{commentable.class}-#{commentable.id}-body" %>
+    <%= f.text_field :body, class: "form-control", placeholder: t('comments.form.add_new_comment'), id: "comment-form-#{commentable.type_with_id}-body" %>
   </div>
 <% end %>

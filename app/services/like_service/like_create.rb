@@ -7,7 +7,7 @@ module LikeService
         liked = false
         like.destroy
       else
-        Like.create(user: options[:user], likeable_type: options[:likeable_type], likeable_id: options[:likeable_id])
+        like = Like.create(user: options[:user], likeable_type: options[:likeable_type], likeable_id: options[:likeable_id])
         liked = true
       end
       success({ liked: liked, like: like })

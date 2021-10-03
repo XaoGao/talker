@@ -97,5 +97,11 @@ RSpec.describe Article, type: :model do
         expect(article.image).to eq(picture.image)
       end
     end
+    context '#type_with_id' do
+      let(:article) { create(:article) }
+      it 'return type dush id' do
+        expect(article.type_with_id).to eq("Article-1")
+      end
+    end
   end
 end
