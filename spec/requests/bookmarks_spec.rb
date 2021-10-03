@@ -42,16 +42,16 @@ RSpec.describe 'Bookmarks', type: :request do
 
       it 'should be success create a new bookmark' do
         post bookmarks_path,
-             params: { bookmark: bookmark },
+             xhr: true,
+             params: { bookmarkable_id: article.id, bookmarkable_type: article.class },
              headers: { 'HTTP_REFERER' => root_path }
-        expect(response).to have_http_status(:found)
-        expect(response).to redirect_to(root_path)
-        expect(flash[:notice]).to match(I18n.t('bookmarks.create.success'))
+        expect(response).to have_http_status(:ok)
+        expect(Bookmark.all.count).to eq(1)
       end
 
       it 'should be a error by create a new bookmark' do
         post bookmarks_path,
-             params: { bookmark: { bookmarkable_id: 0, bookmarkable_type: article.class } },
+             params: { bookmarkable_id: 0, bookmarkable_type: article.class },
              headers: { 'HTTP_REFERER' => root_path }
         expect(response).to have_http_status(:found)
         expect(response).to redirect_to(root_path)
@@ -77,10 +77,9 @@ RSpec.describe 'Bookmarks', type: :request do
         sign_in current_user
       end
       it 'should delete a bookmark with success response' do
-        delete bookmark_path(bookmark.id), headers: { 'HTTP_REFERER' => root_path }
-        expect(response).to have_http_status(:found)
-        expect(response).to redirect_to(root_path)
-        expect(flash[:notice]).to match(I18n.t('bookmarks.destroy.success'))
+        delete bookmark_path(bookmark.id), xhr: true, headers: { 'HTTP_REFERER' => root_path }
+        expect(response).to have_http_status(:ok)
+        expect(Bookmark.all.count).to eq(0)
       end
     end
   end

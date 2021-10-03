@@ -13,9 +13,9 @@ RSpec.describe 'api/v1/articles', type: :request do
                 required: true,
                 description: 'Client token'
       parameter name: :query, in: :path
-      response(200, 'successful') do
-        run_test!
-      end
+      # response(200, 'successful') do
+      #   run_test!
+      # end
     end
   end
 end
