@@ -1,0 +1,5 @@
+var input = $('#<%= "#{@bookmark.bookmarkable_type}-#{@bookmark.bookmarkable_id}-bookmark" %>');
+
+if(input.length > 0) {
+  input.replaceWith('<%= link_to bookmark_path(@bookmark), remote: true, method: :delete, id: "#{@bookmark.bookmarkable_type}-#{@bookmark.bookmarkable_id}-bookmark" do %> <i class="fas fa-trash"></i> <%= t('articles.dropdown.delete') %> <% end %>');
+}

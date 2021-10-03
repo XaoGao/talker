@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2021-10-02T16:08:47+03:00">2021-10-02T16:08:47+03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2021-10-03T12:59:03+03:00">2021-10-03T12:59:03+03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,7 +23,7 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="red">
-  67.52%
+  67.49%
 </span>
 
      </span>
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>1333</b> relevant lines,
-    <span class="green"><b>900</b> lines covered</span> and
-    <span class="red"><b>433</b> lines missed. </span>
+    <b>1335</b> relevant lines,
+    <span class="green"><b>901</b> lines covered</span> and
+    <span class="red"><b>434</b> lines missed. </span>
     (<span class="red">
-  67.52%
+  67.49%
 </span>
 )
   </div>
@@ -182,12 +182,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#f3b885290fd695f9b83dd2cd2d46b0a53e4f55d5" class="src_link" title="app/models/article.rb">app/models/article.rb</a></td>
-            <td class="yellow strong cell--number t-file__coverage">84.85 %</td>
-            <td class="cell--number">71</td>
-            <td class="cell--number">33</td>
-            <td class="cell--number">28</td>
-            <td class="cell--number">5</td>
-            <td class="cell--number">0.85</td>
+            <td class="yellow strong cell--number t-file__coverage">82.86 %</td>
+            <td class="cell--number">75</td>
+            <td class="cell--number">35</td>
+            <td class="cell--number">29</td>
+            <td class="cell--number">6</td>
+            <td class="cell--number">0.83</td>
             
           </tr>
         
@@ -2657,7 +2657,7 @@
     <h3>app/models/article.rb</h3>
     <h4>
       <span class="yellow">
-  84.85%
+  82.86%
 </span>
 
       lines covered
@@ -2666,9 +2666,9 @@
     
 
     <div class="t-line-summary">
-      <b>33</b> relevant lines.
-      <span class="green"><b>28</b> lines covered</span> and
-      <span class="red"><b>5</b> lines missed.</span>
+      <b>35</b> relevant lines.
+      <span class="green"><b>29</b> lines covered</span> and
+      <span class="red"><b>6</b> lines missed.</span>
     </div>
 
     
@@ -3323,122 +3323,23 @@
 
             
 
-            <code class="ruby">  settings index: { number_of_shards: 1 } do</code>
+            <code class="ruby">  def bookmark(user)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="60">
-            <span class="hits">1</span>
+          <li class="missed" data-hits="0" data-linenumber="60">
+            
             
 
             
 
-            <code class="ruby">    mapping dynamic: &#39;false&#39; do</code>
+            <code class="ruby">    bookmarks.find_by(user: user)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="61">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      indexes :id,             type: :keyword</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="62">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      indexes :body,           type: :keyword</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="63">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      indexes :comments_count, type: :integer</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="64">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      indexes :likes_count,    type: :integer</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="65">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      indexes :lock,           type: :boolean</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="66">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      indexes :created_at,     type: :date, format: :date_optional_time</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="67">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      indexes :updated_at,     type: :date, format: :date_optional_time</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="68">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      indexes :author_id,      type: :integer</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="69">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="70">
+          <li class="never" data-hits="" data-linenumber="61">
             
             
 
@@ -3449,7 +3350,150 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="71">
+          <li class="never" data-hits="" data-linenumber="62">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="63">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  settings index: { number_of_shards: 1 } do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="64">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    mapping dynamic: &#39;false&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="65">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      indexes :id,             type: :keyword</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="66">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      indexes :body,           type: :keyword</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="67">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      indexes :comments_count, type: :integer</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="68">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      indexes :likes_count,    type: :integer</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="69">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      indexes :lock,           type: :boolean</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="70">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      indexes :created_at,     type: :date, format: :date_optional_time</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="71">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      indexes :updated_at,     type: :date, format: :date_optional_time</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="72">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      indexes :author_id,      type: :integer</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="73">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="74">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="75">
             
             
 

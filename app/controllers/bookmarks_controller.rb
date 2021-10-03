@@ -8,20 +8,29 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    @bookmark = current_user.bookmarks.new(bookmarkable_type: params[:bookmarkable_type], bookmarkable_id: params[:bookmarkable_id])
-    if @bookmark.save
-      flash[:notice] = t('bookmarks.create.success')
+    bookmark = current_user.bookmarks.new(bookmarkable_type: params[:bookmarkable_type], bookmarkable_id: params[:bookmarkable_id])
+    if bookmark.save
+      respond_to do |format|
+        format.js do
+          @bookmark = bookmark
+          render '/bookmarks/create'
+        end
+      end
     else
       flash[:alert] = t('bookmarks.create.error')
+      redirect_to request.referer
     end
-    redirect_to request.referer
   end
 
   def destroy
-    @bookmark = Bookmark.find(params[:id])
-    @bookmark.destroy
-    flash[:notice] = t('bookmarks.destroy.success')
-    redirect_to request.referer
+    bookmark = Bookmark.find(params[:id])
+    bookmark.destroy
+    respond_to do |format|
+      format.js do
+        @bookmark = bookmark
+        render '/bookmarks/destroy'
+      end
+    end
   end
 
   private
