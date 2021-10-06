@@ -116,13 +116,13 @@ class User < ApplicationRecord
   def gender_name
     case gender
     when 'not_set'
-      'Не указан'
+      I18n.t('users.gender.not_set')
     when 'man'
-      'Мужской'
+      I18n.t('users.gender.man')
     when 'woman'
-      'Женский'
+      I18n.t('users.gender.woman')
     when 'another'
-      'Другой'
+      I18n.t('users.gender.another')
     end
   end
 

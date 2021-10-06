@@ -5,10 +5,20 @@ class BookmarksController < ApplicationController
                              .with_author
                              .with_picture
                              .recently
+                             .paginate(page: params[:page], per_page: 5)
+
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
-    bookmark = current_user.bookmarks.new(bookmarkable_type: params[:bookmarkable_type], bookmarkable_id: params[:bookmarkable_id])
+    bookmark = current_user.bookmarks.new(
+      bookmarkable_type: params[:bookmarkable_type],
+      bookmarkable_id: params[:bookmarkable_id]
+    )
     if bookmark.save
       respond_to do |format|
         format.js do

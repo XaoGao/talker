@@ -37,3 +37,10 @@ require 'faker'
 #   env: 'test',
 #   work: false
 # )
+
+
+# u = User.first
+# Article.all.each do |article|
+#   u.bookmarks.new(bookmarkable_id: article.id, bookmarkable_type: article.class) unless u.bookmarks.include? article
+#   u.save
+# end

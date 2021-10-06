@@ -67,6 +67,12 @@ en:
       interests: 'Interests'
       subscribers: 'Subscribers'
       subscriptions: 'Subscriptions'
+    gender:
+      gender: 'gender'
+      not_set: 'Not set'
+      man: 'Man'
+      woman: 'Woman'
+      another: 'Another'
 
   articles:
     create:

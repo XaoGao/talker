@@ -68,6 +68,12 @@ ru:
       interests: 'Инетересы'
       subscribers: 'Подписчики'
       subscriptions: 'Подписки'
+    gender:
+      gender: 'Пол'
+      not_set: 'Не указан'
+      man: 'Мужской'
+      woman: 'Женский'
+      another: 'Другой'
 
   articles:
     create:
