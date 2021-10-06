@@ -12,6 +12,14 @@ import { changeStatus } from '../extension/status';
 import { infiniteScrolling, infiniteScrollingMessages } from '../extension/scroll';
 import '../extension/likes';
 import '../extension/comments';
+import toastr from 'toastr';
+
+toastr.options = {
+    "closeButton": true
+};
+
+global.toastr = toastr;
+
 
 let showForm = function() {
   $('#article-form-field').on("click", function() {

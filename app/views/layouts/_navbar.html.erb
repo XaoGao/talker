@@ -3,6 +3,12 @@
     <%= link_to "Talker", root_path, class: "navbar-brand" %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <%= render 'partials/money' %>
+      <% if user_signed_in? %>
+        <div class="text-white bell">
+          <i class="far fa-bell"></i>
+          <span><%= current_user.unread_notification %></span>
+        </div>
+      <% end %>
       <div class="my-2 my-lg-0">
         <% if user_signed_in? %>
           <div class="dropdown">

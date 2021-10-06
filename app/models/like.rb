@@ -21,7 +21,21 @@ class Like < ApplicationRecord
   belongs_to :user, counter_cache: true
   belongs_to :likeable, polymorphic: true, counter_cache: true
 
+  after_create :create_notifications
+
   def likeable_type_with_id
     "#{likeable_type}-#{likeable_id}"
+  end
+
+  private
+
+  def recipients
+    [likeable.author]
+  end
+
+  def create_notifications
+    recipients.each do |recipient|
+      Notification.create(recipient: recipient, actor: self.user, action: 'posted', notifiable: self)
+    end
   end
 end

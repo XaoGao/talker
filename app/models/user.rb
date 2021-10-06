@@ -75,6 +75,8 @@ class User < ApplicationRecord
   has_many :bookmarks
   has_many :bookmarks_posts, through: :bookmarks, source: :bookmarkable, source_type: 'Article'
 
+  has_many :notifications, foreign_key: :recipient_id
+
   validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { maximum: 150 }
   validates :first_name, presence: true, length: { in: 2..50 }
   validates :last_name, presence: true, length: { in: 2..50 }
@@ -131,6 +133,10 @@ class User < ApplicationRecord
     return user_location if user_location.present?
 
     '-'
+  end
+
+  def unread_notification
+    notifications.unread.count
   end
 
   private

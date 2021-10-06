@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   end
 
   resources :bookmarks, only: [:index, :create, :destroy]
+  resources :notifications, only: [:index]
 
   namespace :api do
     namespace :v1 do
