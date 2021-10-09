@@ -33,4 +33,17 @@ class Comment < ApplicationRecord
   validates :body, presence: true, length: { maximum: 1000 }
 
   scope :with_user, -> { includes([:user]) }
+
+  def recipients
+    result = []
+
+    case commentable_type
+    when 'Article'
+      result << commentable.author
+    when 'Picture'
+      result << commentable.imageable
+    end
+
+    result
+  end
 end

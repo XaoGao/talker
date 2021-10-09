@@ -137,6 +137,10 @@ en:
   likes:
     index:
       title: 'likes'
+
+  notifications:
+    liked: 'liked'
+    commended: 'wrote a comment'
       
   global:
     language: 'Language'

@@ -23,15 +23,19 @@
 #  recipient_id  (recipient_id => users.id)
 #
 class Notification < ApplicationRecord
+  include Orderable
   belongs_to :recipient, class_name: 'User'
   belongs_to :actor, class_name: 'User'
   belongs_to :notifiable, polymorphic: true
 
   scope :unread, -> { where(read_at: nil) }
 
-  after_create :test_send
+  after_create :send_notification
 
-  def test_send
-    ActionCable.server.broadcast "notifications_channel:#{recipient.id}", data: self
+  def send_notification
+    message = NotificationService::MessageFactory.new(self).generate_message
+    if message
+      ActionCable.server.broadcast "notifications_channel:#{recipient.id}", message: message
+    end
   end
 end

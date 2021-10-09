@@ -138,6 +138,10 @@ ru:
     index:
       title: 'Понравилось'
 
+  notifications:
+    liked: 'поставил лайк'
+    commended: 'оставил коментарии'
+
   global:
     language: 'Язык'
   #   confirm:

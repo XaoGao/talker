@@ -24,6 +24,10 @@
 #
 FactoryBot.define do
   factory :notification do
-    
+    action       { 'liked' }
+    read_at      { nil }
+    association :actor, factory: :user
+    association :recipient, factory: :user
+    association :notifiable, factory: :like
   end
 end

@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe GenderComponent, type: :component do
   let(:component) { GenderComponent.new(f: nil) }
@@ -7,6 +7,9 @@ RSpec.describe GenderComponent, type: :component do
   end
 
   it '.humanize_gender' do
-    expect(component.humanize_gender).to eq([['Не указан', 'not_set'], ['Мужской', 'man'], ['Женский', 'woman'], ['Другой', 'another']])
+    expect(component.humanize_gender).to eq([[I18n.t('users.gender.not_set'), 'not_set'],
+                                             [I18n.t('users.gender.man'), 'man'],
+                                             [I18n.t('users.gender.woman'), 'woman'],
+                                             [I18n.t('users.gender.another'), 'another']])
   end
 end

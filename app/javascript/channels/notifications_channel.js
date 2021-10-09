@@ -1,16 +1,11 @@
 import consumer from "./consumer"
 
 consumer.subscriptions.create("NotificationsChannel", {
-  connected() {
-    console.log("NotificationsChannel ready")
-  },
+  connected() {},
 
-  disconnected() {
-    // Called when the subscription has been terminated by the server
-  },
+  disconnected() {},
 
   received(data) {
-    console.log(data);
-    toastr.info("message")
+    toastr.info(data.message)
   }
 });

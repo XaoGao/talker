@@ -121,25 +121,25 @@ RSpec.describe User, type: :model do
       let(:user) { create(:user, gender: 0) }
       it 'not set' do
         expect(user.gender).to eq('not_set')
-        expect(user.gender_name).to eq('Не указан')
+        expect(user.gender_name).to eq(I18n.t('users.gender.not_set'))
       end
 
       it 'woman' do
         user.gender = 2
         expect(user.gender).to eq('woman')
-        expect(user.gender_name).to eq('Женский')
+        expect(user.gender_name).to eq(I18n.t('users.gender.woman'))
       end
 
       it 'man' do
         user.gender = 1
         expect(user.gender).to eq('man')
-        expect(user.gender_name).to eq('Мужской')
+        expect(user.gender_name).to eq(I18n.t('users.gender.man'))
       end
 
       it 'another' do
         user.gender = 3
         expect(user.gender).to eq('another')
-        expect(user.gender_name).to eq('Другой')
+        expect(user.gender_name).to eq(I18n.t('users.gender.another'))
       end
     end
 

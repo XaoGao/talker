@@ -25,5 +25,15 @@
 require 'rails_helper'
 
 RSpec.describe Notification, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'methods' do
+    context '#unread' do
+      let(:actor) { create(:user) }
+      let(:recipient) { create(:user) }
+      let!(:notification_unread) { create_list(:notification, 3, actor: actor, recipient: recipient, read_at: nil) }
+      let!(:notification_read) { create_list(:notification, 2, actor: actor, recipient: recipient, read_at: DateTime.now) }
+      it 'should return all notification for user without read_at' do
+        expect(Notification.unread.count).to eq(3)
+      end
+    end
+  end
 end
