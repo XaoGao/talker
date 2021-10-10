@@ -22,4 +22,8 @@ module ApplicationHelper
   def current_rate_title
     current_rate.blank? ? 'Нет данных' : "Данные на #{current_rate.created_at.strftime('%Y %m %H:%M')}"
   end
+
+  def unread_notifications_count(user)
+    user.unread_notification.positive? ? user.unread_notification : nil
+  end
 end

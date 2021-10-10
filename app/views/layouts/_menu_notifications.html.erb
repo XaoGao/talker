@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+  <div class="dropdown mr-5">
+      <div href="#" id="notificationsDropdown" data-toggle="dropdown" title=<%= t('layouts.navbar.notifications')%>>
+      <%= link_to recently_notifications_path, remote: true do %>
+        <div class="text-white bell">
+          <i class="far fa-bell"></i>
+          <span><%= unread_notifications_count(current_user) %></span>
+        </div>
+      </div>
+    <% end %>
+    <div class="dropdown-menu" id="notifications-dropdown-menu"></div>
+  </div>
+<% end %>

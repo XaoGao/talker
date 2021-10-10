@@ -1,0 +1,23 @@
+<% if user_signed_in? %>
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <%# TODO:  <%= avatar current_user %>
+      <%= image_tag('user', alt: current_user.username, class: 'avatar') %>
+      <%= current_user.username %>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
+        <i class="fas fa-cog"></i> <%= t('layouts.navbar.settings') %>
+      <% end %>
+      <%= link_to  page_path('about'), class: "dropdown-item" do %>
+        <i class="far fa-address-card"></i> <%= t('layouts.navbar.about') %>
+      <% end %>
+      <div class="dropdown-divider"></div>
+      <%= link_to destroy_user_session_path, class: "dropdown-item", method: :delete, id: 'logout' do %>
+        <i class="fas fa-sign-out-alt"></i> <%= t('layouts.application.logout') %>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <%= link_to t('layouts.application.login'), new_user_session_path, class: "btn btn-primary my-2 my-sm-0" %>
+<% end %>

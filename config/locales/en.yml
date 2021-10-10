@@ -35,9 +35,11 @@ en:
       bookmarks: 'Bookmarks'
       logout: 'Logout'
       login: 'Login'
+      notifications: 'Notifications'
     navbar:
       about: 'About'
       settings: 'Settings'
+      notifications: 'Notifications'
   devise:
     registrations:
       edit:
@@ -139,6 +141,8 @@ en:
       title: 'likes'
 
   notifications:
+    index:
+      title: 'Notifications'
     liked: 'liked'
     commended: 'wrote a comment'
       

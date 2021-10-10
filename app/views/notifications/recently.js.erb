@@ -1,0 +1,5 @@
+var dropdown = $('#notifications-dropdown-menu')
+if(dropdown.length > 0) {
+    dropdown.empty().append('<%= j render 'notifications/menu', notifications: @notifications %>')
+}
+

@@ -1,0 +1,13 @@
+<%= title t('notifications.index.title') %>
+
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-8" id="notifications-index">
+    <% if @notifications %>
+      <%= render @notifications %>
+    <% end %>
+  </div>
+</div>
+
+<%= render 'partials/paginate', objects: @notifications %>
+

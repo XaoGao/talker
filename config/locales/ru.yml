@@ -35,9 +35,12 @@ ru:
       bookmarks: 'Закладки'
       logout: 'Выйти'
       login: 'Войти'
+      notifications: 'Оповещения'
     navbar:
       about: 'О нас'
       settings: 'Настройки'
+      notifications: 'Оповещения'
+
 
   devise:
     registrations:
@@ -93,7 +96,7 @@ ru:
       save: 'Сохранить'
       delete: 'Удалить'
       ban: 'Удалить'
-
+    
   dialogs:
     create:
       error: 'Ошибка при переходе к диалогу'
@@ -139,6 +142,8 @@ ru:
       title: 'Понравилось'
 
   notifications:
+    index:
+      title: 'Оповещения'
     liked: 'поставил лайк'
     commended: 'оставил коментарии'
 

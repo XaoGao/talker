@@ -1,0 +1,10 @@
+<% notifications.each do |notification| %>
+  <div class="dropdown-item">
+    <%= notification.action %>
+  </div>
+<% end %>
+
+<% if notifications.count > 0 %>
+  <div class="dropdown-divider"></div>
+<% end %>
+<%= link_to t('layouts.application.notifications'), notifications_path , class: 'dropdown-item' %>
