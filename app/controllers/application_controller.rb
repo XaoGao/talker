@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    attributes = %i[username first_name last_name date_of_birth gender country city role]
+    attributes = %i[username first_name last_name date_of_birth gender country city role locale]
     devise_parameter_sanitizer.permit(:sign_up, keys: attributes)
     devise_parameter_sanitizer.permit(:sign_in, keys: attributes)
     devise_parameter_sanitizer.permit(:account_update, keys: attributes)
@@ -20,9 +20,11 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    # I18n.locale = locale_from_header || I18n.default_locale
-    I18n.locale = I18n.default_locale
-    I18n.locale = :ru
+    if user_signed_in?
+      I18n.locale = current_user.locale
+    else
+      I18n.locale = I18n.default_locale
+    end
   end
 
   def locale_from_header

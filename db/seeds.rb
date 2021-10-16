@@ -12,6 +12,7 @@ require 'faker'
 #     date_of_birth: Faker::Date.between(from: '1992-09-23', to: '1998-09-25'),
 #     gender: i.odd? ? User.genders[:man] : User.genders[:woman],
 #     role: User.roles[:user]
+#     locale: 'en'
 #   )
 # end
 # 100.times {

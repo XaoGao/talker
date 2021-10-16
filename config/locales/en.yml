@@ -78,6 +78,7 @@ en:
       man: 'Man'
       woman: 'Woman'
       another: 'Another'
+    locale: 'Locale'
 
   articles:
     create:

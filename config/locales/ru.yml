@@ -80,6 +80,8 @@ ru:
       man: 'Мужской'
       woman: 'Женский'
       another: 'Другой'
+    locale: 'Язык'
+    
 
   articles:
     create:

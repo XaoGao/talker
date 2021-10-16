@@ -18,6 +18,7 @@
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
 #  likes_count            :integer          default(0), not null
+#  locale                 :string           default("en")
 #  lock                   :boolean          default(FALSE), not null
 #  online                 :boolean          default(FALSE), not null
 #  remember_created_at    :datetime
