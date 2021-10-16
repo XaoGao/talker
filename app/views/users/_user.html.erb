@@ -21,13 +21,13 @@
           <li class="list-inline-item">
             <% if user.alredy_subscription?(current_user) %>
               <%= link_to friendship_path(user), method: :delete do  %>
-                <button class="btn btn-primary" title="Отписаться" id=<%= "remove-user-#{user.id}"%>>
+                <button class="btn btn-primary" id=<%= "remove-user-#{user.id}"%> title=<%= "#{t('friendships.unfollow')}" %> >
                   <i class="fa fa-minus"></i>
                 </button>
               <% end %>
             <% else %>
               <%= link_to friendships_path(user: user), method: :post do  %>
-                <button class="btn btn-primary" title="Подписаться" id=<%= "add-user-#{user.id}"%>>
+                <button class="btn btn-primary" id=<%= "add-user-#{user.id}"%> title=<%= "#{t('friendships.follow')}" %>>
                   <i class="fas fa-plus"></i>
                 </button>
               <% end %>

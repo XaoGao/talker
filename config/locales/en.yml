@@ -69,6 +69,9 @@ en:
       interests: 'Interests'
       subscribers: 'Subscribers'
       subscriptions: 'Subscriptions'
+    image_card:
+      write: 'Write'
+      subscriber: 'Subscriber'
     gender:
       gender: 'gender'
       not_set: 'Not set'
@@ -111,6 +114,8 @@ en:
     main:
       success: 'The photo set main'
       error: 'Error while updating photo'
+    modal:
+      set_main: 'Set the picture as main'
 
 
   comments:
@@ -126,6 +131,8 @@ en:
       title: 'Subscribers'
     subscriptions:
       title: 'Subscriptions'
+    fullow: 'Fullow'
+    unfollow: 'Unfollow'
 
   bookmarks:
     create:

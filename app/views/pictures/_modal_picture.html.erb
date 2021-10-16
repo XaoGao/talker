@@ -10,7 +10,7 @@
       <%= render 'comments/form', commentable: picture %>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= t('button.close') %></button>
-        <%= link_to "Сделать главной", main_picture_path(picture), class: "btn btn-primary", method: :put %>
+        <%= link_to t('pictures.modal.set_main'), main_picture_path(picture), class: "btn btn-primary", method: :put %>
       </div>
     </div>
   </div>

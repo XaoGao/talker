@@ -1,13 +1,22 @@
 <div class="card" style="width: 18rem;">
-  <% if @user.main_photo.present? %>
-    <%= image_tag(@user.main_photo.image, alt: @user.username, class: 'card-img-top')%>
-  <% else %>
-    <%= image_tag("user", alt: "Card image cap", class: "card-img-top") %>
-  <% end %>
+  <%= main_avatar(user) %>
   <div class="card-body">
-    <div class="btn-group btn-block" role="group" aria-label="Basic example">
-      <button type="button" class="btn btn-success">Написать</button>
-      <button type="button" class="btn btn-info">Подписаться</button>
+    <div class="btn-group btn-block" role="group">
+      <button type="button" class="btn btn-success"><%= t('.write') %></button>
+      
+      <% if user == current_user %>
+        <button type="button" class="btn btn-info" disabled><%= current_user.full_name %></button>
+      <% else %>
+        <% if user.alredy_subscription?(current_user) %>
+          <%= link_to friendship_path(user), method: :delete do  %>
+            <button type="button" class="btn btn-info"><%= t('friendships.unfollow') %></button>
+          <% end %>
+        <% else %>
+          <%= link_to friendships_path(user: user), method: :post do  %>
+            <button type="button" class="btn btn-info"><%= t('friendships.follow') %></button>
+          <% end %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

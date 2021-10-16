@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   def set_locale
     # I18n.locale = locale_from_header || I18n.default_locale
     I18n.locale = I18n.default_locale
-    # I18n.locale = :en
+    I18n.locale = :ru
   end
 
   def locale_from_header
