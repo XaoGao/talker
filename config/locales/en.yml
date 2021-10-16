@@ -134,6 +134,10 @@ en:
       title: 'Subscriptions'
     fullow: 'Fullow'
     unfollow: 'Unfollow'
+    destroy:
+      user_error: 'User is not found'
+      success: 'You unfollow from'
+      error: 'You do not follow from'
 
   bookmarks:
     create:

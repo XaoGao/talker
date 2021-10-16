@@ -27,11 +27,21 @@ RSpec.describe 'Articles', type: :request do
     let(:article) { build(:article) }
     context 'with sing in user' do
       let(:user) { build(:user) }
-      before(:each) do
-        sign_in user
+      let(:user_lock) { (build(:user, lock: true)) }
+
+      it 'should be a error response user have not policy' do
+        sign_in user_lock
+        post articles_path,
+             params: { article: article.attributes },
+             headers: { 'HTTP_REFERER' => root_path }
+
+        expect(response).to have_http_status(:found)
+        expect(response).to redirect_to(root_path)
+        expect(flash[:alert]).to match(I18n.t('articles.create.policy.error'))
       end
 
-      it 'should be success response ' do
+      it 'should be a success response' do
+        sign_in user
         post articles_path, params: { article: article.attributes }
         expect(response).to have_http_status(:found)
         expect(response).to redirect_to(articles_path)

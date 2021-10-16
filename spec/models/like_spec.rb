@@ -27,5 +27,27 @@ RSpec.describe Like, type: :model do
         expect(like.likeable_type_with_id).to eq('Article-1')
       end
     end
+
+    context '#recipients' do
+      let(:user) { create(:user, first_name: 'Joy') }
+
+      it 'should return a list of users from article' do
+        article = build(:article, author: user)
+        like = create(:like, likeable: article)
+        expect(like.recipients).to eq([user])
+      end
+
+      it 'should return a list of users from comment' do
+        comment = build(:comment, user: user)
+        like = create(:like, likeable: comment)
+        expect(like.recipients).to eq([user])
+      end
+
+      it 'should return a list of users from picture' do
+        picture = build(:picture, imageable: user)
+        like = create(:like, likeable: picture)
+        expect(like.recipients).to eq([user])
+      end
+    end
   end
 end

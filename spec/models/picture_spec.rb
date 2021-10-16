@@ -6,6 +6,7 @@
 #  comments_count :integer          default(0), not null
 #  imageable_type :string           not null
 #  is_main        :boolean          default(FALSE), not null
+#  likes_count    :integer          default(0), not null
 #  title          :string           default(""), not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null

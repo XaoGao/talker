@@ -19,6 +19,11 @@ RSpec.describe JwtService do
         expect(decoded_token['id']).to eq(payload[:id])
         expect(decoded_token['email']).to eq(payload[:email])
       end
+
+      it 'should be error and return nil' do
+        decoded_token = JwtService.decode('eyJhbGciOiJIUzI1NiJ91.eyJpZCI6IjEiLCJlbWFpbCI6InRlc3RAdGVzdC50ZXN0IiwiZXhwIjo3OTQxODAxNjAwfQ1.zpLErslgllgn3NxqrDjz5jxcZG0uOYiuqQhn-Ey3ToI1')
+        expect(decoded_token).to eq(nil)
+      end
     end
   end
 end

@@ -4,7 +4,7 @@ module FriendshipService
     def call(user_id:, subscriber:)
       user = User.friendly.find(user_id)
       if user.blank?
-        error 'Не найден пользователь'
+        error I18n.t('friendships.destroy.user_error')
       else
         friendship = Friendship.find_by(user: user, subscriber: subscriber)
         destroy friendship, user.username
@@ -16,9 +16,9 @@ module FriendshipService
     def destroy(friendship, username)
       if friendship.present?
         friendship.destroy
-        success "Вы отписались от #{username}"
+        success "#{I18n.t('friendships.destroy.success')} #{username}"
       else
-        error "Вы не подписаны на #{username}"
+        error "#{I18n.t('friendships.destroy.error')}  #{username}"
       end
     end
   end

@@ -136,6 +136,10 @@ ru:
       title: 'Подписки'
     follow: 'Подписаться'
     unfollow: 'Отписаться'
+    destroy:
+      user_error: 'Не найден пользователь'
+      success: 'Вы отписались от'
+      error: 'Вы не подписаны'
 
   bookmarks:
     create:

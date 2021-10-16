@@ -11,7 +11,7 @@ module JwtService
 
     def decode(token)
       JWT.decode(token, HMAC_SECRET, true, { algorithm: ALGORITH })
-      rescue JWT::ExpiredSignature => e
+      rescue StandardError => e
         Rails.logger.error e.message
         Rails.logger.error e.backtrace.join('\n')
         nil

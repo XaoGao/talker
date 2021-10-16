@@ -8,6 +8,11 @@ RSpec.describe FriendshipService::FriendshipDestroy do
     let(:friendship) { create(:friendship, user: user, subscriber: subscriber) }
 
     context 'have a valid user and subscriber' do
+      it 'should be a error response user is not exist' do
+        expect(subject.call(user_id: 'test', subscriber: subscriber).success?).to be false
+        expect(Friendship.all.count).to eq(0)
+      end
+
       it 'should be desroy the friendship with success result' do
         expect(subject.call(user_id: user.slug, subscriber: subscriber).success?).to be true
         expect(Friendship.all.count).to eq(1)
