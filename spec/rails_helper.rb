@@ -10,7 +10,6 @@ require 'shoulda/matchers'
 require 'capybara/rspec'
 require 'database_cleaner'
 
-require_relative 'support/controller_macros'
 require_relative 'support/factory_bot'
 require_relative 'support/devise'
 require_relative 'support/shoulda_matchers'

@@ -153,6 +153,9 @@ ru:
   likes:
     index:
       title: 'Понравилось'
+    create:
+      error: 'Не найден объект'
+
 
   notifications:
     index:

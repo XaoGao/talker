@@ -151,6 +151,8 @@ en:
   likes:
     index:
       title: 'likes'
+    create:
+      error: 'Object is not found'
 
   notifications:
     index:

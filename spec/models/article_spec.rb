@@ -97,10 +97,25 @@ RSpec.describe Article, type: :model do
         expect(article.image).to eq(picture.image)
       end
     end
+
     context '#type_with_id' do
       let(:article) { create(:article) }
       it 'return type dush id' do
-        expect(article.type_with_id).to eq("Article-1")
+        expect(article.type_with_id).to eq('Article-1')
+      end
+    end
+
+    context '#alredy_bookmark?' do
+      let(:author) { create(:user) }
+      let(:another_user) { create(:user) }
+      let(:article) { create(:article, author: author) }
+      let!(:bookmark) { create(:bookmark, user: author, bookmarkable: article) }
+      it 'should return true' do
+        expect(article.alredy_bookmark?(author)).to be true
+      end
+
+      it 'should return false' do
+        expect(article.alredy_bookmark?(another_user)).to be false
       end
     end
   end
