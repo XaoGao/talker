@@ -166,6 +166,7 @@ ru:
 
   global:
     language: 'Язык'
+    not_found: 'Не найден объект, попробуйте позже'
   #   confirm:
   #     warning: 'Вы уверены?'
   #     ok: 'Да'
