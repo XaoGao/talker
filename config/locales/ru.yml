@@ -160,6 +160,7 @@ ru:
   notifications:
     index:
       title: 'Оповещения'
+      read: 'Прочитать все оповещения'
     liked: 'поставил лайк'
     commended: 'оставил коментарии'
 

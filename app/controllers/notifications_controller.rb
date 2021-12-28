@@ -2,7 +2,11 @@ class NotificationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @notifications = Notification.where(recipient: current_user).paginate(page: params[:page], per_page: 15).recently
+    @notifications = Notification
+                     .includes([:actor])
+                     .where(recipient: current_user)
+                     .paginate(page: params[:page], per_page: 15)
+                     .recently
 
     respond_to do |format|
       format.html
@@ -11,7 +15,7 @@ class NotificationsController < ApplicationController
   end
 
   def unread
-    @notifications = Notification.where(recipient: current_user).unread.recently
+    @notifications = Notification.unread(current_user).recently
     respond_to do |format|
       format.js do
         render '/notifications/unread'
@@ -26,5 +30,10 @@ class NotificationsController < ApplicationController
         render '/notifications/recently'
       end
     end
+  end
+
+  def read
+    @notifications = Notification.where(recipient: current_user, read_at: nil)
+    redirect_to notifications_path
   end
 end

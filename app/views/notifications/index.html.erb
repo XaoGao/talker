@@ -1,8 +1,12 @@
-<%= title t('notifications.index.title') %>
+<%= title t('.title') %>
 
 <div class="row">
   <div class="col-2"></div>
   <div class="col-8" id="notifications-index">
+    <h2 class="text-center">
+      <%= t('.title') %>
+      <%= link_to t('.read'), read_notifications_path, method: :put, class: 'btn btn-primary' %>
+    </h2>
     <% if @notifications %>
       <%= render @notifications %>
     <% end %>

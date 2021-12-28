@@ -1,8 +1,10 @@
-<div class="card mb-2">
+<div class="card mb-2 <%= notification.read_at ? '' : 'unread'%>">
   <div class="card-body">
     <p class="card-text">
+      <%= avatar notification.actor %>
       <%= notification.action %>
-      <%= notification.created_at %>
+      <br>
+      <%= notification.created_at.strftime('%F') %>
     </p>
   </div>
 </div>

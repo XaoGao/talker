@@ -137,7 +137,7 @@ class User < ApplicationRecord
   end
 
   def unread_notification
-    notifications.unread.count
+    notifications.unread(self).count
   end
 
   private

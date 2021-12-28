@@ -28,7 +28,8 @@ class Notification < ApplicationRecord
   belongs_to :actor, class_name: 'User'
   belongs_to :notifiable, polymorphic: true
 
-  scope :unread, -> { where(read_at: nil) }
+  scope :unread, ->(user) { where(recipient: user, read_at: nil) }
+  scope :read_all_unread, ->(user) { unread(user).update!(read_at: DateTime.now) }
 
   after_create :send_notification
 

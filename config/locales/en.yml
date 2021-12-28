@@ -157,6 +157,7 @@ en:
   notifications:
     index:
       title: 'Notifications'
+      read: 'Read all notifications'
     liked: 'liked'
     commended: 'wrote a comment'
       

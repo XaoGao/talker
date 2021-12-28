@@ -29,8 +29,9 @@ Rails.application.routes.draw do
   resources :bookmarks, only: [:index, :create, :destroy]
 
   resources :notifications, only: [:index] do
-    get 'unread', to: 'notifications#unread', on: :collection
+    get 'unread',   to: 'notifications#unread',   on: :collection
     get 'recently', to: 'notifications#recently', on: :collection
+    put 'read',     to: 'notifications#read',     on: :collection
   end
 
   namespace :api do
