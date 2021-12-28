@@ -57,24 +57,4 @@ class Dialog < ApplicationRecord
   def unread_messages?(user)
     messages.where.not(sender: user).where.not(is_read: true).any?
   end
-
-  # # Try to find a dilog between users, if dialog doesn't exist and return
-  # def self.get_or_create(user1, user2)
-  #   dialog_members = DialogMember.where(member: [user1, user2])
-  #   return create_dialog_with_members(user1, user2) if dialog_members.empty?
-
-  #   # check dialog have only two users
-  #   members_in_one_dialog = dialog_members.group_by(&:dialog).find { |d| d.second.count == 2 }
-  #   return create_dialog_with_members(user1, user2) if members_in_one_dialog.nil?
-
-  #   # each memebers belong one dialog
-  #   members_in_one_dialog.first
-  # end
-
-  # def self.create_dialog_with_members(user1, user2)
-  #   dialog = Dialog.create(owner: user1)
-  #   dialog.dialog_members.create(member: user1)
-  #   dialog.dialog_members.create(member: user2)
-  #   dialog
-  # end
 end
