@@ -5,9 +5,9 @@ ruby '2.7.0'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
+gem 'elasticsearch'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
-gem 'elasticsearch'
 gem 'friendly_id'
 gem 'jwt'
 gem 'high_voltage'
@@ -20,8 +20,8 @@ gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 gem 'redis', '~> 4.0'
 gem 'sass-rails', '>= 6'
-gem 'sidekiq-cron'
 gem 'sidekiq'
+gem 'sidekiq-cron'
 gem 'sqlite3', '~> 1.4'
 gem 'turbolinks', '~> 5'
 gem 'view_component', require: 'view_component/engine'
@@ -46,6 +46,9 @@ group :development do
   gem 'bullet'
   gem 'listen', '~> 3.2'
   gem 'rubocop', require: false
+  gem 'rubocop-i18n', '~> 3', require: false
+  gem 'rubocop-performance', '~> 1.11', require: false
+  gem 'rubocop-rails', '~> 2.11', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
