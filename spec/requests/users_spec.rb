@@ -57,7 +57,7 @@ RSpec.describe 'Users', type: :request do
 
       it 'should be no content' do
         post change_status_user_path(2), params: { status: 'test' }
-        expect(response).to have_http_status(:no_content)
+        expect(response).to have_http_status(:found)
       end
 
       it 'should be change status' do

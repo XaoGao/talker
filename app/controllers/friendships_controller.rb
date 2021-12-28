@@ -1,7 +1,8 @@
 class FriendshipsController < ApplicationController
   before_action :authenticate_user!
+
   def index
-    @subscribers = Friendship.where(user: params[:user_id])
+    @subscribers = Friendship.where(user: params[:user])
   end
 
   def subscriptions

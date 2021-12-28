@@ -59,7 +59,7 @@ RSpec.describe 'Dialogs', type: :request do
       it 'should be a error response' do
         post dialogs_path, params: dialog.attributes.merge({ user: 0 })
         expect(response).to have_http_status(:found)
-        expect(flash[:alert]).to match(I18n.t('dialogs.create.error'))
+        expect(flash[:alert]).to match(I18n.t('global.not_found'))
       end
     end
     context 'without sign in user' do

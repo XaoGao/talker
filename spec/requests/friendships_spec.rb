@@ -20,38 +20,38 @@ RSpec.describe 'Friendships', type: :request do
   #   end
   # end
   describe 'GET /subscriptions' do
+    let(:user) { create(:user) }
     context 'with sign in user' do
-      let(:user) { create(:user) }
       before(:each) do
         sign_in user
       end
       it 'should be a success response' do
-        get subscriptions_path
+        get subscribers_user_path(user)
         expect(response).to have_http_status(:ok)
       end
     end
     context 'without sign in user' do
       it 'should be redirect to root path' do
-        get subscriptions_path
+        get subscribers_user_path(user)
         expect(response).to have_http_status(:found)
       end
     end
   end
 
   describe 'GET /subscribers' do
+    let(:user) { create(:user) }
     context 'with sign in user' do
-      let(:user) { create(:user) }
       before(:each) do
         sign_in user
       end
       it 'should be a success response' do
-        get subscribers_path
+        get subscribers_user_path(user)
         expect(response).to have_http_status(:ok)
       end
     end
     context 'without sign in user' do
       it 'should be redirect to root path' do
-        get subscribers_path
+        get subscribers_user_path(user)
         expect(response).to have_http_status(:found)
       end
     end
