@@ -21,8 +21,7 @@ class DialogsController < ApplicationController
   end
 
   def create
-    # user = User.friendly.find(params[:user])
-    user = User.friendly.find('params[:user]')
+    user = User.friendly.find(params[:user])
     dialog = DialogService::DialogGetOrCreate.call(owner_member: current_user, second_member: user)
     redirect_to dialog_path dialog
   end
