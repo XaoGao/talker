@@ -2,7 +2,7 @@ import React from 'react'
 
 const Cell = (props) => {
   return (
-    <td>{props.value}</td>
+    <td className='text-center' onClick={()=>props.handleClick(props.value)}>{props.cells[props.value]}</td>
   )
 }
 
