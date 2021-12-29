@@ -34,6 +34,8 @@ Rails.application.routes.draw do
     put 'read',     to: 'notifications#read',     on: :collection
   end
 
+  resources :games, only: [:index]
+
   namespace :api do
     namespace :v1 do
       post 'login', to: 'sessions#create'
