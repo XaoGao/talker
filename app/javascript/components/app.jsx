@@ -1,15 +1,9 @@
-import React, { useState } from 'react'
-import Header from './header'
-import Border from './border'
+import React from 'react'
+import TickTacToe from './tictactoe/TickTacToe'
 
 const App = props => {
   return (
-    <div>
-      <Header />
-      <hr />
-      <Border />
-      <hr />
-    </div>
+    <TickTacToe />
   )
 }
 
