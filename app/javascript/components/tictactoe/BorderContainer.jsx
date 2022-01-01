@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import Border from './Border'
 
-const BorderContainer = () => {
+const BorderContainer = (props) => {
   const [turn, setTurn] = useState('X')
   const [cells, setCells] = useState(Array(9).fill(''))
   const [winner, setWinner] = useState()
@@ -61,8 +62,14 @@ const BorderContainer = () => {
   }
 
   return (
-    <Border winner={winner} resetBoard={resetBoard} handleClick={handleClick} turn={turn} cells={cells}/>
+    <Border check={props.check}  winner={winner} resetBoard={resetBoard} handleClick={handleClick} turn={turn} cells={cells}/>
   )
 }
 
-export default BorderContainer
+const mapStateToProps = (state) => {
+  return {
+    // check: state.ticTacToe.check
+  }
+}
+
+export default connect(mapStateToProps, {})(BorderContainer);
