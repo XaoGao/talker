@@ -1,74 +1,35 @@
-import React, { useState } from 'react'
-import { connect } from 'react-redux'
+import React from 'react'
+import { connect, useDispatch } from 'react-redux'
 import Border from './Border'
+import { reset, move } from '../redux/ticTacToeReducer';
 
 const BorderContainer = (props) => {
-  const [turn, setTurn] = useState('X')
-  const [cells, setCells] = useState(Array(9).fill(''))
-  const [winner, setWinner] = useState()
+  const dispatch = useDispatch()
 
   const resetBoard = () => {
-    setCells(Array(9).fill(''))
-    setTurn('X')
-    setWinner();
+    reset(dispatch)
   }
 
   const handleClick = (value) => {
-    if(cells[value] !== '') {
-      alert('!')
-      return;
-    }
-    let newCells = [...cells]
-    if(turn === 'X') {
-      newCells[value] = 'X'
-      setTurn('O')
-    } else {
-      newCells[value] = 'O'
-      setTurn('X')
-    }
-    checkWinner(newCells)
-    setCells(newCells)
-  }
-
-  const checkWinner = (newCells) => {
-    let combos = {
-        across: [
-          [0,1,2],
-          [3,4,5],
-          [6,7,8]
-        ],
-        down: [
-          [0,3,6],
-          [1,4,7],
-          [2,5,8]
-        ],
-        diagnol: [
-          [0,4,8],
-          [2,4,6]
-        ]
-    }
-    for(let combo in combos) {
-      combos[combo].forEach((pattern) => {
-        if (newCells[pattern[0]] !== '' &&
-            newCells[pattern[1]] !== '' &&
-            newCells[pattern[2]] !== '') {
-          if(newCells[pattern[0]] === newCells[pattern[1]] &&
-            newCells[pattern[1]] === newCells[pattern[2]]) {
-            setWinner([newCells[pattern[0]]])
-          }
-        }
-      });
-    }
+    move(value, props.cells, props.turn, dispatch)
   }
 
   return (
-    <Border check={props.check}  winner={winner} resetBoard={resetBoard} handleClick={handleClick} turn={turn} cells={cells}/>
+    <Border 
+      winner={props.winner} 
+      turn={props.turn} 
+      cells={props.cells} 
+      resetBoard={resetBoard} 
+      handleClick={handleClick} 
+    />
   )
 }
 
 const mapStateToProps = (state) => {
   return {
-    // check: state.ticTacToe.check
+    turn: state.ticTacToe.turn,
+    cells: state.ticTacToe.cells,
+    winner: state.ticTacToe.winner
   }
 }
 
