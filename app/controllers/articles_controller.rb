@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!
+
   def index
     @articles = Article
                 .includes([:author])
@@ -7,6 +8,7 @@ class ArticlesController < ApplicationController
                 .includes([picture: { image_attachment: :blob }])
                 .paginate(page: params[:page], per_page: 5)
                 .recently
+                .decorate
 
     @article = Article.new
 

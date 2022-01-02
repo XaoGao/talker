@@ -53,10 +53,6 @@ class Article < ApplicationRecord
     picture.title
   end
 
-  def created_time
-    created_at.strftime('%Y %m %H:%M')
-  end
-
   def bookmark(user)
     bookmarks.find_by(user: user)
   end
