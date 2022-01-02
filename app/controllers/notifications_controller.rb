@@ -7,6 +7,7 @@ class NotificationsController < ApplicationController
                      .where(recipient: current_user)
                      .paginate(page: params[:page], per_page: 15)
                      .recently
+                     .decorate
 
     respond_to do |format|
       format.html

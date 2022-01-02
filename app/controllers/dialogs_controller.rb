@@ -11,7 +11,7 @@ class DialogsController < ApplicationController
                        .includes([:sender])
                        .paginate(page: params[:page], per_page: 15)
                        .recently
-
+                       .decorate
 
     @messages.each { |m| m.read_message current_user }
     @message = Message.new

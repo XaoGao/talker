@@ -5,7 +5,7 @@
   <div class="col-10">
     <li class="message-body">
       <%= link_to message.sender.username, user_path(message.sender) %>
-      <span class="badge badge-light message-username"><%= message.created_at.strftime("%H:%M") %></span>
+      <span class="badge badge-light message-username"><%= message.created_time %></span>
       <br>
       <%= message.body %>
     </li>
