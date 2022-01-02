@@ -10,6 +10,6 @@ class GenderComponent < ViewComponent::Base
   end
 
   def humanize_gender
-    [[I18n.t('users.gender.not_set'), 'not_set'], [I18n.t('users.gender.man'), 'man'], [I18n.t('users.gender.woman'), 'woman'], [I18n.t('users.gender.another'), 'another']]
+    [[I18n.t('users.gender.unset'), 'unset'], [I18n.t('users.gender.man'), 'man'], [I18n.t('users.gender.woman'), 'woman'], [I18n.t('users.gender.another'), 'another']]
   end
 end

@@ -76,7 +76,7 @@ ru:
       subscriber: 'Подписаться'
     gender:
       gender: 'Пол'
-      not_set: 'Не указан'
+      unset: 'Не указан'
       man: 'Мужской'
       woman: 'Женский'
       another: 'Другой'

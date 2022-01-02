@@ -74,7 +74,7 @@ en:
       subscriber: 'Subscriber'
     gender:
       gender: 'gender'
-      not_set: 'Not set'
+      unset: 'Not set'
       man: 'Man'
       woman: 'Woman'
       another: 'Another'

@@ -121,8 +121,8 @@ RSpec.describe User, type: :model do
     context '#gender' do
       let(:user) { create(:user, gender: 0) }
       it 'not set' do
-        expect(user.gender).to eq('not_set')
-        expect(user.gender_name).to eq(I18n.t('users.gender.not_set'))
+        expect(user.gender).to eq('unset')
+        expect(user.gender_name).to eq(I18n.t('users.gender.unset'))
       end
 
       it 'woman' do

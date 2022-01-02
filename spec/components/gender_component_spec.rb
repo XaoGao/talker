@@ -7,7 +7,7 @@ RSpec.describe GenderComponent, type: :component do
   end
 
   it '.humanize_gender' do
-    expect(component.humanize_gender).to eq([[I18n.t('users.gender.not_set'), 'not_set'],
+    expect(component.humanize_gender).to eq([[I18n.t('users.gender.unset'), 'unset'],
                                              [I18n.t('users.gender.man'), 'man'],
                                              [I18n.t('users.gender.woman'), 'woman'],
                                              [I18n.t('users.gender.another'), 'another']])

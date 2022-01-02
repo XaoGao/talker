@@ -52,7 +52,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :trackable
 
-  enum gender: { not_set: 0, man: 1, woman: 2, another: 3 }
+  enum gender: { unset: 0, man: 1, woman: 2, another: 3 }
   enum role:   { user: 1, moderator: 2, admin: 3 }
 
   has_many :pictures, as: :imageable
@@ -118,8 +118,8 @@ class User < ApplicationRecord
 
   def gender_name
     case gender
-    when 'not_set'
-      I18n.t('users.gender.not_set')
+    when 'unset'
+      I18n.t('users.gender.unset')
     when 'man'
       I18n.t('users.gender.man')
     when 'woman'
