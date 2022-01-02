@@ -38,14 +38,6 @@ class Dialog < ApplicationRecord
     end
   end
 
-  def create_time_of_last_message
-    if messages.last.present?
-      messages.last.created_at.strftime('%d/%m/%Y')
-    else
-      ''
-    end
-  end
-
   def name_all_members(user)
     members.where.not(username: user.username).map(&:username).join(', ')
   end

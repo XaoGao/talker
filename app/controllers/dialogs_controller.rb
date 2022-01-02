@@ -1,7 +1,8 @@
 class DialogsController < ApplicationController
   before_action :authenticate_user!
+
   def index
-    @dialogs = current_user.dialogs
+    @dialogs = current_user.dialogs.decorate
   end
 
   def show
@@ -10,6 +11,7 @@ class DialogsController < ApplicationController
                        .includes([:sender])
                        .paginate(page: params[:page], per_page: 15)
                        .recently
+
 
     @messages.each { |m| m.read_message current_user }
     @message = Message.new
