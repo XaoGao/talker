@@ -1,6 +1,7 @@
 import React from "react";
 import "./border.css";
 import Row from './Row';
+import { Link } from 'react-router-dom';
 
 const Border = ({winner, handleClick, resetBoard, turn, cells}) => {
   return (
@@ -12,7 +13,10 @@ const Border = ({winner, handleClick, resetBoard, turn, cells}) => {
             <p>Пебедитель {winner}</p>
           )}
         </div>
+      <div className="btn-group" role="group">
         <button onClick={resetBoard} className="btn btn-primary">{winner ? 'Сыграть опять' : 'Сбросить'}</button>
+        <button className="btn btn-primary" style={{ textDecoration: 'none' }}><Link to="/games" >Назад</Link></button>
+      </div>
       </div>
       <div className="border-container">
         <table>

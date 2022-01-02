@@ -1,12 +1,12 @@
 import React from 'react'
-import TickTacToe from './tictactoe/TickTacToe'
-import { Provider } from "react-redux";
+import { Provider } from 'react-redux';
 import store from '../components/redux/redux-store';
+import Router from './untils/Router';
 
 const App = () => {
   return (
     <Provider store={store}>
-      <TickTacToe />
+      <Router />
     </Provider>
   )
 }
