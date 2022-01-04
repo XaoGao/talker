@@ -29,7 +29,6 @@ class Notification < ApplicationRecord
   belongs_to :notifiable, polymorphic: true
 
   scope :unread, ->(user) { where(recipient: user, read_at: nil) }
-  scope :read_all_unread, ->(user) { unread(user).update!(read_at: DateTime.now) }
 
   after_create :send_notification
 
@@ -38,5 +37,9 @@ class Notification < ApplicationRecord
     if message
       ActionCable.server.broadcast "notifications_channel:#{recipient.id}", message: message
     end
+  end
+
+  def read!
+    update(read_at: DateTime.now)
   end
 end

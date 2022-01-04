@@ -35,6 +35,9 @@ class NotificationsController < ApplicationController
 
   def read
     @notifications = Notification.where(recipient: current_user, read_at: nil)
+    @notifications.each do |n|
+      n.destroy unless n.update(read_at: DateTime.now)
+    end
     redirect_to notifications_path
   end
 end

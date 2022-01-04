@@ -40,12 +40,5 @@ RSpec.describe Notification, type: :model do
         expect(Notification.unread(recipient).count).to eq(3)
       end
     end
-    context '.read_all_unread' do
-      it 'should update read_at now where read_at nil' do
-        Notification.read_all_unread(recipient)
-        expect(Notification.where(read_at: nil).count).to eq(3)
-        expect(Notification.unread(recipient).count).to eq(0)
-      end
-    end
   end
 end
