@@ -43,18 +43,6 @@ RSpec.describe Dialog, type: :model do
       end
     end
 
-    context '#create_time_of_last_message' do
-      let(:message) { create(:message, created_at: '2021-02-23 19:01:50.368544') }
-      it 'have messages' do
-        dialog_with_messags.messages << message
-        expect(dialog_with_messags.create_time_of_last_message).to eq('23/02/2021')
-      end
-
-      it 'without messages' do
-        expect(dialog.create_time_of_last_message).to eq('')
-      end
-    end
-
     context '#unread_messages?' do
       it 'consumer have messages' do
         unread_messages = dialog_with_sender_and_message.unread_messages? consumer
