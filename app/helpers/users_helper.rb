@@ -15,7 +15,7 @@ module UsersHelper
     if user.main_photo.present?
       image_tag(@user.main_photo.image, alt: @user.username, class: 'card-img-top')
     else
-      image_tag('user', alt: 'Card image cap', class: 'card-img-top') 
+      image_tag('user', alt: 'Card image cap', class: 'card-img-top')
     end
   end
 end

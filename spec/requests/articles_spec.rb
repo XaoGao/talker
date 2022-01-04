@@ -27,7 +27,7 @@ RSpec.describe 'Articles', type: :request do
     let(:article) { build(:article) }
     context 'with sing in user' do
       let(:user) { build(:user) }
-      let(:user_lock) { (build(:user, lock: true)) }
+      let(:user_lock) { build(:user, lock: true) }
 
       it 'should be a error response user have not policy' do
         sign_in user_lock

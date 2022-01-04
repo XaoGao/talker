@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root to: 'home#welcome'
   devise_for :users
 
-  resources :users, only: [:index, :show] do
+  resources :users, only: %i[index show] do
     member do
       post 'change-status'
       get  'photos'
@@ -14,19 +14,19 @@ Rails.application.routes.draw do
       get 'subscribers', to: 'friendships#subscribers'
     end
   end
-  resources :articles, only: [:index, :create]
-  resources :friendships, only: [:index, :create, :destroy]
-  resources :dialogs, only: [:index, :show, :create]
-  resources :messages, only: [:create, :update, :destroy]
-  resources :likes, only: [:index, :create]
-  resources :comments, only: [:create, :index, :show]
-  resources :pictures, only: [:create, :destroy] do
+  resources :articles, only: %i[index create]
+  resources :friendships, only: %i[index create destroy]
+  resources :dialogs, only: %i[index show create]
+  resources :messages, only: %i[create update destroy]
+  resources :likes, only: %i[index create]
+  resources :comments, only: %i[create index show]
+  resources :pictures, only: %i[create destroy] do
     member do
       put 'main', to: 'pictures#main'
     end
   end
 
-  resources :bookmarks, only: [:index, :create, :destroy]
+  resources :bookmarks, only: %i[index create destroy]
 
   resources :notifications, only: [:index] do
     get 'unread',   to: 'notifications#unread',   on: :collection

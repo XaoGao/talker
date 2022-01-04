@@ -16,7 +16,9 @@ RSpec.describe FriendshipService::FriendshipCreate do
     context 'have not a valid user' do
       let(:subscriber) { create(:user) }
       it 'should be a error result' do
-        expect { subject.call(user_id: 'fake slug', subscriber: subscriber) }.to raise_error(ActiveRecord::RecordNotFound)
+      expect do
+          subject.call(user_id: 'fake slug', subscriber: subscriber)
+        end.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
   end

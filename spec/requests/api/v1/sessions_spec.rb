@@ -13,7 +13,7 @@ RSpec.describe 'api/v1/sessions', type: :request do
           email: { type: :string },
           password: { type: :string }
         },
-        required: ["email", "password"],
+        required: %w[email password]
       }
       # response(200, 'successful') do
       #   run_test!

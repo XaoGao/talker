@@ -4,7 +4,7 @@ module RequestHelper
   end
 
   def self.authenticated_header(user)
-    token = JwtService.encode({ id: user.id, email: user.email})
-    { 'Authorization': "Bearer #{token}" }
+    token = JwtService.encode({ id: user.id, email: user.email })
+    { Authorization: "Bearer #{token}" }
   end
 end

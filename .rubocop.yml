@@ -15,5 +15,8 @@ I18n/GetText:
 Style/Documentation:
   Enabled: false
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 Rails/FilePath:
   EnforcedStyle: arguments

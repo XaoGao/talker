@@ -11,8 +11,8 @@
 #
 FactoryBot.define do
   factory :toggle_service do
-    name { "MyString" }
-    env { "MyString" }
+    name { 'MyString' }
+    env { 'MyString' }
     work { false }
   end
 end
