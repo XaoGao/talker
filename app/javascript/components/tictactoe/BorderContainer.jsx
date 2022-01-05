@@ -10,8 +10,14 @@ const BorderContainer = (props) => {
     reset(dispatch)
   }
 
-  const handleClick = (value) => {
-    move(value, props.cells, props.turn, dispatch)
+  const handleClick = async (value) => {
+    await props.move(value, props.cells, props.turn)
+    .then((response) =>{
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
   }
 
   return (
@@ -33,4 +39,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {})(BorderContainer);
+export default connect(mapStateToProps, { move })(BorderContainer);

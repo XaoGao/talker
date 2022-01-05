@@ -1,3 +1,5 @@
+import { gamesApi } from '../api/gamesApi'
+
 const SET_TURN = "ticTacToe/SET_TURN";
 const SET_CELLS = "ticTacToe/SET_CELLS";
 const SET_WINNER = "ticTacToe/SET_WINNER";
@@ -51,55 +53,56 @@ export const reset = (dispatch) => {
   dispatch(setWinner(undefined));
 };
 
-export const move = (number, cells, turn, dispatch) => {
-  if (cells[number] !== "") {
-    alert("!");
-    return;
-  }
-  let newCells = [...cells];
-  if (turn === "X") {
-    newCells[number] = "X";
-    dispatch(setTurn("O"));
-  } else {
-    newCells[number] = "O";
-    dispatch(setTurn("X"));
-  }
-  checkWinner(dispatch, newCells);
-  dispatch(setCells(newCells));
-};
-
-const checkWinner = (dispatch, newCells) => {
-  for (let combo in combos) {
-    combos[combo].forEach((pattern) => {
-      if (
-        newCells[pattern[0]] !== "" &&
-        newCells[pattern[1]] !== "" &&
-        newCells[pattern[2]] !== ""
-      ) {
-        if (
-          newCells[pattern[0]] === newCells[pattern[1]] &&
-          newCells[pattern[1]] === newCells[pattern[2]]
-        ) {
-          dispatch(setWinner([newCells[pattern[0]]]));
+export const move = (number, cells, turn) => async (dispatch) => {
+  return await gamesApi
+    .move(number, turn, cells)
+    .then((response) => {
+      if (response.status === 200) {
+        if (response.data.data) {
+          dispatch(setTurn(response.data.data.turn))
+          dispatch(setCells(response.data.data.cells))
+          dispatch(setWinner(response.data.data.winner))
         }
       }
-    });
-  }
-};
-
-const combos = {
-  across: [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-  ],
-  down: [
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-  ],
-  diagnol: [
-    [0, 4, 8],
-    [2, 4, 6],
-  ]
+    })
+    .catch((error) => {
+      // let err = error.response.data.error
+      return error
+    })
 }
+
+// const checkWinner = (dispatch, newCells) => {
+//   for (let combo in combos) {
+//     combos[combo].forEach((pattern) => {
+//       if (
+//         newCells[pattern[0]] !== "" &&
+//         newCells[pattern[1]] !== "" &&
+//         newCells[pattern[2]] !== ""
+//       ) {
+//         if (
+//           newCells[pattern[0]] === newCells[pattern[1]] &&
+//           newCells[pattern[1]] === newCells[pattern[2]]
+//         ) {
+//           dispatch(setWinner([newCells[pattern[0]]]));
+//         }
+//       }
+//     });
+//   }
+// };
+
+// const combos = {
+//   across: [
+//     [0, 1, 2],
+//     [3, 4, 5],
+//     [6, 7, 8],
+//   ],
+//   down: [
+//     [0, 3, 6],
+//     [1, 4, 7],
+//     [2, 5, 8],
+//   ],
+//   diagnol: [
+//     [0, 4, 8],
+//     [2, 4, 6],
+//   ]
+// }

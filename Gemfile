@@ -26,7 +26,7 @@ gem 'sidekiq', '~> 6.2'
 gem 'sidekiq-cron', '~> 1.2'
 gem 'sqlite3', '~> 1.4'
 gem 'turbolinks', '~> 5'
-gem 'view_component', require: 'view_component/engine'
+gem 'view_component'
 gem 'webpacker', '~> 4.0'
 gem 'will_paginate', '~> 3.3'
 

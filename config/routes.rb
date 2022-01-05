@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   end
 
   resources :games, only: [:index]
+  post 'games/move', to: 'games#move'
 
   namespace :api do
     namespace :v1 do
