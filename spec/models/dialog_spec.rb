@@ -29,7 +29,8 @@ RSpec.describe Dialog, type: :model do
     let(:dialog_with_sender_and_message) { create(:dialog, messages: create_list(:message, 3, sender: sender)) }
     let(:dialog_with_sender_and_read_message) do
       create(:dialog, messages: create_list(:message, 3, sender: sender, is_read: true))
-    end 
+    end
+
     context '.body_of_last_messages' do
       let(:message) { create(:message, body: 'test') }
 

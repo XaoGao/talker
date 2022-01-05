@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 describe MoneyService::CreateExchangeRate do
   describe '.create_exchange_rate_spec' do
     context 'exist old rates' do
