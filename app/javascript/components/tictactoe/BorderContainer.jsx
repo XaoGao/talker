@@ -12,12 +12,6 @@ const BorderContainer = (props) => {
 
   const handleClick = async (value) => {
     await props.move(value, props.cells, props.turn)
-    .then((response) =>{
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    })
   }
 
   return (

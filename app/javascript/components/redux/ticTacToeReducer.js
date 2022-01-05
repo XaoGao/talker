@@ -70,39 +70,3 @@ export const move = (number, cells, turn) => async (dispatch) => {
       return error
     })
 }
-
-// const checkWinner = (dispatch, newCells) => {
-//   for (let combo in combos) {
-//     combos[combo].forEach((pattern) => {
-//       if (
-//         newCells[pattern[0]] !== "" &&
-//         newCells[pattern[1]] !== "" &&
-//         newCells[pattern[2]] !== ""
-//       ) {
-//         if (
-//           newCells[pattern[0]] === newCells[pattern[1]] &&
-//           newCells[pattern[1]] === newCells[pattern[2]]
-//         ) {
-//           dispatch(setWinner([newCells[pattern[0]]]));
-//         }
-//       }
-//     });
-//   }
-// };
-
-// const combos = {
-//   across: [
-//     [0, 1, 2],
-//     [3, 4, 5],
-//     [6, 7, 8],
-//   ],
-//   down: [
-//     [0, 3, 6],
-//     [1, 4, 7],
-//     [2, 5, 8],
-//   ],
-//   diagnol: [
-//     [0, 4, 8],
-//     [2, 4, 6],
-//   ]
-// }
