@@ -7,15 +7,8 @@ module NotificationService
     end
 
     def generate_message
-      message = ''
-      actions.each do |type|
-        if notification.action == type
-          message = "#{notification.actor.first_name} " + I18n.t("notifications.#{type}")
-          break
-        end
-      end
-
-      message
+      action = actions.find { |type| notification.action == type }
+      I18n.t "notifications.#{action}", username: notification.actor.first_name
     end
 
     private

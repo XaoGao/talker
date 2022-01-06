@@ -161,8 +161,8 @@ ru:
     index:
       title: 'Оповещения'
       read: 'Прочитать все оповещения'
-    liked: 'поставил лайк'
-    commended: 'оставил коментарии'
+    liked: "%{username} поставил лайк"
+    commended: "%{username} оставил коментарии"
 
   global:
     language: 'Язык'

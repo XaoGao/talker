@@ -1,4 +1,4 @@
-<i likeableid="<%= likeable.id%>" likeabletype="<%= likeable.class%>" id="<%= likeable.type_with_id%>-likes" class="likes-for-ajax far fa-heart mr-1 <%= likeable.user_liked?(current_user) ? "liked" : ""%>"></i>
+<i likeableid="<%= likeable.id%>" likeabletype="<%= likeable.type%>" id="<%= likeable.type_with_id%>-likes" class="likes-for-ajax far fa-heart mr-1 <%= likeable.user_liked?(current_user) ? "liked" : ""%>"></i>
 <span id="<%= likeable.type_with_id %>-likes-count">
   <%= likeable.likes_count %>
 </span>

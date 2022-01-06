@@ -20,7 +20,6 @@ toastr.options = {
 
 global.toastr = toastr;
 
-
 let showForm = function() {
   $('#article-form-field').on("click", function() {
     $('#article-form-field').hide();

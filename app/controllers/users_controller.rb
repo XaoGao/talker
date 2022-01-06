@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.with_pictures.friendly.find(params[:id])
     @subscribers = @user.subscribers.includes([pictures: { image_attachment: :blob }])
     @subscriptions = @user.subscriptions.includes([pictures: { image_attachment: :blob }])
-    @articles = @user.articles.with_author.with_picture.includes([:bookmarks])
+    @articles = @user.articles.with_author.with_picture.includes([:bookmarks]).decorate
   end
 
   def change_status
