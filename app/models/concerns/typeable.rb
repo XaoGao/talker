@@ -7,5 +7,5 @@ module Typeable
 
   def type
     self.class
-  end
+  end 
 end

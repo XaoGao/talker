@@ -3,5 +3,5 @@ Given('I am on the homepage') do
 end
 
 Then('I see a welcome message') do
-  expect(page).to have_content('Добро пожаловать')
+  expect(page).to have_content(I18n.t('devise.sessions.signed_in'))
 end

@@ -10,7 +10,7 @@ When('I push button add friend') do
 end
 
 Then('I shoud see the user in subscription') do
-  visit "/subscriptions?user_id=#{@new_user.id}"
+  visit "users/#{@new_user.slug}/subscriptions"
   expect(page).to have_content(@user.username)
 end
 
@@ -28,7 +28,7 @@ When('I push button remove a friend') do
 end
 
 Then('I shoud see the user do not a subscription') do
-  visit "/subscriptions?user_id=#{@user.id}"
+  visit "users/#{@user.slug}/subscriptions"
   expect(page).to_not have_content(@another.username)
 end
 # I in subscribers another user
@@ -40,7 +40,7 @@ Given('I logged in and exist another user and i subscribers') do
 end
 
 When('I visit subscribers 1') do
-  visit '/subscribers'
+  visit "users/#{@user.slug}/subscribers"
 end
 
 Then('I shoud see username another user') do
@@ -54,7 +54,7 @@ Given('I logged') do
 end
 
 When('I visit subscribers 2') do
-  visit '/subscribers'
+  visit "users/#{@user.slug}/subscribers"
 end
 
 Then('I shoud not see any username') do
