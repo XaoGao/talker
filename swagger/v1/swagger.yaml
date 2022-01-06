@@ -22,6 +22,9 @@ paths:
       - name: query
         in: path
         required: true
+        description: Query params
+        schema:
+          type: string
       responses:
         '200':
           description: successful
