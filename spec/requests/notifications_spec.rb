@@ -22,12 +22,4 @@ RSpec.describe 'Notifications', type: :request do
       end
     end
   end
-
-  # describe 'GET /unread' do
-  
-  # end
-
-  # describe 'GET /recently' do
-  
-  # end
 end

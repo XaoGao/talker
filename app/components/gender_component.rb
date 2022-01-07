@@ -6,10 +6,15 @@ class GenderComponent < ViewComponent::Base
   end
 
   def gendes
-    all_gender ||= User.genders.keys.to_a
+    gendes ||= User.genders.keys.to_a
   end
 
   def humanize_gender
-    [[I18n.t('users.gender.unset'), 'unset'], [I18n.t('users.gender.man'), 'man'], [I18n.t('users.gender.woman'), 'woman'], [I18n.t('users.gender.another'), 'another']]
+    [
+      [I18n.t('users.gender.unset'), 'unset'],
+      [I18n.t('users.gender.man'), 'man'],
+      [I18n.t('users.gender.woman'), 'woman'],
+      [I18n.t('users.gender.another'), 'another']
+    ]
   end
 end

@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe JwtService do
   describe 'token' do
-    let(:token) { 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6InRlc3RAdGVzdC50ZXN0IiwiZXhwIjo3OTQxODAxNjAwfQ.zpLErslgllgn3NxqrDjz5jxcZG0uOYiuqQhn-Ey3ToI' }
+    let(:token) do
+      'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6InRlc3RAdGVzdC50ZXN0IiwiZXhwIjo3OTQxODAxNjAwfQ.zpLErslgllgn3NxqrDjz5jxcZG0uOYiuqQhn-Ey3ToI'
+    end
     let(:payload) { { id: '1', email: 'test@test.test' } }
     context '.encode' do
       it 'should be create a new JWT' do
@@ -21,7 +23,9 @@ RSpec.describe JwtService do
       end
 
       it 'should be error and return nil' do
-        decoded_token = JwtService.decode('eyJhbGciOiJIUzI1NiJ91.eyJpZCI6IjEiLCJlbWFpbCI6InRlc3RAdGVzdC50ZXN0IiwiZXhwIjo3OTQxODAxNjAwfQ1.zpLErslgllgn3NxqrDjz5jxcZG0uOYiuqQhn-Ey3ToI1')
+        decoded_token = JwtService.decode(
+          'eyJhbGciOiJIUzI1NiJ91.eyJpZCI6IjEiLCJlbWFpbCI6InRlc3RAdGVzdC50ZXN0IiwiZXhwIjo3OTQxODAxNjAwfQ1.zpLErslgllgn3NxqrDjz5jxcZG0uOYiuqQhn-Ey3ToI1'
+        )
         expect(decoded_token).to eq(nil)
       end
     end

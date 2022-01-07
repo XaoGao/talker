@@ -16,9 +16,9 @@ RSpec.describe 'api/v1/sessions', type: :request do
         required: %w[email password]
       }
 
-      response(200, 'successful') do
-        run_test!
-      end
+      # response(200, 'successful') do
+      #   run_test!
+      # end
     end
   end
 end

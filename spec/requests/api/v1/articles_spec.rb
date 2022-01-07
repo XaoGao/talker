@@ -9,9 +9,9 @@ RSpec.describe 'api/v1/articles', type: :request do
       parameter name: :Authorization, in: :header, type: :string, required: true, description: 'Client token'
       parameter name: :query, in: :path, type: :string, required: true, description: 'Query params'
 
-      response(200, 'successful') do
-        run_test!
-      end
+      # response(200, 'successful') do
+      #   run_test!
+      # end
     end
   end
 end

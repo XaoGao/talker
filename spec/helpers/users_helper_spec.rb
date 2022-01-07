@@ -17,7 +17,9 @@ RSpec.describe UsersHelper, type: :helper do
     end
 
     it 'when user offline and have last_sign_in_at' do
-      expect(online_label(user_offline_with_last_sign_in)).to eq(time_ago_in_words(user_offline_with_last_sign_in.last_sign_in_at))
+      expect(online_label(user_offline_with_last_sign_in)).to eq(
+        time_ago_in_words(user_offline_with_last_sign_in.last_sign_in_at)
+      )
     end
   end
 end
