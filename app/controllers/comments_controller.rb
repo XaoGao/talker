@@ -18,9 +18,9 @@ class CommentsController < ApplicationController
     @comment = CommentProxy::CommentAntySpam.new(comment)
 
     if @comment.save
-      comment.recipients.each do |recipient|
-        Notification.create(recipient: recipient, actor: comment.user, action: 'commended', notifiable: comment)
-      end
+      comment.recipients
+        .filter { |recipient| recipient != comment.user }
+        .each { |recipient| Notification.create_comment(recipient: recipient, notifiable: comment) }
 
       respond_to do |format|
         format.js do

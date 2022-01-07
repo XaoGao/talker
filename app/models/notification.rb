@@ -42,4 +42,12 @@ class Notification < ApplicationRecord
   def read!
     update(read_at: DateTime.now)
   end
+
+  def self.create_like(recipient:, notifiable:)
+    create(recipient: recipient, actor: notifiable.user, action: 'liked', notifiable: notifiable)
+  end
+
+  def self.create_comment(recipient:, notifiable:)
+    Notification.create(recipient: recipient, actor: notifiable.user, action: 'commended', notifiable: notifiable)
+  end
 end

@@ -14,9 +14,9 @@ class LikesController < ApplicationController
     end
 
     if result.data[:liked]
-      result.data[:like].recipients.each do |recipient|
-        Notification.create(recipient: recipient, actor: result.data[:like].user, action: 'liked', notifiable: result.data[:like])
-      end
+      result.data[:like].recipients
+            .filter { |recipient| recipient != result.data[:like].user }
+            .each { |recipient| Notification.create_like(recipient: recipient, notifiable: result.data[:like]) }
     end
 
     respond_to do |format|
