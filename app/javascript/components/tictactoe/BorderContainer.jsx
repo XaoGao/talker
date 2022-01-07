@@ -11,7 +11,9 @@ const BorderContainer = (props) => {
   }
 
   const handleClick = async (value) => {
-    await props.move(value, props.cells, props.turn)
+    await props.move(value, props.cells, props.turn).catch((error) => {
+      toastr.error(error.message);
+    })
   }
 
   return (

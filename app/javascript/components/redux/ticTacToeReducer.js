@@ -66,7 +66,9 @@ export const move = (number, cells, turn) => async (dispatch) => {
       }
     })
     .catch((error) => {
-      // let err = error.response.data.error
-      return error
+      let err = error.response.data.error
+        ? error.response.data.error
+        : "Непредвиденная ошибка";
+      throw Error(err);
     })
 }
