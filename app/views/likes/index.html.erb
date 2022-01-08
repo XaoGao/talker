@@ -3,7 +3,7 @@
 <div>
   <% @likes_posts.each do |post| %>
     
-    <% if post.class.to_s == 'Article' %>
+    <% if post.class.to_s.include? 'Article' %>
       <%= render 'articles/article', article: post %>
     <% end %>
     

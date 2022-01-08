@@ -100,7 +100,7 @@ class User < ApplicationRecord
   end
 
   def likes_posts
-    (likes_articles.with_author.with_picture + likes_comments.with_user + likes_pictures)
+    (likes_articles.with_author.with_picture.decorate + likes_comments.with_user + likes_pictures)
   end
 
   # TODO: переименовать
