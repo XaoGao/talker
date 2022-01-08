@@ -36,79 +36,60 @@ RSpec.describe Article, type: :model do
     end
   end
 
-  describe 'methods' do
-    context '#image?' do
-      let(:picture) { create(:picture) }
-      let(:article) { create(:article, picture: picture) }
-      it 'have image' do
-        expect(article.image?).to be true
-      end
-
-      it "haven't a main image" do
-        article.picture.is_main = false
-        article.save
-        expect(article.image?).to be false
-      end
-
-      it 'havent image' do
-        # TODO!
-        # article.picture = nil
-        # picture.delete
-        # article.picture.delete
-        # article.save
-        # expect(article.picture).to eq(nil)
-        # expect(article.image?).to be false
-      end
-    end
-    context '#image_title' do
-      let(:picture) { create(:picture) }
-      let(:article) { create(:article, picture: picture) }
-      it 'have image' do
-        expect(article.image_title).to eq(picture.title)
-      end
-
-      it "haven't a main image" do
-        article.picture.is_main = false
-        article.save
-        expect(article.image_title).to eq(picture.title)
-      end
-
-      it 'havent image' do
-        # TODO
-        # article.picture.is_main = false
-        # article.save
-        # expect(article.image_title).to eq(picture.title)
-      end
+  describe '#image?' do
+    let(:picture) { create(:picture) }
+    let(:article) { create(:article, picture: picture) }
+    it 'have image' do
+      expect(article.image?).to be true
     end
 
-    context '#image' do
-      let(:picture) { create(:picture) }
-      let(:article) { create(:article, picture: picture) }
-
-      it 'return a picture of an article' do
-        expect(article.image).to eq(picture.image)
-      end
+    it "haven't a main image" do
+      article.picture.is_main = false
+      article.save
+      expect(article.image?).to be false
+    end
+  end
+  describe '#image_title' do
+    let(:picture) { create(:picture) }
+    let(:article) { create(:article, picture: picture) }
+    it 'have image' do
+      expect(article.image_title).to eq(picture.title)
     end
 
-    context '#type_with_id' do
-      let(:article) { create(:article) }
-      it 'return type dush id' do
-        expect(article.type_with_id).to eq('Article-1')
-      end
+    it "haven't a main image" do
+      article.picture.is_main = false
+      article.save
+      expect(article.image_title).to eq(picture.title)
+    end
+  end
+
+  describe '#image' do
+    let(:picture) { create(:picture) }
+    let(:article) { create(:article, picture: picture) }
+
+    it 'return a picture of an article' do
+      expect(article.image).to eq(picture.image)
+    end
+  end
+
+  describe '#type_with_id' do
+    let(:article) { create(:article) }
+    it 'return type dush id' do
+      expect(article.type_with_id).to eq('Article-1')
+    end
+  end
+
+  describe '#alredy_bookmark?' do
+    let(:author) { create(:user) }
+    let(:another_user) { create(:user) }
+    let(:article) { create(:article, author: author) }
+    let!(:bookmark) { create(:bookmark, user: author, bookmarkable: article) }
+    it 'should return true' do
+      expect(article.alredy_bookmark?(author)).to be true
     end
 
-    context '#alredy_bookmark?' do
-      let(:author) { create(:user) }
-      let(:another_user) { create(:user) }
-      let(:article) { create(:article, author: author) }
-      let!(:bookmark) { create(:bookmark, user: author, bookmarkable: article) }
-      it 'should return true' do
-        expect(article.alredy_bookmark?(author)).to be true
-      end
-
-      it 'should return false' do
-        expect(article.alredy_bookmark?(another_user)).to be false
-      end
+    it 'should return false' do
+      expect(article.alredy_bookmark?(another_user)).to be false
     end
   end
 end
