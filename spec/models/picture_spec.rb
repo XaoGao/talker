@@ -19,7 +19,7 @@ RSpec.describe Picture, type: :model do
     context '#type_with_id' do
       let(:picture) { create(:picture) }
       it 'should return a string class name with id' do
-        expect(picture.type_with_id).to eq('Picture-1')
+        expect(picture.type_with_id).to eq("Picture-#{picture.id}")
       end
     end
   end

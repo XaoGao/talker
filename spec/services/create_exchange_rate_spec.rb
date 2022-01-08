@@ -18,7 +18,7 @@ describe MoneyService::CreateExchangeRate do
         expect(ExchangeRate.where(current: true).count).to eq(1)
         expect(ExchangeRate.all.count).to eq(5)
         expect(result.data.current).to be true
-        expect(ExchangeRate.find(4).current).to be false
+        expect(ExchangeRate.first.current).to be false
       end
     end
   end

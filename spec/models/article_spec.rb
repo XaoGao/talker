@@ -75,7 +75,7 @@ RSpec.describe Article, type: :model do
   describe '#type_with_id' do
     let(:article) { create(:article) }
     it 'return type dush id' do
-      expect(article.type_with_id).to eq('Article-1')
+      expect(article.type_with_id).to eq("Article-#{article.id}")
     end
   end
 

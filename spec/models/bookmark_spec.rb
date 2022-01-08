@@ -24,7 +24,7 @@ RSpec.describe Bookmark, type: :model do
     context '#bookmarkable_type_with_id' do
       let(:bookmark) { create(:bookmark) }
       it 'return type with id' do
-        expect(bookmark.bookmarkable_type_with_id).to eq('Article-1')
+        expect(bookmark.bookmarkable_type_with_id).to eq("Article-#{bookmark.bookmarkable_id}")
       end
     end
   end
