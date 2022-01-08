@@ -2,7 +2,7 @@
 #
 # Table name: users
 #
-#  id                     :integer          not null, primary key
+#  id                     :bigint           not null, primary key
 #  city                   :string           default(""), not null
 #  comments_count         :integer          default(0), not null
 #  country                :string           default(""), not null
@@ -12,7 +12,7 @@
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  first_name             :string           default(""), not null
-#  gender                 :integer          default("not_set"), not null
+#  gender                 :integer          default("unset"), not null
 #  interests              :string           default(""), not null
 #  last_name              :string           default(""), not null
 #  last_sign_in_at        :datetime

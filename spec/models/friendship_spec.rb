@@ -2,11 +2,11 @@
 #
 # Table name: friendships
 #
-#  id            :integer          not null, primary key
+#  id            :bigint           not null, primary key
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#  subscriber_id :integer          not null
-#  user_id       :integer
+#  subscriber_id :bigint           not null
+#  user_id       :bigint
 #
 # Indexes
 #
@@ -15,7 +15,7 @@
 #
 # Foreign Keys
 #
-#  subscriber_id  (subscriber_id => users.id)
+#  fk_rails_...  (subscriber_id => users.id)
 #
 require 'rails_helper'
 

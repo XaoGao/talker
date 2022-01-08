@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
     @message = Message.new message_params
     @message.sender = current_user
     if @message.save
-      ActionCable.server.broadcast "room_channel_#{@message.dialog_id}", content: render_message(@message)
+      ActionCable.server.broadcast "room_channel_#{@message.dialog_id}", content: render_message(@message.decorate)
     end
   end
 

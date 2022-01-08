@@ -2,7 +2,7 @@
 #
 # Table name: pictures
 #
-#  id             :integer          not null, primary key
+#  id             :bigint           not null, primary key
 #  comments_count :integer          default(0), not null
 #  imageable_type :string           not null
 #  is_main        :boolean          default(FALSE), not null

@@ -2,7 +2,7 @@
 #
 # Table name: comments
 #
-#  id               :integer          not null, primary key
+#  id               :bigint           not null, primary key
 #  body             :text             default(""), not null
 #  commentable_type :string
 #  likes_count      :integer          default(0), not null
@@ -10,8 +10,8 @@
 #  spam             :boolean          default(FALSE), not null
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
-#  commentable_id   :integer
-#  user_id          :integer          not null
+#  commentable_id   :bigint
+#  user_id          :bigint           not null
 #
 # Indexes
 #
@@ -20,7 +20,7 @@
 #
 # Foreign Keys
 #
-#  user_id  (user_id => users.id)
+#  fk_rails_...  (user_id => users.id)
 #
 FactoryBot.define do
   factory :comment do

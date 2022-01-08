@@ -2,11 +2,11 @@
 #
 # Table name: dialog_members
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  dialog_id  :integer          not null
-#  member_id  :integer          not null
+#  dialog_id  :bigint           not null
+#  member_id  :bigint           not null
 #
 # Indexes
 #
@@ -15,8 +15,8 @@
 #
 # Foreign Keys
 #
-#  dialog_id  (dialog_id => dialogs.id)
-#  member_id  (member_id => users.id)
+#  fk_rails_...  (dialog_id => dialogs.id)
+#  fk_rails_...  (member_id => users.id)
 #
 class DialogMember < ApplicationRecord
   belongs_to :member, class_name: 'User', foreign_key: 'member_id', dependent: :destroy

@@ -2,14 +2,14 @@
 #
 # Table name: messages
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  body       :text             default(""), not null
 #  is_read    :boolean          default(FALSE), not null
 #  lock       :boolean          default(FALSE), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  dialog_id  :integer          not null
-#  sender_id  :integer          not null
+#  dialog_id  :bigint           not null
+#  sender_id  :bigint           not null
 #
 # Indexes
 #
@@ -18,8 +18,8 @@
 #
 # Foreign Keys
 #
-#  dialog_id  (dialog_id => dialogs.id)
-#  sender_id  (sender_id => users.id)
+#  fk_rails_...  (dialog_id => dialogs.id)
+#  fk_rails_...  (sender_id => users.id)
 #
 FactoryBot.define do
   factory :message do

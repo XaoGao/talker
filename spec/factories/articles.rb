@@ -2,14 +2,14 @@
 #
 # Table name: articles
 #
-#  id             :integer          not null, primary key
+#  id             :bigint           not null, primary key
 #  body           :text             default(""), not null
 #  comments_count :integer          default(0), not null
 #  likes_count    :integer          default(0), not null
 #  lock           :boolean          default(FALSE), not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  author_id      :integer          not null
+#  author_id      :bigint           not null
 #
 # Indexes
 #
@@ -17,7 +17,7 @@
 #
 # Foreign Keys
 #
-#  author_id  (author_id => users.id)
+#  fk_rails_...  (author_id => users.id)
 #
 FactoryBot.define do
   factory :article do

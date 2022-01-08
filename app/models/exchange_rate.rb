@@ -2,7 +2,7 @@
 #
 # Table name: exchange_rates
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  EUR        :string           default(""), not null
 #  USD        :string           not null
 #  current    :boolean          default(TRUE), not null

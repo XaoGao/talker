@@ -2,7 +2,7 @@
 #
 # Table name: toggle_services
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  env        :string           not null
 #  name       :string           not null
 #  work       :boolean          default(TRUE)
