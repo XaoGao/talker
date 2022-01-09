@@ -15,7 +15,7 @@ const Border = ({winner, handleClick, resetBoard, turn, cells}) => {
         </div>
       <div className="btn-group" role="group">
         <button onClick={resetBoard} className="btn btn-primary">{winner ? 'Сыграть опять' : 'Сбросить'}</button>
-        <button className="btn btn-primary" style={{ textDecoration: 'none' }}><Link to="/games" >Назад</Link></button>
+        <button className="btn btn-primary"><Link id="back" to="/games" >Назад</Link></button>
       </div>
       </div>
       <div className="border-container">

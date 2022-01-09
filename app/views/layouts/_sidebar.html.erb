@@ -7,5 +7,5 @@
   <%= render SidebarItemComponent.new(path: subscriptions_user_path(current_user), title: t('layouts.application.subscriptions'), icon: 'fas fa-user-friends') %>
   <%= render SidebarItemComponent.new(path: likes_path, title: t('layouts.application.likes'), icon: 'fas fa-heart') %>
   <%= render SidebarItemComponent.new(path: bookmarks_path, title: t('layouts.application.bookmarks'), icon: 'fas fa-bookmark') %>
-  <%= render SidebarItemComponent.new(path: games_path, title: 'Игры', icon: 'fas fa-gamepad') %>
+  <%= render SidebarItemComponent.new(path: games_path, title: 'Игры', icon: 'fas fa-gamepad', data: { turbolinks: false } ) %>
 </ul>
