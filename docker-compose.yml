@@ -18,9 +18,10 @@ services:
     restart: always
     ports:
       - "127.0.0.1:54320:5432"
+    env_file: .env
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: qwerty
     networks:
       - turreta_network
     volumes:

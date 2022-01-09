@@ -5,6 +5,7 @@ ruby '2.7.0'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise', '~> 4.8'
+gem 'dotenv-rails'
 gem 'draper', '~> 4.0'
 gem 'elasticsearch'
 gem 'elasticsearch-model'

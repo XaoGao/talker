@@ -2,10 +2,10 @@ default: &default
   adapter: postgresql
   encoding: unicode
   database: talker
-  port: 54320
-  host: 127.0.0.1
-  username: myuser
-  password: qwerty
+  port: <%= ENV.fetch("DATABASE_PORT") %>
+  host: <%= ENV.fetch("DATABASE_HOST") %>
+  username: <%= ENV.fetch("DATABASE_USER") %>
+  password:  <%= ENV.fetch("DATABASE_PASSWORD") %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
