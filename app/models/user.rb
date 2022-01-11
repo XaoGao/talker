@@ -99,10 +99,6 @@ class User < ApplicationRecord
     Friendship.subscriptions(id)
   end
 
-  def likes_posts
-    (likes_articles.with_author.with_picture.decorate + likes_comments.with_user + likes_pictures)
-  end
-
   # TODO: переименовать
   def alredy_subscription?(user)
     Friendship.find_by(user: id, subscriber_id: user).present?

@@ -2,7 +2,7 @@ class LikesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @likes_posts = current_user.likes_posts
+    @likes_posts = LikedObjectQueries.call(current_user)
   end
 
   def create
