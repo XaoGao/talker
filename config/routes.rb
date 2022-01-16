@@ -13,6 +13,9 @@ Rails.application.routes.draw do
       get 'subscriptions', to: 'friendships#subscriptions'
       get 'subscribers', to: 'friendships#subscribers'
     end
+    collection do
+      get 'clear_filter'
+    end
   end
   resources :articles, only: %i[index create]
   resources :friendships, only: %i[index create destroy]

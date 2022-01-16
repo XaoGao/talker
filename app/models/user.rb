@@ -83,9 +83,12 @@ class User < ApplicationRecord
   validates :last_name, presence: true, length: { in: 2..50 }
 
   scope :all_except, ->(user) { where.not(id: user) }
-  scope :filter_by_first_name, ->(first_name) { where('first_name LIKE ?' , first_name) }
-  scope :filter_by_last_name,  ->(last_name)  { where('last_name LIKE ?'  , last_name) }
-  scope :filter_by_username,   ->(username)   { where('username LIKE ?'   , username) }
+  scope :filter_by_first_name,    ->(first_name)    { where('lower(first_name) LIKE ?' , "%#{first_name.downcase}%") }
+  scope :filter_by_last_name,     ->(last_name)     { where('lower(last_name) LIKE ?'  , "%#{last_name.downcase}%") }
+  scope :filter_by_username,      ->(username)      { where('lower(username) LIKE ?'   , "%#{username.downcase}%") }
+  scope :filter_by_country,       ->(country)       { where('lower(country) LIKE ?'    , "%#{country.downcase}%") }
+  scope :filter_by_city,          ->(city)          { where('lower(city) LIKE ?'       , "%#{city.downcase}%") }
+  scope :filter_by_date_of_birth, ->(date_of_birth) { where('lower(city) LIKE ?'       , "%#{date_of_birth.downcase}%") }
 
   def main_photo
     pictures.includes([image_attachment: :blob]).find(&:is_main)

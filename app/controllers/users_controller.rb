@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+
   def index
-    @users = User.paginate(page: params[:page], per_page: 15).all_except current_user
+    @users = User.filter(filter_params).paginate(page: params[:page], per_page: 15).all_except current_user
+    @filter = User.new
+  end
+
+  def clear_filter
+    redirect_to users_path
   end
 
   def show
@@ -27,5 +33,11 @@ class UsersController < ApplicationController
             .find(params[:id])
     @pictures = @user.pictures
     @picture = Picture.new
+  end
+
+  private
+
+  def filter_params
+    params.slice('first_name', 'last_name', 'username', 'date_of_birth', 'city', 'country')
   end
 end

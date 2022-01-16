@@ -1,0 +1,30 @@
+<div class="text-center"><h1>Фильтр</h1></div>
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <%= form_with url: users_path, method: :get, local: true do |f| %>
+      <div class="form-group row">
+      <div class="col-5 mb-3">
+          <%= f.text_field :first_name, class: "form-control", placeholder: "Имя" %>
+        </div>
+        <div class="col-5 mb-3">
+          <%= f.text_field :last_name, class: "form-control", placeholder: "Фамилия" %>
+        </div>
+        <div class="col-5 mb-3">
+          <%= f.text_field :username, class: "form-control", placeholder: "Username" %>
+        </div>
+        <div class="col-5 mb-3">
+          <%= f.text_field :date_of_birth, class: "form-control", placeholder: "Дата рождения" %>
+        </div>
+        <div class="col-5 mb-3">
+          <%= f.text_field :city, class: "form-control", placeholder: "Город" %>
+        </div>
+        <div class="col-5 mb-3">
+          <%= f.text_field :country, class: "form-control", placeholder: "Страна" %>
+        </div>
+      </div>
+      <%= f.submit t('articles.form.publish'), class: "btn btn-primary float-right" %>
+      <%= link_to 'Очистить фильтр', clear_filter_users_path, class: "btn btn-primary float-right" %>
+    <% end %>
+  </div>
+</div>
