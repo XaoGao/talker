@@ -88,7 +88,7 @@ class User < ApplicationRecord
   scope :filter_by_username,      ->(username)      { where('lower(username) LIKE ?'   , "%#{username.downcase}%") }
   scope :filter_by_country,       ->(country)       { where('lower(country) LIKE ?'    , "%#{country.downcase}%") }
   scope :filter_by_city,          ->(city)          { where('lower(city) LIKE ?'       , "%#{city.downcase}%") }
-  scope :filter_by_date_of_birth, ->(date_of_birth) { where('lower(city) LIKE ?'       , "%#{date_of_birth.downcase}%") }
+  scope :filter_by_date_of_birth, ->(date_of_birth) { where('date_of_birth >= ?'       , "#{date_of_birth}") }
 
   def main_photo
     pictures.includes([image_attachment: :blob]).find(&:is_main)

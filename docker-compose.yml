@@ -38,6 +38,8 @@ services:
       - turreta_network
     ports:
       - "127.0.0.1:5050:80"
+    depends_on:
+      - db
 
 networks:
   turreta_network:
