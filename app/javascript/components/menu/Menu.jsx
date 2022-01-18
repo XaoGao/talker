@@ -9,7 +9,7 @@ const Menu = () => {
       <hr />
       <ul className="list-group">
         <li className="list-group-item game-item">
-          <Link to="/tic-tac-toe">Крестики нолики</Link>
+          <Link to="/games/tic-tac-toe">Крестики нолики</Link>
         </li>
       </ul>
     </div>

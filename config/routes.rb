@@ -39,6 +39,7 @@ Rails.application.routes.draw do
 
   resources :games, only: [:index]
   post 'games/move', to: 'games#move'
+  get 'games/*other', to: 'games#index'
 
   namespace :api do
     namespace :v1 do
