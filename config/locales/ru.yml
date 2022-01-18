@@ -101,6 +101,17 @@ ru:
       save: 'Сохранить'
       delete: 'Удалить'
       ban: 'Удалить'
+
+  filter:
+    run_filter: 'Фильтер'
+    clear_filter: 'Очистить фильтер'
+    users:
+      first_name: 'Имя'
+      last_name: 'Фамилия'
+      username: 'Username'
+      date_of_birth: 'Дата рождения'
+      city: 'Город'
+      country: 'Страна'
     
   dialogs:
     create:

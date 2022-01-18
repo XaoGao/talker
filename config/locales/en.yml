@@ -99,6 +99,17 @@ en:
       delete: 'Delete'
       ban: 'Ban'
 
+  filter:
+    run_filter: 'Filter'
+    clear_filter: 'Clear filter'
+    users:
+      first_name: 'First name'
+      last_name: 'Last name'
+      username: 'Username'
+      date_of_birth: 'Date of birth'
+      city: 'City'
+      country: 'Country'
+
   dialogs:
     create:
       error: 'Error when search the dialog'
