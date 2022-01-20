@@ -30,6 +30,7 @@ gem 'turbolinks', '~> 5'
 gem 'view_component'
 gem 'webpacker', '~> 4.0'
 gem 'will_paginate', '~> 3.3'
+gem "i18n-js", "~> 4.0.0.alpha1"
 
 group :development, :test do
   gem 'annotate'

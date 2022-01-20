@@ -13,12 +13,18 @@ import { infiniteScrolling, infiniteScrollingMessages } from '../extension/scrol
 import '../extension/likes';
 import '../extension/comments';
 import toastr from 'toastr';
+import { I18n } from 'i18n-js';
+import translations from "../locales.json";
+
+const i18n = new I18n(translations);
+i18n.defaultLocale = "en";
 
 toastr.options = {
     "closeButton": true
 };
 
 global.toastr = toastr;
+global.i18n = i18n;
 
 let showForm = function() {
   $('#article-form-field').on("click", function() {
