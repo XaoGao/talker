@@ -80,6 +80,9 @@ en:
       woman: 'Woman'
       another: 'Another'
     locale: 'Locale'
+    photos:
+      title: 'Photos'
+      form: 'Add photo'
 
   articles:
     create:

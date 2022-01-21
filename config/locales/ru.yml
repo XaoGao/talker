@@ -82,6 +82,9 @@ ru:
       woman: 'Женский'
       another: 'Другой'
     locale: 'Язык'
+    photos:
+      title: 'Фотографии'
+      form: 'Добавить фотографию'
     
 
   articles:
