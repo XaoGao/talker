@@ -71776,6 +71776,21 @@
       },
       "unfollow": "Unfollow"
     },
+    "games": {
+      "index": {
+        "choose_game": "Choose game",
+        "title": "Games"
+      },
+      "menu": {
+        "tic_tac_toe": "Tic tac toe"
+      },
+      "tic_tac_toe": {
+        "play_again": "Play again",
+        "reset": "Reset",
+        "trun": "Turn",
+        "winner": "Победитель"
+      }
+    },
     "global": {
       "language": "Language",
       "not_found": "Not found object, please try agan later"
@@ -71799,6 +71814,7 @@
       "application": {
         "bookmarks": "Bookmarks",
         "dialogs": "Messenger",
+        "games": "Games",
         "likes": "Likes",
         "login": "Login",
         "logout": "Logout",
@@ -73742,6 +73758,21 @@
       },
       "unfollow": "Отписаться"
     },
+    "games": {
+      "index": {
+        "choose_game": "Выбирите игру",
+        "title": "Игры"
+      },
+      "menu": {
+        "tic_tac_toe": "Крестики нолики"
+      },
+      "tic_tac_toe": {
+        "play_again": "Сыграть опять",
+        "reset": "Сбросить",
+        "trun": "Ход",
+        "winner": "Победитель"
+      }
+    },
     "global": {
       "language": "Язык",
       "not_found": "Не найден объект, попробуйте позже"
@@ -73765,6 +73796,7 @@
       "application": {
         "bookmarks": "Закладки",
         "dialogs": "Диалоги",
+        "games": "Игры",
         "likes": "Понравилось",
         "login": "Войти",
         "logout": "Выйти",

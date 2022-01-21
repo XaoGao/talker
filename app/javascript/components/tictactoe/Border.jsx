@@ -5,17 +5,17 @@ import { Link } from 'react-router-dom';
 
 const Border = ({winner, handleClick, resetBoard, turn, cells}) => {
   return (
-    <div className="">
+    <div>
       <div className="d-flex justify-content-between">
-        <div className="">Ход: {turn}</div>
-        <div className="">
+        <div>{i18n.t('games.tic_tac_toe.trun')}: {turn}</div>
+        <div>
           {winner && (
-            <p>Пебедитель {winner}</p>
+            <p>{i18n.t('games.tic_tac_toe.winner')}: {winner}</p>
           )}
         </div>
       <div className="btn-group" role="group">
-        <button onClick={resetBoard} className="btn btn-primary">{winner ? 'Сыграть опять' : 'Сбросить'}</button>
-        <button className="btn btn-primary"><Link id="back" to="/games" >Назад</Link></button>
+        <button onClick={resetBoard} className="btn btn-primary">{winner ? i18n.t('games.tic_tac_toe.play_again') : i18n.t('games.tic_tac_toe.reset')}</button>
+        <button className="btn btn-primary"><Link id="back" to="/games">{i18n.t('button.back')}</Link></button>
       </div>
       </div>
       <div className="border-container">

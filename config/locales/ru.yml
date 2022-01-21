@@ -36,6 +36,7 @@ ru:
       logout: 'Выйти'
       login: 'Войти'
       notifications: 'Оповещения'
+      games: 'Игры'
     navbar:
       about: 'О нас'
       settings: 'Настройки'
@@ -174,6 +175,18 @@ ru:
       read: 'Прочитать все оповещения'
     liked: "%{username} поставил лайк"
     commended: "%{username} оставил коментарии"
+
+  games:
+    index:
+      title: 'Игры'
+      choose_game: 'Выбирите игру'
+    menu:
+      tic_tac_toe: 'Крестики нолики'
+    tic_tac_toe:
+      trun: 'Ход'
+      reset: 'Сбросить'
+      play_again: 'Сыграть опять'
+      winner: 'Победитель'
 
   global:
     language: 'Язык'

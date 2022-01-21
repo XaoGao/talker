@@ -36,6 +36,7 @@ en:
       logout: 'Logout'
       login: 'Login'
       notifications: 'Notifications'
+      games: 'Games'
     navbar:
       about: 'About'
       settings: 'Settings'
@@ -171,6 +172,18 @@ en:
       read: 'Read all notifications'
     liked: "%{username} liked"
     commended: "%{username} wrote a comment"
+
+  games:
+    index:
+      title: 'Games'
+      choose_game: 'Choose game'
+    menu:
+      tic_tac_toe: 'Tic tac toe'
+    tic_tac_toe:
+      trun: 'Turn'
+      reset: 'Reset'
+      play_again: 'Play again'
+      winner: 'Победитель'
       
   global:
     language: 'Language'
