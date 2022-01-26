@@ -19,8 +19,8 @@ class CommentsController < ApplicationController
 
     if @comment.save
       comment.recipients
-        .filter { |recipient| recipient != comment.user }
-        .each { |recipient| Notification.create_comment(recipient: recipient, notifiable: comment) }
+              .filter { |recipient| recipient != comment.user }
+              .each { |recipient| Notification.create_comment(recipient: recipient, notifiable: comment) }
 
       respond_to do |format|
         format.js do

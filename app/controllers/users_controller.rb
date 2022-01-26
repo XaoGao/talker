@@ -11,26 +11,22 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.with_pictures.friendly.find(params[:id])
-    @subscribers = @user.subscribers.includes([pictures: { image_attachment: :blob }])
-    @subscriptions = @user.subscriptions.includes([pictures: { image_attachment: :blob }])
-    @articles = @user.articles.with_author.with_picture.includes([:bookmarks]).decorate
+    @user = User.friendly.find(params[:id])
+    @subscribers = @user.subscribers
+    @subscriptions = @user.subscriptions
+    @articles = @user.articles.includes(:author, :bookmarks, picture: { image_attachment: :blob }).decorate
   end
 
   def change_status
     user = User.friendly.find(params[:id])
     if current_user == user
       user.update(status: params[:status])
-      redirect_to request.referer
+      render :show
     end
   end
 
   def photos
-    @user = User
-            .with_pictures
-            .with_pictures_for_comments
-            .friendly
-            .find(params[:id])
+    @user = User.friendly.find(params[:id])
     @pictures = @user.pictures
     @picture = Picture.new
   end

@@ -1,9 +1,8 @@
 class BookmarksController < ApplicationController
   before_action :authenticate_user!
+
   def index
-    @bookmarks = current_user.bookmarks_posts
-                             .with_author
-                             .with_picture
+    @bookmarks = current_user.bookmarks_posts.includes(:author, picture: { image_attachment: :blob })
                              .paginate(page: params[:page], per_page: 5)
                              .recently
                              .decorate
