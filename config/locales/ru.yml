@@ -72,6 +72,7 @@ ru:
       interests: 'Инетересы'
       subscribers: 'Подписчики'
       subscriptions: 'Подписки'
+      status: 'Статус'
     image_card:
       write: 'Написать'
       subscriber: 'Подписаться'

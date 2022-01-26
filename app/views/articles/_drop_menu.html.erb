@@ -10,7 +10,7 @@
           <i class="fas fa-trash"></i> <%= t('articles.dropdown.delete') %>
         <% end %>
       <% else %>
-        <%= link_to bookmarks_path(bookmarkable_id: article.id, bookmarkable_type: article.class), remote: true, method: :post, id: "#{article.type_with_id}-bookmark" do %>
+        <%= link_to bookmarks_path(bookmarkable_id: article.id, bookmarkable_type: article.type), remote: true, method: :post, id: "#{article.type_with_id}-bookmark" do %>
           <i class="fas fa-save"></i> <%= t('articles.dropdown.save') %>  
         <% end %>
       <% end %>

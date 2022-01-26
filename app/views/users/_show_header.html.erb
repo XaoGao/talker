@@ -1,0 +1,13 @@
+<div class="d-flex">
+  <p>
+    <%= @user.full_name %>
+  </p>
+  <p class="ml-auto">
+    <%= online_label @user %>
+  </p>
+</div>
+<div class="form-group">
+  <p class="<%= "my-status" if @user == current_user %>">
+    <%= @user.status.empty? ? t("users.show.status") : @user.status %>
+  </p>
+</div>

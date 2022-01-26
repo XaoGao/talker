@@ -1,0 +1,11 @@
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">
+    <p class="text-center"><%= t('.about') %></p>
+    <%= render 'users/user_info_item.html', name: t("users.show.name"), value: @user.full_name  %>
+    <%= render 'users/user_info_item.html', name: t("users.show.known_as"), value: @user.username  %>
+    <%= render 'users/user_info_item.html', name: t("users.show.date_of_birthday"), value: @user.date_of_birth  %>
+    <%= render 'users/user_info_item.html', name: t("users.show.gender"), value: @user.gender_name  %>
+    <%= render 'users/user_info_item.html', name: t("users.show.city"), value: @user.location  %>
+    <%= render 'users/user_info_item.html', name: t("users.show.interests"), value: @user.interests  %>
+  </li>
+</ul>

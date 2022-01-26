@@ -4,9 +4,9 @@ class BookmarksController < ApplicationController
     @bookmarks = current_user.bookmarks_posts
                              .with_author
                              .with_picture
-                             .recently
                              .paginate(page: params[:page], per_page: 5)
-
+                             .recently
+                             .decorate
 
     respond_to do |format|
       format.html
@@ -28,7 +28,7 @@ class BookmarksController < ApplicationController
       end
     else
       flash[:alert] = t('bookmarks.create.error')
-      redirect_to request.referer
+      render :index
     end
   end
 

@@ -6,4 +6,10 @@ module ArticlesHelper
       image_tag('user', alt: user.username, class: 'rounded-circle', height: '40', width: '40')
     end
   end
+
+  def image_for(article)
+    if article.image?
+      image_tag url_for(article.image), alt: article.image_title, size: "286x180", class: "card-img-top"
+    end
+  end
 end

@@ -70,6 +70,7 @@ en:
       interests: 'Interests'
       subscribers: 'Subscribers'
       subscriptions: 'Subscriptions'
+      status: 'Status'
     image_card:
       write: 'Write'
       subscriber: 'Subscriber'
