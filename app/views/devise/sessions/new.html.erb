@@ -1,6 +1,5 @@
 <div class="row mt-5">
-  <div class="col-4">
-  </div>
+  <div class="col-4"></div>
   <div class="col-6">
     <div class="card">
       <div class="card-body">
@@ -17,12 +16,12 @@
             <%= f.password_field :password, autocomplete: "current-password", class: "form-control", id: 'user_password' %>
           </div>
           <hr>
-          <div class="actions mt-4">
+          <div class="btn-group" role="group">
             <%= f.submit t('.singin'), class: "btn btn-primary", id: "user_signin_submit" %>
+            <%= link_to t('authorization.signup'), new_user_registration_path, class: "btn btn-primary" %>
           </div>
         <% end %>
       </div>
     </div>
   </div>
-  <div class="col-3"></div>
 </div>
