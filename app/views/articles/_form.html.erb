@@ -1,3 +1,6 @@
+<div class="form-group">
+  <input type="text" class="form-control" placeholder='<%= t('articles.index.new_article')%>' id="article-form-field">
+</div>
 <div class="article-form" id="article-form">
   <h3 class="text-center"><%= t('articles.form.add_news') %></h3>
   <%= form_with model: @article, local: true  do |f| %>

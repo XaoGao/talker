@@ -2,7 +2,8 @@ class BookmarksController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @bookmarks = current_user.bookmarks_posts.includes(:author, picture: { image_attachment: :blob })
+    @bookmarks = current_user.bookmarks_posts
+                             .includes(:author, :bookmarks, picture: { image_attachment: :blob })
                              .paginate(page: params[:page], per_page: 5)
                              .recently
                              .decorate
@@ -14,10 +15,7 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    bookmark = current_user.bookmarks.new(
-      bookmarkable_type: params[:bookmarkable_type],
-      bookmarkable_id: params[:bookmarkable_id]
-    )
+    bookmark = current_user.bookmarks.new bookmark_params
     if bookmark.save
       respond_to do |format|
         format.js do
@@ -45,6 +43,6 @@ class BookmarksController < ApplicationController
   private
 
   def bookmark_params
-    params.require(:bookmark).permit(:bookmarkable_id, :bookmarkable_type)
+    params.permit(:bookmarkable_id, :bookmarkable_type)
   end
 end
