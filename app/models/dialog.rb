@@ -49,4 +49,13 @@ class Dialog < ApplicationRecord
   def unread_messages?(user)
     messages.where.not(sender: user).where.not(is_read: true).any?
   end
+
+  def messages_for_user(user, page)
+    render_messages = messages.includes([:sender])
+                              .paginate(page: page, per_page: 15)
+                              .recently
+
+    render_messages.each { |m| m.read_message user }
+    render_messages
+  end
 end

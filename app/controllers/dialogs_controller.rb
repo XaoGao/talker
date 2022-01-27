@@ -7,13 +7,7 @@ class DialogsController < ApplicationController
 
   def show
     @dialog = Dialog.find(params[:id])
-    @messages = @dialog.messages
-                       .includes([:sender])
-                       .paginate(page: params[:page], per_page: 15)
-                       .recently
-                       .decorate
-
-    @messages.each { |m| m.read_message current_user }
+    @messages = @dialog.messages_for_user(current_user, params[:page]).decorate
     @message = Message.new
 
     respond_to do |format|
